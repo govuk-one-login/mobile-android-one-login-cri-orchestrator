@@ -1,1 +1,1 @@
-# mobile-android-one-login-cri-orchestrator
+# mobile-android-cri-orchestrator
