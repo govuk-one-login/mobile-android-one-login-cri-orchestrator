@@ -20,7 +20,6 @@
 
 - [ ] Commit messages that conform to conventional commit messages.
 - [ ] Ran the app locally ensuring it builds.
-- [ ] Ensure `sdk:criOrchestrator` compiles in `staging` product flavour.
 - [ ] Tests pass locally.
 - [ ] Created a `draft` pull request if it's not ready for review.
 
