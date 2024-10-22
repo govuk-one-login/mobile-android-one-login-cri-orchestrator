@@ -26,7 +26,7 @@
 
 ### Before the CODEOWNERS review the pull request
 
-- [ ] Complete all Acceptance Criteria within Jira ticket.
+- [ ] Complete any relevant acceptance criteria
 - [ ] Self-review code.
 - [ ] Successfully run changes on a testing device.
 - [ ] Complete automated Testing:
