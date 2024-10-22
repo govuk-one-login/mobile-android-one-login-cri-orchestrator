@@ -2,7 +2,6 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
-    includeBuild("${rootProject.projectDir}/modules/build-logic")
     repositories {
         google()
         gradlePluginPortal()
@@ -11,15 +10,18 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        gradlePluginPortal()
         mavenCentral()
+    }
+    versionCatalogs {
+        create("libs") {
+            from(files("../../gradle/libs.versions.toml"))
+        }
     }
 }
 
-rootProject.name = "mobile-android-cri-orchestrator"
+rootProject.name = "build-logic"
 
-include(
-    ":modules:test-wrapper",
-)
+include(":plugins")
