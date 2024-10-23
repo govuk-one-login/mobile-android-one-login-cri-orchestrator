@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Exit immediately if a simple command exits with a non-zero status
+# see also: the 'set' command within the 'Shell Builtin Commands' section of `man bash`
+set -o errexit
+
+TEST_SCRIPT_FOLDER=$(dirname "$0")
+
+"${TEST_SCRIPT_FOLDER}"/testUnit
+"${TEST_SCRIPT_FOLDER}"/testInstrumentation

@@ -4,6 +4,7 @@ import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 import uk.gov.onelogin.criorchestrator.extensions.setApplicationId
 
 plugins {
+    id("uk.gov.onelogin.criorchestrator.android-managed-device-config")
     id("uk.gov.onelogin.criorchestrator.android-app-config")
 }
 

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Exit immediately if a simple command exits with a non-zero status
+# see also: the 'set' command within the 'Shell Builtin Commands' section of `man bash`
+set -o errexit
+
+# The number of threads / sub-processes that gradle uses for running the instrumentation tests.
+if [ -z "${WORKER_COUNT}" ]; then
+  WORKER_COUNT=3
+fi
+
+./gradlew \
+  :modules:test-wrapper:defaultAtdDebugAndroidTest \
+  --max-workers="${WORKER_COUNT}" \
+  --stacktrace \
+  -Pandroid.experimental.androidTest.numManagedDeviceShards="${WORKER_COUNT}" \
+  -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
