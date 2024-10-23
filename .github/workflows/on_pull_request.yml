@@ -29,6 +29,8 @@ jobs:
 
       - name: Set up git runner
         uses: ./mobile-android-pipelines/actions/setup-runner
+        with:
+          jdk-version: 21
 
       - name: Unit Test
         run: ./scripts/testUnit
