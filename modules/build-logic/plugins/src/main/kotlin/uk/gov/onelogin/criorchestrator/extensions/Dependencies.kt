@@ -2,11 +2,11 @@ package uk.gov.onelogin.criorchestrator.extensions
 
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.accessors.dm.LibrariesForLibs
-import org.gradle.api.plugins.ExtensionAware
+import org.gradle.api.Project
 import org.gradle.kotlin.dsl.the
 
 //https://github.com/gradle/gradle/issues/15383
-internal val ExtensionAware.libs get() = the<LibrariesForLibs>()
+internal val Project.libs get() = the<LibrariesForLibs>()
 
 internal fun DependencyHandlerScope.implementation(
     dependency: Any,
