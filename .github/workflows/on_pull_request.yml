@@ -40,4 +40,4 @@ jobs:
 
       - name: Clean workspace
         if: ${{ always() }}
-        uses: ./mobile-android-pipelines/config/clean-workspace
+        uses: ./mobile-android-pipelines/actions/clean-workspace
