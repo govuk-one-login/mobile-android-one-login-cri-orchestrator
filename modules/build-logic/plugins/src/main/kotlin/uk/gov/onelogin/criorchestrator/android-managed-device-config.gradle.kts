@@ -16,7 +16,7 @@ configure<BaseExtension> {
                 localDevices {
                     create("defaultAtd") {
                         device = "Pixel XL"
-                        apiLevel = 34
+                        apiLevel = 33
                         systemImageSource = "aosp-atd"
                     }
                 }
