@@ -4,10 +4,12 @@ plugins {
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
     google()
 }
 
 dependencies {
+    implementation(libs.uk.gov.pipelines.plugins)
     implementation(libs.android.build.tool)
     implementation(libs.kotlin.gradle.plugin)
 
