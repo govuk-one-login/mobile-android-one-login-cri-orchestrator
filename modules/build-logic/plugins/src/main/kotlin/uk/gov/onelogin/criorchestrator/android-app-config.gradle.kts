@@ -25,6 +25,12 @@ listOf(
     project.plugins.apply(it.get().pluginId)
 }
 
+listOf(
+    "uk.gov.onelogin.criorchestrator.code-quality-config"
+).forEach {
+    project.plugins.apply(it)
+}
+
 configure<ApplicationExtension> {
     setAndroidSdkVersions()
     setTestingConfig()

@@ -15,6 +15,7 @@ androidXTest = "1.6.1"
 [libraries]
 android-build-tool = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+uk-gov-pipelines-plugins = { module = "uk.gov.pipelines:plugins" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidXCoreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

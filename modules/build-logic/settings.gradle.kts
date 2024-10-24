@@ -12,7 +12,6 @@ pluginManagement {
 dependencyResolutionManagement {
     repositories {
         google()
-        gradlePluginPortal()
         mavenCentral()
     }
     versionCatalogs {
@@ -24,4 +23,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "build-logic"
 
+includeBuild("../../mobile-android-pipelines/buildLogic")
 include(":plugins")
