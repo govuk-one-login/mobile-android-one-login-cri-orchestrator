@@ -5,20 +5,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: "bundler"  # See documentation for possible values
-    directory: "/"
-    open-pull-requests-limit: 5
-    schedule:
-      # Check Gemfile updates weekly
-      interval: "weekly"
-    commit-message:
-      prefix: "build"
-      include: "scope"
-    groups:
-      bundler:
-        update-types:
-          - "minor"
-          - "patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     open-pull-requests-limit: 5
