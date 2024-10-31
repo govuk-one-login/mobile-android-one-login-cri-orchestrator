@@ -4,3 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.compose.compiler) apply false
 }
+
+buildscript {
+    val buildLogicDir: String by extra("mobile-android-pipelines/buildLogic")
+}

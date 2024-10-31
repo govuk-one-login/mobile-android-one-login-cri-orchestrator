@@ -32,6 +32,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+uk-gov-pipelines-plugins = { module = "uk.gov.pipelines:plugins" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
