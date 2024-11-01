@@ -31,6 +31,11 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Verify Conventional commit standards against Pull Request title
+        uses: Oliver-Binns/Versioning@4695fba9f63bed5b557094f9a64f7a2b1a7639e8 # 1.1.0
+        with:
+          ACTION_TYPE: 'Validate'
+
       - name: Lint project
         run: ./gradlew detekt
         # TODO: migrate to the shared lint script
