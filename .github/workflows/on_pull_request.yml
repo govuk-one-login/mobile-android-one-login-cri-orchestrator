@@ -37,7 +37,10 @@ jobs:
           ACTION_TYPE: 'Validate'
 
       - name: Lint project
-        run: ./gradlew detekt
+        run: |
+          ./gradlew \
+            detekt \
+            ktlintCheck
         # TODO: migrate to the shared lint script
         # run: ./mobile-android-pipelines/scripts/lintProject.sh "" ""
 
