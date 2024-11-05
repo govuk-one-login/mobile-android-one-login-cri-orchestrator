@@ -2,8 +2,8 @@ package uk.gov.onelogin.criorchestrator.testwrapper
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             TestWrapperTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     HelloWorld(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 fun HelloWorld(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(R.string.hello_world_message),
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
