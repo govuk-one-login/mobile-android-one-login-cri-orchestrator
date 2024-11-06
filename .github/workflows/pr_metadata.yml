@@ -1,0 +1,21 @@
+name: Check PR metadata
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-pr-title:
+    name: Check PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title against conventional commit standards
+        uses: Oliver-Binns/Versioning@4695fba9f63bed5b557094f9a64f7a2b1a7639e8 # 1.1.0
+        with:
+          ACTION_TYPE: 'Validate'
