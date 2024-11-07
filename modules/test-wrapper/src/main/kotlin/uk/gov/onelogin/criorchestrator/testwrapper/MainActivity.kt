@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             TestWrapperTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     HelloWorld(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 fun HelloWorld(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(R.string.hello_world_message),
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
