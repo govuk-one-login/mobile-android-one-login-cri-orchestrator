@@ -35,7 +35,8 @@ jobs:
         run: |
           ./gradlew \
             detekt \
-            ktlintCheck
+            ktlintCheck \
+            vale
         # TODO: migrate to the shared lint script
         # run: ./mobile-android-pipelines/scripts/lintProject.sh "" ""
 
