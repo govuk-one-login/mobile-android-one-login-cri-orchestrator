@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Once you have cloned this repo, to clone the submodule `mobile-android-pipelines`, inside this root repository run
+Once you have cloned this repository, to clone the submodule `mobile-android-pipelines`, inside this root repository run
 
 ```bash
 git submodule update --init --recursive
