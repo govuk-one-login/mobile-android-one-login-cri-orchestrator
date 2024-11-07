@@ -1,4 +1,4 @@
-name: On Pull Request
+name: Test
 
 on:
   pull_request:
@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint-and-test:
-    name: Lint and test
+  unit-test:
+    name: Unit test
     runs-on: ubuntu-latest
     steps:
       - name: Run checkout github action
@@ -31,18 +31,9 @@ jobs:
         with:
           jdk-version: 21
 
-      - name: Verify Conventional commit standards against Pull Request title
-        uses: Oliver-Binns/Versioning@4695fba9f63bed5b557094f9a64f7a2b1a7639e8 # 1.1.0
-        with:
-          ACTION_TYPE: 'Validate'
-
-      - name: Lint project
+      - name: Unit test
         run: |
-          ./gradlew \
-            detekt \
-            ktlintCheck
-        # TODO: migrate to the shared lint script
-        # run: ./mobile-android-pipelines/scripts/lintProject.sh "" ""
+          ./gradlew testDebugUnitTest
 
       - name: Clean workspace
         if: ${{ always() }}

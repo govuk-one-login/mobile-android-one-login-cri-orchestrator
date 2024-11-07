@@ -1,0 +1,44 @@
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout github action
+        uses: actions/checkout@v4.2.1
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Set up git runner
+        uses: ./mobile-android-pipelines/actions/setup-runner
+        with:
+          jdk-version: 21
+
+      - name: Lint project
+        run: |
+          ./gradlew \
+            detekt \
+            ktlintCheck
+        # TODO: migrate to the shared lint script
+        # run: ./mobile-android-pipelines/scripts/lintProject.sh "" ""
+
+      - name: Clean workspace
+        if: ${{ always() }}
+        uses: ./mobile-android-pipelines/actions/clean-workspace
