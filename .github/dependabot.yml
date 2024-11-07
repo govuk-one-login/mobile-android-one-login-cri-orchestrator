@@ -13,7 +13,6 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "build"
-      include: "scope"
     groups:
       actions:
         update-types:
@@ -27,7 +26,6 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "build"
-      include: "scope"
     groups:
       gradle:
         update-types:
