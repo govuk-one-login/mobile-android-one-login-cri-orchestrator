@@ -2,10 +2,8 @@
 
 ## Getting Started
 
-Once you have cloned this repository, to clone the submodule `mobile-android-pipelines`, inside this root repository run
-
+Clone the repository, including the Android pipelines submodule:
 ```bash
-git submodule update --init --recursive
+git clone --recurse-submodules git@github.com:govuk-one-login/mobile-android-cri-orchestrator.git
 ```
-
-Once you have the submodule cloned, you can `cd` into the submodule `mobile-android-pipelines` and treat it like it's own Git repository.
+Learn more about working with [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
