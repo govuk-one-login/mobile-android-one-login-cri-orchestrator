@@ -5,14 +5,12 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 import org.gradle.accessors.dm.LibrariesForLibs
 import uk.gov.onelogin.criorchestrator.extensions.setAndroidSdkVersions
-import uk.gov.onelogin.criorchestrator.extensions.androidTestDependencies
 import uk.gov.onelogin.criorchestrator.extensions.setBuildTypes
 import uk.gov.onelogin.criorchestrator.extensions.setUiConfig
 import uk.gov.onelogin.criorchestrator.extensions.ideSupportDependencies
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
 import uk.gov.onelogin.criorchestrator.extensions.setPackagingConfig
 import uk.gov.onelogin.criorchestrator.extensions.testDependencies
-import uk.gov.onelogin.criorchestrator.extensions.setTestingConfig
 
 //https://github.com/gradle/gradle/issues/15383
 val libs = the<LibrariesForLibs>()
@@ -26,14 +24,14 @@ listOf(
 }
 
 listOf(
-    "uk.gov.onelogin.criorchestrator.code-quality-config"
+    "uk.gov.onelogin.criorchestrator.code-quality-config",
+    "uk.gov.onelogin.criorchestrator.instrumentation-test-config",
 ).forEach {
     project.plugins.apply(it)
 }
 
 configure<ApplicationExtension> {
     setAndroidSdkVersions()
-    setTestingConfig()
     setUiConfig()
     setBuildTypes()
     setJavaVersion()
@@ -48,6 +46,5 @@ configure<KotlinAndroidProjectExtension> {
 dependencies {
     uiDependencies(libs)
     testDependencies(libs)
-    androidTestDependencies(libs)
     ideSupportDependencies(libs)
 }

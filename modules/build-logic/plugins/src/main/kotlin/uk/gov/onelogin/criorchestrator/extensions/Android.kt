@@ -78,7 +78,7 @@ internal fun ApplicationExtension.setBuildTypes() {
     }
 }
 
-internal fun AndroidExtension.setTestingConfig() {
+internal fun AndroidExtension.setInstrumentationTestingConfig() {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
