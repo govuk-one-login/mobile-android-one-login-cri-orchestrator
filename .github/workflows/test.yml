@@ -38,3 +38,26 @@ jobs:
       - name: Clean workspace
         if: ${{ always() }}
         uses: ./mobile-android-pipelines/actions/clean-workspace
+
+  instrumentation-test:
+    name: Instrumentation test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout github action
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Set up git runner
+        uses: ./mobile-android-pipelines/actions/setup-runner
+        with:
+          jdk-version: 21
+
+      - name: Instrumentation test
+        run: |
+          ./gradlew allDevicesCheck
+
+      - name: Clean workspace
+        if: ${{ always() }}
+        uses: ./mobile-android-pipelines/actions/clean-workspace
