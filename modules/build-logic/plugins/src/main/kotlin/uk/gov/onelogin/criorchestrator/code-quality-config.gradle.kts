@@ -1,7 +1,8 @@
 package uk.gov.onelogin.criorchestrator
 
-plugins {
-    id("uk.gov.pipelines.detekt-config")
-    id("uk.gov.pipelines.ktlint-config")
+listOf(
+    "uk.gov.pipelines.detekt-config",
+    "uk.gov.pipelines.ktlint-config",
+).forEach {
+    project.plugins.apply(it)
 }
-

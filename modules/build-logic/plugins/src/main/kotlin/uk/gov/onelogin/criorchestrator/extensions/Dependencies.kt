@@ -19,6 +19,10 @@ internal fun DependencyHandlerScope.androidTestImplementation(
     dependency: Any,
 ) = dependencies.add("androidTestImplementation",  dependency)
 
+internal fun DependencyHandlerScope.androidTestUtil(
+    dependency: Any,
+) = dependencies.add("androidTestUtil",  dependency)
+
 internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = listOf(
     libs.androidx.core.ktx,
     libs.androidx.appcompat,
@@ -50,6 +54,7 @@ internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLi
     ).forEach {
         androidTestImplementation(it)
     }
+    androidTestUtil(libs.androidx.test.orchestrator)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
