@@ -31,3 +31,10 @@ updates:
         update-types:
           - "minor"
           - "patch"
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+      schedule:
+        interval: "daily"
+    commit-message:
+      prefix: "build"
+    
