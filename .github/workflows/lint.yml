@@ -29,14 +29,14 @@ jobs:
         with:
           jdk-version: 21
 
-      - name: Lint project
-        run: |
-          ./gradlew \
-            detekt \
-            ktlintCheck \
-            vale
-        # TODO: migrate to the shared lint script
-        # run: ./mobile-android-pipelines/scripts/lintProject.sh "" ""
+      - name: Lint Kotlin with detekt
+        run: ./gradlew detekt
+
+      - name: Lint Kotlin with ktlint
+        run: ./gradlew ktlintCheck
+
+      - name: Lint documentation with vale
+        run: ./gradlew vale
 
       - name: Clean workspace
         if: ${{ always() }}
