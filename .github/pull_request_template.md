@@ -18,7 +18,6 @@
 
 ### Before publishing a pull request
 
-- [ ] Commit messages that conform to conventional commit messages.
 - [ ] Ran the app locally ensuring it builds.
 - [ ] Tests pass locally.
 - [ ] Created a `draft` pull request if it's not ready for review.
@@ -32,6 +31,3 @@
     * [ ] Unit Tests.
     * [ ] Integration Tests.
     * [ ] Instrumentation / Emulator Tests.
-
-### Before merging a pull request
-- [ ] Ensure the squash commit message follows conventional commit standards
