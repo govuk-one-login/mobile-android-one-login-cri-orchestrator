@@ -38,6 +38,9 @@ jobs:
       - name: Lint documentation with vale
         run: ./gradlew vale
 
+      - name: Lint Android
+        run: ./gradlew lint
+
       - name: Clean workspace
         if: ${{ always() }}
         uses: ./mobile-android-pipelines/actions/clean-workspace
