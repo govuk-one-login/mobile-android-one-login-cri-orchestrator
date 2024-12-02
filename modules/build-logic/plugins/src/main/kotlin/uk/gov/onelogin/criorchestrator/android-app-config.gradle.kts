@@ -27,7 +27,8 @@ listOf(
     "uk.gov.onelogin.criorchestrator.code-quality-config",
     "uk.gov.onelogin.criorchestrator.unit-test-config",
     "uk.gov.onelogin.criorchestrator.instrumentation-test-config",
-    "uk.gov.pipelines.jacoco-app-config"
+    "uk.gov.pipelines.jacoco-app-config",
+    "uk.gov.pipelines.sonarqube-module-config",
 ).forEach {
     project.plugins.apply(it)
 }
