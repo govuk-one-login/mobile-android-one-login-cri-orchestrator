@@ -15,6 +15,10 @@ internal fun DependencyHandlerScope.testImplementation(
     dependency: Any,
 ) = dependencies.add("testImplementation",  dependency)
 
+internal fun DependencyHandlerScope.testRuntimeOnly(
+    dependency: Any,
+) = dependencies.add("testRuntimeOnly",  dependency)
+
 internal fun DependencyHandlerScope.androidTestImplementation(
     dependency: Any,
 ) = dependencies.add("androidTestImplementation",  dependency)
@@ -38,10 +42,15 @@ internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = lis
     implementation(it)
 }
 
-internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) = listOf(
-    libs.junit
-).forEach {
-    testImplementation(it)
+internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) {
+    listOf(
+        platform(libs.org.junit.bom),
+        libs.org.junit.jupiter.api,
+        libs.org.junit.jupiter.engine,
+    ).forEach {
+        testImplementation(it)
+    }
+    testRuntimeOnly(libs.org.junit.platform.launcher)
 }
 
 internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLibs) {

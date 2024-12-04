@@ -11,6 +11,12 @@ plugins {
 
 buildscript {
     val buildLogicDir: String by extra("mobile-android-pipelines/buildLogic")
+    val sonarProperties: Map<String, String> by extra(
+        mapOf(
+            "sonar.projectKey" to "mobile-android-cri-orchestrator",
+            "sonar.projectId" to "mobile-android-cri-orchestrator",
+        )
+    )
 }
 
  val emulatorConfig: EmulatorConfig by extra(
