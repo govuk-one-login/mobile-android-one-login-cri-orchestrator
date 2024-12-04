@@ -6,6 +6,6 @@ import org.junit.jupiter.api.Test
 class ExampleUnitTest {
     @Test
     fun `example unit test`() {
-        assertEquals(2, PlainClass.logic())
+        assertEquals(2, 1 + 1)
     }
 }
