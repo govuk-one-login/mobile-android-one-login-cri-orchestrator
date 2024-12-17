@@ -103,3 +103,4 @@ jobs:
         uses: ./mobile-android-pipelines/actions/sonar-scan
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
+          analysis-type: 'PR'
