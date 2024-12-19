@@ -1,0 +1,38 @@
+name: 'Upload to GitHub Packages'
+
+on:
+  workflow_run:
+    workflows: [ shared-post-merge ]
+    branches: [ DCMAW-10666-post-merge-workflow-test ]
+    #    branches: [main]
+    types: [ completed ]
+  workflow_dispatch:
+
+jobs:
+  upload-to-github-packages:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    env:
+      JDK_VERSION: 17
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout github action
+        uses: govuk-one-login/mobile-android-pipelines/actions/checkout-codebase@b73863294484f4e8babaf132a1a3ac5572525cee
+
+      - name: Clean workspace
+        uses: ./mobile-android-pipelines/actions/clean-workspace
+
+      - name: Setup GitHub Runner workflow
+        uses: ./mobile-android-pipelines/actions/setup-runner
+
+      - name: Publish package
+        uses: ./mobile-android-pipelines/actions/maven-publish
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+
+      - name: Clean workspace
+        uses: ./mobile-android-pipelines/actions/clean-workspace
