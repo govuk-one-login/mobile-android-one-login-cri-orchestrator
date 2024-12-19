@@ -3,7 +3,6 @@ name: Bump version
 on:
   workflow_run:
     workflows: [Test]
-    branches: [DCMAW-10666-post-merge-workflow-test]
     #    branches: [main]
     types: [completed]
   workflow_dispatch:
