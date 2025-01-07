@@ -29,17 +29,8 @@ jobs:
         with:
           jdk-version: 21
 
-      - name: Lint Kotlin with detekt
-        run: ./gradlew detekt
-
-      - name: Lint Kotlin with ktlint
-        run: ./gradlew ktlintCheck
-
-      - name: Lint documentation with vale
-        run: ./gradlew vale
-
-      - name: Lint Android
-        run: ./gradlew lint
+      - name: Lint
+        uses: govuk-one-login/mobile-android-pipelines/actions/lint/action.yml@71f48ef2a68d5852b7ba7e1cb97c0ed82494388d
 
       - name: Clean workspace
         if: ${{ always() }}
