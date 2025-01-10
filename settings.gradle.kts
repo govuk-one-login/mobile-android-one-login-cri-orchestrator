@@ -22,5 +22,5 @@ rootProject.name = "mobile-android-cri-orchestrator"
 
 include(
     ":modules:test-wrapper",
-    ":modules:criorchestrator:sdk"
+    ":modules:sdk"
 )
