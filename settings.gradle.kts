@@ -3,7 +3,6 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     includeBuild("${rootProject.projectDir}/modules/build-logic")
-    includeBuild("${rootProject.projectDir}/mobile-android-pipelines/buildLogic")
     repositories {
         google()
         gradlePluginPortal()
@@ -23,5 +22,5 @@ rootProject.name = "mobile-android-cri-orchestrator"
 
 include(
     ":modules:test-wrapper",
+    ":modules:criorchestrator:sdk"
 )
-include(":modules:criorchestrator:sdk")
