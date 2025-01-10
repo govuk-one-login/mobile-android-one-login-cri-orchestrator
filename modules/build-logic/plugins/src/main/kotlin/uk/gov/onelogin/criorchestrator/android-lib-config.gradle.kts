@@ -12,7 +12,8 @@ import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 val libs = the<LibrariesForLibs>()
 
 listOf(
-    "uk.gov.pipelines.android-lib-config"
+    "uk.gov.pipelines.android-lib-config",
+    "uk.gov.onelogin.criorchestrator.unit-test-config"
 ).forEach {
     project.plugins.apply(it)
 }
