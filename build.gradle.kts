@@ -54,29 +54,3 @@ val emulatorConfig: EmulatorConfig by extra(
         deviceFilters = setOf("Pixel XL"),
     )
 )
-
-
-/**
- * Create a convenience task for extracting all locally published artifacts into a single folder.
- * This makes moving the artifacts for local development purposes easier.
- */
-tasks.register<Copy>("publishAllDefaultPublicationsToLocalBuildRepository") {
-    val localPublishTasks: List<Task> =
-        subprojects.mapNotNull { subProject ->
-            subProject.tasks.findByName(
-                "publishDefaultPublicationToLocalBuildRepository",
-            )
-        }
-
-    this.dependsOn.addAll(localPublishTasks)
-
-    from(project.layout.projectDirectory.dir("modules"))
-    include("**/build/repo/**")
-    into(project.layout.buildDirectory)
-    eachFile {
-        val segments = this.relativePath.segments.asList()
-        val cutoff = if (segments[0] == "cri-orchestrator") 3 else 2
-        this.path = segments.takeLast(segments.size - cutoff).joinToString("/")
-    }
-    includeEmptyDirs = false
-}
