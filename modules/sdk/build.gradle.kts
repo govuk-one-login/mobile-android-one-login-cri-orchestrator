@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.LibraryExtension
-import uk.gov.pipelines.config.ApkConfig
 import uk.gov.onelogin.criorchestrator.extensions.setNamespace
+import uk.gov.pipelines.config.ApkConfig
 
 plugins {
     id("uk.gov.onelogin.criorchestrator.android-lib-config")
