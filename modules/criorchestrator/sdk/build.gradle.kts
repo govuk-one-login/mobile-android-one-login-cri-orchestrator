@@ -14,7 +14,6 @@ android {
         namespace = apkConfig.applicationId + ".api"
         compileSdk = apkConfig.sdkVersions.compile
         minSdk = apkConfig.sdkVersions.minimum
-        testInstrumentationRunner = "uk.gov.criorchestrator.sdk.InstrumentationTestRunner"
     }
 
     buildTypes {
@@ -40,7 +39,6 @@ dependencies {
         libs.androidx.espresso.core,
         libs.androidx.test.espresso.accessibility,
         libs.androidx.junit,
-        libs.hilt.android.testing,
     ).forEach {
         androidTestImplementation(it)
     }
@@ -50,7 +48,6 @@ dependencies {
     listOf(
         libs.androidx.appcompat,
         libs.androidx.core.ktx,
-        libs.hilt.android,
         libs.material,
     ).forEach {
         implementation(it)
