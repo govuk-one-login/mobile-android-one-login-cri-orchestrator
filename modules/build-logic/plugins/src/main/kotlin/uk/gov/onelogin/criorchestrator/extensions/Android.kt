@@ -66,6 +66,18 @@ internal fun AndroidExtension.setUiConfig() {
     }
 }
 
+internal fun ApplicationExtension.setBuildTypes() {
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+}
+
 internal fun AndroidExtension.setInstrumentationTestingConfig() {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

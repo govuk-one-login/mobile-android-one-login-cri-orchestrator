@@ -7,6 +7,7 @@ import org.gradle.accessors.dm.LibrariesForLibs
 import uk.gov.onelogin.criorchestrator.extensions.setAndroidSdkVersions
 import uk.gov.onelogin.criorchestrator.extensions.setUiConfig
 import uk.gov.onelogin.criorchestrator.extensions.ideSupportDependencies
+import uk.gov.onelogin.criorchestrator.extensions.setBuildTypes
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
 import uk.gov.onelogin.criorchestrator.extensions.setPackagingConfig
 
@@ -35,41 +36,8 @@ configure<ApplicationExtension> {
     setAndroidSdkVersions()
     setUiConfig()
     setJavaVersion()
-    setUiConfig()
+    setBuildTypes()
     setPackagingConfig()
-    val releaseSigningConfig =
-        this.signingConfigs.register("releaseSigningConfig") {
-            val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-            val allFilesFromDir = File(tmpFilePath).listFiles()
-            val keyStoreFile = File("${project.rootProject.projectDir}/config/keystore.jks")
-
-            val hasMovedGitRunnerKeystore =
-                allFilesFromDir?.first()?.renameTo(keyStoreFile) ?: false
-
-            val logMessage =
-                if (hasMovedGitRunnerKeystore) {
-                    "Moved keystore file from \"$tmpFilePath\"!"
-                } else {
-                    "Using existing keystore in \"$keyStoreFile\"!"
-                }
-
-            project.logger.lifecycle(logMessage)
-
-            storeFile = keyStoreFile
-            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
-        }
-    buildTypes {
-        release {
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = releaseSigningConfig.get()
-        }
-    }
 }
 
 configure<KotlinAndroidProjectExtension> {
