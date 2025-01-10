@@ -1,7 +1,15 @@
+import com.android.build.api.dsl.LibraryExtension
 import uk.gov.pipelines.config.ApkConfig
+import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 
 plugins {
+    id("uk.gov.onelogin.criorchestrator.android-lib-config")
+    // TODO remove
     id("uk.gov.pipelines.android-lib-config")
+}
+
+configure<LibraryExtension> {
+    setNamespace(suffix = ".sdk")
 }
 
 android {
@@ -11,7 +19,6 @@ android {
 
     val apkConfig: ApkConfig by project.rootProject.extra
     defaultConfig {
-        namespace = apkConfig.applicationId + ".api"
         compileSdk = apkConfig.sdkVersions.compile
         minSdk = apkConfig.sdkVersions.minimum
     }
