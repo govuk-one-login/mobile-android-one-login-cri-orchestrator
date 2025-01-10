@@ -32,18 +32,4 @@ android {
 configure<ApplicationExtension> {
     setApplicationId(suffix = ".testwrapper")
     setNamespace(suffix = ".testwrapper")
-
-    val semanticVersion = project.versionName
-    val (major, minor, patch) = semanticVersion.split(".")
-    val versionCodeFromSemVer =
-        major.toInt().times(10000).plus(
-            minor.toInt().times(100).plus(
-                patch.toInt(),
-            ),
-        )
-
-    defaultConfig {
-        versionName = semanticVersion
-        versionCode = versionCodeFromSemVer
-    }
 }
