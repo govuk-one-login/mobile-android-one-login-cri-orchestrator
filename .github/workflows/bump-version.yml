@@ -14,7 +14,7 @@ on:
 
 jobs:
   bump-version:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       JDK_VERSION: 17
     permissions:
