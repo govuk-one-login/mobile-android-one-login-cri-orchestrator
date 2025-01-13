@@ -24,7 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run checkout github action
-        uses: govuk-one-login/mobile-android-pipelines/actions/checkout-codebase@b73863294484f4e8babaf132a1a3ac5572525cee
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          lfs: 'true'
+          submodules: 'true'
+          fetch-depth: 0
 
       - name: Setup GitHub Runner workflow
         uses: ./mobile-android-pipelines/actions/setup-runner
@@ -34,7 +38,7 @@ jobs:
 
       - name: Increment the release version using Conventional Commits
         id: versioning
-        uses: ./mobile-android-pipelines/actions/increment-cog-semantic-version
+        uses: ./mobile-android-pipelines/actions/increment-version
 
       - name: Publish release tags
         if: ${{ steps.versioning.outputs.current_version != steps.versioning.outputs.new_version }}
