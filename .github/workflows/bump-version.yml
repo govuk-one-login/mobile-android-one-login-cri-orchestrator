@@ -40,15 +40,22 @@ jobs:
         id: versioning
         uses: ./mobile-android-pipelines/actions/increment-version
 
+# Remove this as duplicated - should be after `publish release tags` step but put in front for testing
+      - name: Generate Changelog
+        uses: ./mobile-android-pipelines/actions/generate-and-upload-changelog
+        with:
+          current-version: ${{ steps.versioning.outputs.current_version }}
+          new-version: ${{ steps.versioning.outputs.new_version }}
+
       - name: Publish release tags
         if: ${{ steps.versioning.outputs.current_version != steps.versioning.outputs.new_version }}
         uses: ./mobile-android-pipelines/actions/publish-release-tag
 
-      - name: Generate Changelog
-        uses: ./mobile-android-pipelines/actions/generate-and-upload-changelog
-        with:
-          CURRENT_VERSION: ${{ steps.versioning.outputs.current_version }}
-          NEW_VERSION: ${{ steps.versioning.outputs.new_version }}
+#      - name: Generate Changelog
+#        uses: ./mobile-android-pipelines/actions/generate-and-upload-changelog
+#        with:
+#          current-version: ${{ steps.versioning.outputs.current_version }}
+#          new-version: ${{ steps.versioning.outputs.new_version }}
 
       - name: Clean workspace
         uses: ./mobile-android-pipelines/actions/clean-workspace
