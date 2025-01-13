@@ -1,20 +1,15 @@
 name: Upload to GitHub Packages
 
 on:
-#  workflow_run:
-#    workflows: [Bump version]
-#    branches: [main]
-#    types: [completed]
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  workflow_run:
+    workflows: [Bump version]
+    branches: [main]
+    types: [completed]
   workflow_dispatch:
 
 jobs:
   upload-to-github-packages:
-#    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       JDK_VERSION: 17
     permissions:
