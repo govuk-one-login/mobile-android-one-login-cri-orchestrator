@@ -4,7 +4,6 @@ import com.android.build.api.dsl.ApplicationExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 import org.gradle.accessors.dm.LibrariesForLibs
-import uk.gov.onelogin.criorchestrator.extensions.setAndroidSdkVersions
 import uk.gov.onelogin.criorchestrator.extensions.setUiConfig
 import uk.gov.onelogin.criorchestrator.extensions.ideSupportDependencies
 import uk.gov.onelogin.criorchestrator.extensions.setBuildTypes
@@ -34,7 +33,6 @@ listOf(
 }
 
 configure<ApplicationExtension> {
-    setAndroidSdkVersions()
     setUiConfig()
     setJavaVersion()
     setBuildTypes()
