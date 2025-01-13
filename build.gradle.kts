@@ -17,6 +17,14 @@ buildscript {
             "sonar.projectId" to "mobile-android-cri-orchestrator",
         )
     )
+    dependencies {
+        listOf(
+            // https://issuetracker.google.com/issues/380600747
+            libs.org.bouncycastle.bcutil.jdk18on,
+        ).forEach {
+            classpath(it)
+        }
+    }
 }
 
  val emulatorConfig: EmulatorConfig by extra(

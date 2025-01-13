@@ -38,7 +38,7 @@ jobs:
       - name: Upload test coverage report
         uses: ./mobile-android-pipelines/actions/upload-coverage-reports
         with:
-          name: unit-test-coverage
+          artifact-name: unit-test-coverage
 
       - name: Clean workspace
         if: ${{ always() }}
@@ -65,7 +65,7 @@ jobs:
       - name: Upload test coverage report
         uses: ./mobile-android-pipelines/actions/upload-coverage-reports
         with:
-          name: instrumentation-test-coverage
+          artifact-name: instrumentation-test-coverage
 
       - name: Clean workspace
         if: ${{ always() }}
@@ -100,6 +100,6 @@ jobs:
           name: instrumentation-test-coverage
 
       - name: Scan with Sonar
-        uses: ./mobile-android-pipelines/actions/sonar-scan-pull-request
+        uses: ./mobile-android-pipelines/actions/sonar-scan
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
