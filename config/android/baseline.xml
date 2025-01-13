@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.7.3" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.3)" variant="all" version="8.7.3">
-
+<issues format="6" by="lint 8.8.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.8.0)" variant="all" version="8.8.0">
+    <issue
+        id="DuplicateStrings"
+        message="Duplicate string value `CRI Orchestrator`, used in `app_name` and `title_activity_main`"
+        errorLine1="    &lt;string name=&quot;app_name&quot;>CRI Orchestrator&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="2"
+            column="5"/>
+        <location
+            file="src/main/res/values/strings.xml"
+            line="3"
+            column="5"
+            message="Duplicates value in `app_name`"/>
+    </issue>
 </issues>
