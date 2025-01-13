@@ -6,6 +6,7 @@ androidXTest = "1.6.1"
 androidXTestJUnit = "1.2.1"
 androidXTestOrchestrator = "1.5.1"
 appcompat = "1.7.0"
+bouncycastle-jdk18on = "1.79"
 composeBom = "2024.12.01"
 espressoCore = "3.6.1"
 junit = "5.11.4"
@@ -31,6 +32,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+org-bouncycastle-bcutil-jdk18on = { group = "org.bouncycastle", name = "bcutil-jdk18on", version.ref = "bouncycastle-jdk18on" }
 org-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
 org-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api" }
 org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine" }
