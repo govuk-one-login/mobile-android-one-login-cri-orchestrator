@@ -37,6 +37,7 @@ jobs:
         uses: ./mobile-android-pipelines/actions/setup-runner
 
       - name: Retrieve GitHub secrets
+        id: retrieve-secrets
         uses: ./mobile-android-pipelines/actions/retrieve-secrets
         with:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
