@@ -46,6 +46,7 @@ jobs:
         with:
           current-version: ${{ steps.versioning.outputs.current_version }}
           new-version: ${{ steps.versioning.outputs.new_version }}
+          version-prefix: ''
 
       - name: Publish release tags
         if: ${{ steps.versioning.outputs.current_version != steps.versioning.outputs.new_version }}
