@@ -23,7 +23,6 @@ jobs:
     permissions:
       # Set permissions for ${{ secrets.GITHUB_TOKEN }}
       # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
-      contents: read
       packages: read
     steps:
       - name: Run checkout github action
@@ -59,7 +58,6 @@ jobs:
     permissions:
       # Set permissions for ${{ secrets.GITHUB_TOKEN }}
       # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
-      contents: read
       packages: read
     steps:
       - name: Run checkout github action
@@ -122,6 +120,9 @@ jobs:
         uses: ./mobile-android-pipelines/actions/sonar-scan
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clean workspace
         if: ${{ always() }}

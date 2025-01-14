@@ -12,7 +12,3 @@ configure<ApplicationExtension> {
     setNamespace(suffix = ".testwrapper")
     configureEnvironmentFlavors()
 }
-
-dependencies {
-    implementation(libs.bundles.gov.uk)
-}

@@ -16,12 +16,6 @@ configure<LibraryExtension> {
 
 dependencies {
     listOf(
-        libs.bundles.gov.uk,
-    ).forEach {
-        implementation(it)
-    }
-
-    listOf(
         libs.androidx.test.espresso.accessibility,
     ).forEach {
         androidTestImplementation(it)
