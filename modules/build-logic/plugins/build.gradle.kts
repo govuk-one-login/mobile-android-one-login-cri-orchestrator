@@ -2,6 +2,15 @@ plugins {
     `kotlin-dsl`
 }
 
+gradlePlugin {
+    plugins {
+        create("privateRepositories") {
+            id = "uk.gov.onelogin.criorchestrator.settings.private-repositories"
+            implementationClass = "uk.gov.onelogin.criorchestrator.settings.PrivateRepositoriesPlugin"
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     gradlePluginPortal()
