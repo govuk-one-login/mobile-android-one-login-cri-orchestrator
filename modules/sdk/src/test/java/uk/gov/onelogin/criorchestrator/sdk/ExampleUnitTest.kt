@@ -1,4 +1,4 @@
-package uk.gov.criorchestrator.sdk
+package uk.gov.onelogin.criorchestrator.sdk
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
