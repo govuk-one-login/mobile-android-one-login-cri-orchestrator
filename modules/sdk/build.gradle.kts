@@ -2,7 +2,12 @@ import com.android.build.api.dsl.LibraryExtension
 import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 
 plugins {
-    id("uk.gov.onelogin.criorchestrator.android-lib-config")
+    listOf(
+        "uk.gov.onelogin.criorchestrator.android-lib-config",
+        "uk.gov.onelogin.criorchestrator.ui-config",
+    ).forEach {
+        id(it)
+    }
 }
 
 configure<LibraryExtension> {
@@ -24,7 +29,7 @@ mavenPublishingConfig {
         )
         description.set(
             """
-            Contains logic, screens, interfaces, use cases and implementations core to the CRI Orchestrator.
+            The Credential Issuer (CRI) Orchestrator coordinates identity proofing capability.
             """.trimIndent(),
         )
     }

@@ -2,7 +2,6 @@ package uk.gov.onelogin.criorchestrator
 
 import com.android.build.api.dsl.ApplicationExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
-import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 import org.gradle.accessors.dm.LibrariesForLibs
 import uk.gov.onelogin.criorchestrator.extensions.setUiConfig
 import uk.gov.onelogin.criorchestrator.extensions.ideSupportDependencies
@@ -25,6 +24,7 @@ listOf(
     "uk.gov.pipelines.android-app-config",
     "uk.gov.onelogin.criorchestrator.code-quality-config",
     "uk.gov.onelogin.criorchestrator.instrumentation-test-config",
+    "uk.gov.onelogin.criorchestrator.ui-config",
     "uk.gov.onelogin.criorchestrator.unit-test-config",
     "uk.gov.pipelines.jacoco-app-config",
     "uk.gov.pipelines.sonarqube-module-config",
@@ -44,6 +44,5 @@ configure<KotlinAndroidProjectExtension> {
 }
 
 dependencies {
-    uiDependencies(libs)
     ideSupportDependencies(libs)
 }
