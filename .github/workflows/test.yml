@@ -40,6 +40,9 @@ jobs:
 
       - name: Unit test
         run: ./gradlew testDebugUnitTest
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload test coverage report
         uses: ./mobile-android-pipelines/actions/upload-coverage-reports
@@ -73,6 +76,9 @@ jobs:
 
       - name: Instrumentation test
         run: ./gradlew allDevicesCheck
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload test coverage report
         uses: ./mobile-android-pipelines/actions/upload-coverage-reports

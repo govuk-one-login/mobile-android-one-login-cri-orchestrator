@@ -34,23 +34,18 @@ fun setupGithubCredentials(): MavenArtifactRepository.() -> Unit =
     }
 
 fun fetchGithubCredentials(): Pair<String, String> {
-    val gprUser = providers.gradleProperty("gpr.user")
-    val gprToken = providers.gradleProperty("gpr.token")
+    val gprUser = System.getenv("GITHUB_ACTOR")
+    val gprToken = System.getenv("GITHUB_TOKEN")
 
-    return try {
-        gprUser.get() to gprToken.get()
-    } catch (exception: MissingValueException) {
-        logger.warn(
-            "Could not find 'Github Package Registry' properties. Refer to the proceeding " +
-                    "location for instructions:\n\n" +
-                    "${rootDir.path}/docs/developerSetup/github-authentication.md\n",
-            exception
-        )
-
-        System.getenv("USERNAME") to System.getenv("TOKEN")
+    if (!gprUser.isNullOrEmpty() && !gprToken.isNullOrEmpty()) {
+        return Pair(gprUser, gprToken)
     }
-}
 
+    val gprUserProperty = providers.gradleProperty("gpr.user")
+    val gprTokenProperty = providers.gradleProperty("gpr.token")
+
+    return gprUserProperty.get() to gprTokenProperty.get()
+}
 
 rootProject.name = "mobile-android-cri-orchestrator"
 
