@@ -14,8 +14,6 @@ jobs:
       JDK_VERSION: 17
     permissions:
       contents: write
-      id-token: write
-      packages: write
     runs-on: ubuntu-latest
     steps:
       - name: Run checkout github action
@@ -27,9 +25,6 @@ jobs:
 
       - name: Setup GitHub Runner workflow
         uses: ./mobile-android-pipelines/actions/setup-runner
-
-      - name: Verify Conventional commit standards against latest git tag
-        uses: ./mobile-android-pipelines/actions/verify-conventional-commit
 
       - name: Increment the release version using Conventional Commits
         id: versioning

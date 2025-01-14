@@ -20,7 +20,7 @@ dependencies {
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
-            "CRI Orchestrator SDK",
+            "GOV.UK One Login CRI Orchestrator SDK",
         )
         description.set(
             """

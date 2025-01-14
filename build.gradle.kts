@@ -13,9 +13,8 @@ plugins {
 buildscript {
     // Github packages publishing configuration
     val githubRepositoryName: String by rootProject.extra("mobile-android-cri-orchestrator")
-    val mavenGroupId: String by rootProject.extra("uk.gov.criorchestrator")
+    val mavenGroupId: String by rootProject.extra("uk.gov.onelogin.criorchestrator")
 
-    // Sonar configuration
     val buildLogicDir: String by extra("mobile-android-pipelines/buildLogic")
     val sonarProperties: Map<String, String> by extra(
         mapOf(

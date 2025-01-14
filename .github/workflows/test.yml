@@ -102,13 +102,6 @@ jobs:
         with:
           name: instrumentation-test-coverage
 
-      - name: Scan with Sonar if PR
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: ./mobile-android-pipelines/actions/sonar-scan
-        with:
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
-          analysis-type: 'PR'
-
       - name: Scan with Sonar
         uses: ./mobile-android-pipelines/actions/sonar-scan
         with:
