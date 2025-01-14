@@ -9,6 +9,7 @@ appcompat = "1.7.0"
 composeBom = "2024.12.01"
 bouncycastle-jdk18on = "1.79"
 espressoCore = "3.6.1"
+govuk-ui = "5.9.2"
 junit = "5.11.4"
 kotlin = "2.1.0"
 lifecycleRuntimeKtx = "2.8.7"
@@ -33,6 +34,10 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+components = { group = "uk.gov.android", name = "components", version.ref = "govuk-ui" }
+components-v2 = { group = "uk.gov.android", name = "componentsv2", version.ref = "govuk-ui" }
+pages = { group = "uk.gov.android", name = "pages", version.ref = "govuk-ui" }
+theme = { group = "uk.gov.android", name = "theme", version.ref = "govuk-ui" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 org-bouncycastle-bcutil-jdk18on = { group = "org.bouncycastle", name = "bcutil-jdk18on", version.ref = "bouncycastle-jdk18on" }
@@ -47,3 +52,6 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+[bundles]
+gov-uk = ["components", "components-v2", "pages", "theme"]
