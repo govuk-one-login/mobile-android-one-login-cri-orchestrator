@@ -5,6 +5,11 @@ on:
     workflows: [Bump version]
     branches: [main]
     types: [completed]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
   workflow_dispatch:
 
 jobs:
