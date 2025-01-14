@@ -32,6 +32,9 @@ jobs:
 
       - name: Lint
         uses: govuk-one-login/mobile-android-pipelines/actions/lint@86bc7b1abcd14b2133cc23da4570266846439d0f
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clean workspace
         if: ${{ always() }}

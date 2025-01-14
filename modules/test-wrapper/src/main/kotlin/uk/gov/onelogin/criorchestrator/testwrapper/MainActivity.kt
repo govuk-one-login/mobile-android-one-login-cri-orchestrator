@@ -12,14 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import uk.gov.onelogin.criorchestrator.testwrapper.ui.theme.TestWrapperTheme
+import uk.gov.android.ui.theme.m3.GdsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TestWrapperTheme {
+            GdsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     HelloWorld(
                         modifier = Modifier.padding(innerPadding),
@@ -41,7 +41,7 @@ fun HelloWorld(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun HelloWorldPreview() {
-    TestWrapperTheme {
+    GdsTheme {
         HelloWorld()
     }
 }
