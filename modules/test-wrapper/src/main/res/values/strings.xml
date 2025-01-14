@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">CRI Orchestrator</string>
-    <string name="title_activity_main">CRI Orchestrator</string>
     <string name="hello_world_message">CRI Orchestrator test wrapper</string>
 </resources>

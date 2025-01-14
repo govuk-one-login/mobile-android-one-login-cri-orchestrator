@@ -24,8 +24,9 @@ jobs:
       - name: Run checkout github action
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          lfs: 'true'
+          submodules: 'true'
           fetch-depth: 0
-          submodules: true
 
       - name: Set up git runner
         uses: ./mobile-android-pipelines/actions/setup-runner
@@ -51,8 +52,9 @@ jobs:
       - name: Run checkout github action
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          lfs: 'true'
+          submodules: 'true'
           fetch-depth: 0
-          submodules: true
 
       - name: Set up git runner
         uses: ./mobile-android-pipelines/actions/setup-runner
@@ -81,8 +83,9 @@ jobs:
       - name: Run checkout github action
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          lfs: 'true'
+          submodules: 'true'
           fetch-depth: 0
-          submodules: true
 
       - name: Setup runner
         uses: ./mobile-android-pipelines/actions/setup-runner
@@ -103,3 +106,7 @@ jobs:
         uses: ./mobile-android-pipelines/actions/sonar-scan
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Clean workspace
+        if: ${{ always() }}
+        uses: ./mobile-android-pipelines/actions/clean-workspace

@@ -1,3 +1,4 @@
+import uk.gov.pipelines.config.ApkConfig
 import uk.gov.pipelines.emulator.EmulatorConfig
 import uk.gov.pipelines.emulator.SystemImageSource
 
@@ -10,6 +11,10 @@ plugins {
 }
 
 buildscript {
+    // Github packages publishing configuration
+    val githubRepositoryName: String by rootProject.extra("mobile-android-cri-orchestrator")
+    val mavenGroupId: String by rootProject.extra("uk.gov.onelogin.criorchestrator")
+
     val buildLogicDir: String by extra("mobile-android-pipelines/buildLogic")
     val sonarProperties: Map<String, String> by extra(
         mapOf(
@@ -27,7 +32,19 @@ buildscript {
     }
 }
 
- val emulatorConfig: EmulatorConfig by extra(
+val apkConfig by rootProject.extra(
+    object : ApkConfig {
+        override val applicationId: String = "uk.gov.onelogin.criorchestrator"
+        override val debugVersion: String = "DEBUG_VERSION"
+        override val sdkVersions = object : ApkConfig.SdkVersions {
+            override val minimum = 29
+            override val target = 34
+            override val compile = 35
+        }
+    }
+)
+
+val emulatorConfig: EmulatorConfig by extra(
     EmulatorConfig(
         systemImageSources = setOf(
             SystemImageSource.AOSP_ATD

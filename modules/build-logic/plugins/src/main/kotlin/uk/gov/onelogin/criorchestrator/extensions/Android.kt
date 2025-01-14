@@ -6,9 +6,6 @@ import org.gradle.api.JavaVersion
 
 private const val BASE_APPLICATION_ID = "uk.gov.onelogin.criorchestrator"
 private const val BASE_NAMESPACE = "uk.gov.onelogin.criorchestrator"
-private const val COMPILE_SDK_VERSION = 35
-private const val TARGET_SDK_VERSION = 34
-private const val MIN_SDK_VERSION = 29
 
 /**
  * Type alias for configuring both Android application and Android library modules.
@@ -46,15 +43,6 @@ internal fun AndroidExtension.setPackagingConfig() =
         }
     }
 
-internal fun ApplicationExtension.setAndroidSdkVersions() {
-    compileSdk = COMPILE_SDK_VERSION
-
-    defaultConfig {
-        minSdk = MIN_SDK_VERSION
-        targetSdk = TARGET_SDK_VERSION
-    }
-}
-
 internal fun AndroidExtension.setUiConfig() {
     defaultConfig {
         vectorDrawables {
@@ -69,7 +57,7 @@ internal fun AndroidExtension.setUiConfig() {
 internal fun ApplicationExtension.setBuildTypes() {
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
