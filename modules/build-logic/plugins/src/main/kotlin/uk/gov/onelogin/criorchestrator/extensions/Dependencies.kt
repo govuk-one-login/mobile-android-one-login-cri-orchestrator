@@ -27,6 +27,16 @@ internal fun DependencyHandlerScope.androidTestUtil(
     dependency: Any,
 ) = dependencies.add("androidTestUtil",  dependency)
 
+internal fun DependencyHandlerScope.ksp(
+    dependency: Any,
+) = dependencies.add("ksp", dependency)
+
+//internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) = listOf(
+//    libs.androidx.compose.bom
+//).forEach {
+//    implementation(it)
+//}
+
 internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = listOf(
     libs.androidx.core.ktx,
     libs.androidx.appcompat,
@@ -38,7 +48,7 @@ internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = lis
     libs.androidx.ui.graphics,
     libs.androidx.ui.tooling.preview,
     libs.androidx.material3,
-    libs.bundles.gov.uk
+    libs.bundles.gov.uk,
 ).forEach {
     implementation(it)
 }
