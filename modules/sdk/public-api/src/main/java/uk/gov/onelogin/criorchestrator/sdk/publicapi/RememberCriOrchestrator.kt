@@ -1,19 +1,18 @@
-package uk.gov.onelogin.criorchestrator.sdk.publicApi
+package uk.gov.onelogin.criorchestrator.sdk.publicapi
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import uk.gov.onelogin.criorchestrator.sdk.internal.createCriOrchestratorComponent
+import uk.gov.onelogin.criorchestrator.sdk.sharedapi.AuthenticatedHttpClient
+import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 
 @Composable
 fun rememberCriOrchestrator(
-    criOrchestratorSingleton: CriOrchestratorSingleton,
     authenticatedHttpClient: AuthenticatedHttpClient,
 ): CriOrchestratorComponent {
-    val activity = findActivity()
     return remember {
         createCriOrchestratorComponent(
-            criOrchestratorSingleton = criOrchestratorSingleton,
             authenticatedHttpClient = authenticatedHttpClient,
-            activity = activity,
         )
     }
 }
