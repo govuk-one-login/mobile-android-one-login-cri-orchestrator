@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.sdk.sharedApi
+package uk.gov.onelogin.criorchestrator.sdk.publicapi
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
