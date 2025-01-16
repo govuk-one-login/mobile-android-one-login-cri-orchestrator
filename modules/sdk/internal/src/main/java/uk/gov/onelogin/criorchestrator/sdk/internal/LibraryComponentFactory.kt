@@ -4,7 +4,7 @@ import androidx.activity.ComponentActivity
 
 fun createCriOrchestratorComponent(
     criOrchestratorSingleton: uk.gov.onelogin.libinit.sdk.sharedapi.SdkSingleton,
-    authenticatedHttpClient: uk.gov.onelogin.libinit.libraries.network.AuthenticatedHttpClient,
+    authenticatedHttpClient: ,
     activity: ComponentActivity,
 ): uk.gov.onelogin.libinit.sdk.sharedapi.SdkComponent {
     val component = uk.gov.onelogin.libinit.sdk.sharedapi.SdkSingleton.component
