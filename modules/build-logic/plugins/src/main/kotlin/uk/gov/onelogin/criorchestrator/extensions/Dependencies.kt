@@ -31,11 +31,14 @@ internal fun DependencyHandlerScope.ksp(
     dependency: Any,
 ) = dependencies.add("ksp", dependency)
 
-//internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) = listOf(
-//    libs.androidx.compose.bom
-//).forEach {
-//    implementation(it)
-//}
+internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) {
+    listOf(
+        libs.dagger
+    ).forEach {
+        implementation(it)
+    }
+    ksp(libs.dagger.compiler)
+}
 
 internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = listOf(
     libs.androidx.core.ktx,
@@ -70,11 +73,18 @@ internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLi
         libs.androidx.espresso.core,
         platform(libs.androidx.compose.bom),
         libs.androidx.test.core.ktx,
-        libs.androidx.ui.test.junit4,
     ).forEach {
         androidTestImplementation(it)
     }
     androidTestUtil(libs.androidx.test.orchestrator)
+}
+
+internal fun DependencyHandlerScope.androidUiTestDependencies(libs: LibrariesForLibs) {
+    listOf(
+        libs.androidx.ui.test.junit4,
+    ).forEach {
+        androidTestImplementation(it)
+    }
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
