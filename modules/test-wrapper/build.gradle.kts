@@ -12,3 +12,7 @@ configure<ApplicationExtension> {
     setNamespace(suffix = ".testwrapper")
     configureEnvironmentFlavors()
 }
+
+dependencies {
+    implementation(project(":modules:sdk:public-api"))
+}
