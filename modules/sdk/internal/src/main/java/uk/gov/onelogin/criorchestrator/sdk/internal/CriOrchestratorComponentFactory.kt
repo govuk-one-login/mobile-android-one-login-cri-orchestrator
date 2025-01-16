@@ -1,10 +1,10 @@
 package uk.gov.onelogin.criorchestrator.sdk.internal
 
-import uk.gov.onelogin.criorchestrator.sdk.sharedapi.AuthenticatedHttpClient
+import uk.gov.android.network.client.GenericHttpClient
 import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 
 fun createCriOrchestratorComponent(
-    authenticatedHttpClient: AuthenticatedHttpClient,
+    authenticatedHttpClient: GenericHttpClient,
 ): CriOrchestratorComponent {
     return DaggerMergedBaseCriOrchestratorComponent.factory().create(
         authenticatedHttpClient = authenticatedHttpClient,

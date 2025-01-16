@@ -4,6 +4,7 @@ import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
+        "uk.gov.onelogin.criorchestrator.networking-config",
     ).forEach {
         id(it)
     }

@@ -99,6 +99,10 @@ internal fun DependencyHandlerScope.androidUiTestDependencies(libs: LibrariesFor
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
+internal fun DependencyHandlerScope.networkingDependencies(libs: LibrariesForLibs) {
+    implementation(libs.uk.gov.networking)
+}
+
 internal fun DependencyHandlerScope.ideSupportDependencies(libs: LibrariesForLibs) {
     debugImplementation(libs.androidx.ui.tooling)
 }
