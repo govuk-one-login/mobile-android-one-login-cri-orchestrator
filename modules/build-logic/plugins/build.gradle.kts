@@ -9,9 +9,14 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.uk.gov.pipelines.plugins)
-    implementation(libs.android.build.tool)
-    implementation(libs.kotlin.gradle.plugin)
+    listOf(
+        libs.android.build.tool,
+        libs.anvil.gradle.plugin,
+        libs.kotlin.gradle.plugin,
+        libs.uk.gov.pipelines.plugins,
+    ).forEach {
+        implementation(it)
+    }
 
     //https://github.com/gradle/gradle/issues/15383
     implementation(files((libs as Any).javaClass.superclass.protectionDomain.codeSource.location))
