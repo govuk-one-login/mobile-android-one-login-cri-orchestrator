@@ -8,6 +8,12 @@ import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 //https://github.com/gradle/gradle/issues/15383
 val libs = the<LibrariesForLibs>()
 
+listOf(
+    libs.plugins.compose.compiler
+).forEach {
+    project.plugins.apply(it.get().pluginId)
+}
+
 dependencies {
     uiDependencies(libs)
     androidUiTestDependencies(libs)
