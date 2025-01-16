@@ -10,6 +10,7 @@ val libs = the<LibrariesForLibs>()
 
 listOf(
     libs.plugins.ksp,
+    libs.plugins.anvil,
 ).forEach {
     project.plugins.apply(it.get().pluginId)
 }

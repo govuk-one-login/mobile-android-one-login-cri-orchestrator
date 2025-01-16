@@ -13,6 +13,14 @@ configure<LibraryExtension> {
     setNamespace(suffix = ".sdk.sharedApi")
 }
 
+dependencies {
+    listOf(
+        project(":modules:libraries:di"),
+    ).forEach {
+        implementation(it)
+    }
+}
+
 // TODO(DCMAW-10843): write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
