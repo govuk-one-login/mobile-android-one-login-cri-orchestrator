@@ -34,6 +34,11 @@ buildscript {
     }
 }
 
+// https://stackoverflow.com/a/78325449/6449273
+gradle.startParameter.excludedTaskNames.addAll(
+    gradle.startParameter.taskNames.filter { it.contains("testClasses") }
+)
+
 val apkConfig by rootProject.extra(
     object : ApkConfig {
         override val applicationId: String = "uk.gov.onelogin.criorchestrator"
