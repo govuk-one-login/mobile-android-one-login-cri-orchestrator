@@ -10,7 +10,7 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".sdk.sharedApi")
+    setNamespace(suffix = ".sdk.sharedapi")
 }
 
 dependencies {

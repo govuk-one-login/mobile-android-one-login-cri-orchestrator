@@ -4,6 +4,7 @@ import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
+        "uk.gov.onelogin.criorchestrator.ui-config",
     ).forEach {
         id(it)
     }
@@ -14,7 +15,12 @@ configure<LibraryExtension> {
 }
 
 dependencies {
-    implementation(project(":modules:libraries:di"))
+    listOf(
+        ":modules:libraries:di",
+        ":modules:sdk:shared-api",
+    ).forEach {
+        implementation(project(it))
+    }
 }
 
 // TODO(DCMAW-10843): write meaningful description

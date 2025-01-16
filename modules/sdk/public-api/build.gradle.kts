@@ -11,7 +11,16 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".sdk.publicApi")
+    setNamespace(suffix = ".sdk.publicapi")
+}
+
+dependencies {
+    listOf(
+        ":modules:sdk:shared-api",
+        ":modules:sdk:internal",
+    ).forEach {
+        implementation(project(it))
+    }
 }
 
 // TODO(DCMAW-10843): write meaningful description
