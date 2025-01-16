@@ -5,7 +5,3 @@ import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 
 @ContributesTo(CriOrchestratorScope::class)
 interface CriOrchestratorComponent
-
-class AuthenticatedHttpClient {
-
-}

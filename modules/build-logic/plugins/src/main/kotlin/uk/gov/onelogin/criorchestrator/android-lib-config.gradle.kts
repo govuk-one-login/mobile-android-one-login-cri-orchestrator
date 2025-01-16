@@ -18,7 +18,7 @@ listOf(
     project.plugins.apply(it)
 }
 
-configure<LibraryExtension>{
+configure<LibraryExtension> {
     setJavaVersion()
 }
 
@@ -26,7 +26,7 @@ configure<KotlinAndroidProjectExtension> {
     setJavaVersion()
 }
 
-dependencies{
+dependencies {
     androidTestDependencies(libs)
     testDependencies(libs)
 }
