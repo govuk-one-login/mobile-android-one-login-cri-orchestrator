@@ -7,7 +7,7 @@ import uk.gov.onelogin.criorchestrator.sdk.internal.createCriOrchestratorCompone
 import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 
 /**
- * Creates and remembers the shared state for the CRI Orchestrator SDK.
+ * Creates and remembers the shared state for the Credential Issuer (CRI) Orchestrator SDK.
  *
  * @param authenticatedHttpClient The HTTP client to make all network calls.
  * @return An instance of [CriOrchestratorComponent]
