@@ -23,7 +23,6 @@ dependencies {
     }
 }
 
-// TODO(DCMAW-10843): write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
@@ -31,7 +30,8 @@ mavenPublishingConfig {
         )
         description.set(
             """
-            The Credential Issuer (CRI) Orchestrator coordinates identity proofing capability.
+            The Credential Issuer (CRI) Orchestrator SDK Internal module contains the real Dagger
+            component used for the CRI Orchestrator SDK, and functions to instantiate it.
             """.trimIndent(),
         )
     }
