@@ -1,28 +1,15 @@
-import com.android.build.api.dsl.LibraryExtension
-import uk.gov.onelogin.criorchestrator.extensions.setNamespace
-
 plugins {
-    listOf(
-        "uk.gov.onelogin.criorchestrator.android-lib-config",
-    ).forEach {
-        id(it)
-    }
+    `java-library`
 }
 
-configure<LibraryExtension> {
-    setNamespace(suffix = ".sdk.di")
+listOf(
+    libs.plugins.kotlin.jvm,
+    libs.plugins.ksp,
+).forEach {
+    project.plugins.apply(it.get().pluginId)
 }
 
-mavenPublishingConfig {
-    mavenConfigBlock {
-        name.set(
-            "GOV.UK One Login CRI Orchestrator SDK Dependency Injection Module",
-        )
-        description.set(
-            """
-            The Credential Issuer (CRI) Orchestrator Dependency Injection module contains the
-            infrastructure required for depedency injection with Dagger throughout the project.
-            """.trimIndent(),
-        )
-    }
+dependencies {
+    implementation(libs.dagger)
+    implementation(libs.dagger.compiler)
 }
