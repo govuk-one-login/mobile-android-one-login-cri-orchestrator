@@ -5,7 +5,6 @@ plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
         "uk.gov.onelogin.criorchestrator.ui-config",
-        "uk.gov.onelogin.criorchestrator.networking-config",
     ).forEach {
         id(it)
     }
@@ -17,10 +16,11 @@ configure<LibraryExtension> {
 
 dependencies {
     listOf(
-        ":modules:sdk:shared-api",
-        ":modules:sdk:internal",
+        libs.uk.gov.networking,
+        project(":modules:sdk:internal"),
+        project(":modules:sdk:shared-api"),
     ).forEach {
-        implementation(project(it))
+        implementation(it)
     }
 }
 
