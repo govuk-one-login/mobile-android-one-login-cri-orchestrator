@@ -16,7 +16,6 @@ configure<LibraryExtension> {
 dependencies {
     listOf(
         libs.uk.gov.networking,
-        project(":modules:libraries:di"),
         project(":modules:sdk:shared-api"),
     ).forEach {
         implementation(it)

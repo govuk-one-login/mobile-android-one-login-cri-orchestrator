@@ -17,7 +17,7 @@ dependencies {
     listOf(
         project(":modules:libraries:di"),
     ).forEach {
-        implementation(it)
+        api(it)
     }
 }
 
