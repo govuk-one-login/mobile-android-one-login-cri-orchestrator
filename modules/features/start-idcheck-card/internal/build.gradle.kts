@@ -11,34 +11,26 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".sdk.publicapi")
+    setNamespace(suffix = ".startidcheckcard.internal")
 }
 
 dependencies {
     listOf(
-        libs.uk.gov.networking,
-        project(":modules:sdk:internal"),
+        project(":modules:libraries:di"),
+        project(":modules:features:start-idcheck-card:public-api"),
     ).forEach {
         implementation(it)
     }
-
-    listOf(
-        project(":modules:sdk:shared-api"),
-        project(":modules:features:start-idcheck-card:public-api"),
-    ).forEach {
-        api(it)
-    }
 }
 
+// TODO: DCMAW-10843 write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
-            "GOV.UK One Login CRI Orchestrator SDK Public API",
+            "GOV.UK One Login CRI Orchestrator Start ID Check Card Internal",
         )
         description.set(
             """
-            The Credential Issuer (CRI) Orchestrator coordinates identity proofing capability.
-            This module contains the public API used to interface with the CRI Orchestrator
             """.trimIndent(),
         )
     }

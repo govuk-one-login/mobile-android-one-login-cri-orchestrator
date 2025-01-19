@@ -10,7 +10,7 @@ import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
  * The real Dagger component that other component interfaces and modules will be merged into.
  */
 @ActivityScope
-@MergeComponent(CriOrchestratorScope::class)
+@MergeComponent(CriOrchestratorScope::class, dependencies = [])
 interface BaseCriOrchestratorComponent {
 
     @MergeComponent.Factory

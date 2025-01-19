@@ -17,6 +17,8 @@ dependencies {
     listOf(
         libs.uk.gov.networking,
         project(":modules:sdk:shared-api"),
+        project(":modules:features:start-idcheck-card:internal"),
+        project(":modules:features:start-idcheck-card:public-api"),
     ).forEach {
         implementation(it)
     }
