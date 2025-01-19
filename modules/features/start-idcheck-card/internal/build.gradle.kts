@@ -23,7 +23,6 @@ dependencies {
     }
 }
 
-// TODO: DCMAW-10843 write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
@@ -31,6 +30,8 @@ mavenPublishingConfig {
         )
         description.set(
             """
+            The Start ID Check Card Internal module contains implementations of UI components and
+            their entry points relevant the Start ID Check Card feature.
             """.trimIndent(),
         )
     }

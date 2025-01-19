@@ -18,7 +18,6 @@ dependencies {
     implementation(project(":modules:libraries:di"))
 }
 
-// TODO: DCMAW-10843 write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
@@ -26,6 +25,8 @@ mavenPublishingConfig {
         )
         description.set(
             """
+            The Start ID Check Card Internal API module contains the interface used for Start ID
+            Check UI component entry points.
             """.trimIndent(),
         )
     }

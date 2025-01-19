@@ -9,6 +9,11 @@ plugins {
         id(it)
     }
 }
+
+configure<LibraryExtension> {
+    setNamespace(suffix = ".startidcheckcard.publicapi")
+}
+
 dependencies {
     listOf(
         project(":modules:sdk:shared-api"),
@@ -18,11 +23,6 @@ dependencies {
     }
 }
 
-configure<LibraryExtension> {
-    setNamespace(suffix = ".startidcheckcard.publicapi")
-}
-
-// TODO: DCMAW-10843 write meaningful description
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
@@ -30,6 +30,8 @@ mavenPublishingConfig {
         )
         description.set(
             """
+            The Start ID Check Card Public API module contains the Compose composable that functions
+            as the single touchpoint between the consuming app and the Start ID Check Card feature.
             """.trimIndent(),
         )
     }
