@@ -1,12 +1,12 @@
 plugins {
-    `java-library`
+    id("java-library")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ksp)
 }
 
-listOf(
-    libs.plugins.kotlin.jvm,
-    libs.plugins.ksp,
-).forEach {
-    project.plugins.apply(it.get().pluginId)
+java {
+    sourceCompatibility = JavaVersion.toVersion(21)
+    targetCompatibility = JavaVersion.toVersion(21)
 }
 
 dependencies {
