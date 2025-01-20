@@ -15,9 +15,12 @@ govuk-ui = "5.9.2"
 junit = "5.11.4"
 junitVersion = "4.13.2"
 kotlin = "2.1.0"
+kotlinx-coroutines = "1.10.1"
 ksp = "2.1.0-1.0.29"
 lifecycleRuntimeKtx = "2.8.7"
 material = "1.12.0"
+molecule = "2.0.0"
+turbine = "1.2.0"
 uk-gov-networking = "0.3.4"
 
 [libraries]
@@ -39,12 +42,15 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 anvil-gradle-plugin = { module = "dev.zacsweers.anvil:gradle-plugin", version.ref = "anvil" }
+app-cash-molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
+app-cash-turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 components = { group = "uk.gov.android", name = "components", version.ref = "govuk-ui" }
 components-v2 = { group = "uk.gov.android", name = "componentsv2", version.ref = "govuk-ui" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines"}
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 org-bouncycastle-bcutil-jdk18on = { group = "org.bouncycastle", name = "bcutil-jdk18on", version.ref = "bouncycastle-jdk18on" }
 org-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
