@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.startidcheck.internal
+package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import org.junit.jupiter.api.Assertions.assertEquals
 

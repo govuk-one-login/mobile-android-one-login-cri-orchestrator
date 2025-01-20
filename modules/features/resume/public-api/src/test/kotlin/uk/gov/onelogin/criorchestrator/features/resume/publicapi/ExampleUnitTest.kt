@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.startidcheck.publicapi
+package uk.gov.onelogin.criorchestrator.features.resume.publicapi
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

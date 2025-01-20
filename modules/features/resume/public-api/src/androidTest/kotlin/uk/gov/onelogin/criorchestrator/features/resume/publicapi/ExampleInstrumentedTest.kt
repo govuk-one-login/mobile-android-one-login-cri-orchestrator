@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.startidcheck.publicapi
+package uk.gov.onelogin.criorchestrator.features.resume.publicapi
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
