@@ -12,7 +12,7 @@ import org.junit.Test
 import uk.gov.onelogin.criorchestrator.sdk.CriOrchestrator
 import uk.gov.onelogin.criorchestrator.sdk.R
 
-class IDCheckCardTests {
+class ProveYourIdentityCardTests {
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -31,7 +31,7 @@ class IDCheckCardTests {
     @Test
     fun verifyUI() {
         composeTestRule.setContent {
-            IDCheckCard(
+            ProveYourIdentityCard(
                 component = CriOrchestrator(),
             )
         }

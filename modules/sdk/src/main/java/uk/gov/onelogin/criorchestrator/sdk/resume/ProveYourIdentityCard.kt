@@ -11,7 +11,7 @@ import uk.gov.onelogin.criorchestrator.sdk.CriOrchestrator
 import uk.gov.onelogin.criorchestrator.sdk.R
 
 @Composable
-fun IDCheckCard(
+fun ProveYourIdentityCard(
     @Suppress("UnusedParameter") component: CriOrchestrator,
     @Suppress("UnusedParameter") modifier: Modifier = Modifier,
 ) {
@@ -32,7 +32,7 @@ fun IDCheckCard(
 @PreviewLightDark
 internal fun ContentTilePreview() {
     GdsTheme {
-        IDCheckCard(
+        ProveYourIdentityCard(
             component = CriOrchestrator(),
             modifier = Modifier.fillMaxWidth(),
         )
