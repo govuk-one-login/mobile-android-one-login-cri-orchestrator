@@ -48,9 +48,9 @@ fun fetchGithubCredentials(): Pair<String, String> {
 rootProject.name = "mobile-android-cri-orchestrator"
 
 include(
+    ":modules:libraries:di",
     ":modules:sdk:internal",
     ":modules:sdk:public-api",
     ":modules:sdk:shared-api",
     ":modules:test-wrapper",
-    ":modules:libraries:di",
 )
