@@ -1,7 +1,5 @@
 package uk.gov.onelogin.criorchestrator.testwrapper
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
