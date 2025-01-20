@@ -35,7 +35,7 @@ jobs:
       - name: Set up git runner
         uses: ./mobile-android-pipelines/actions/setup-runner
         with:
-          jdk-version: 17
+          jdk-version: 21
 
       - name: Unit test
         run: ./gradlew testDebugUnitTest
@@ -70,7 +70,7 @@ jobs:
       - name: Set up git runner
         uses: ./mobile-android-pipelines/actions/setup-runner
         with:
-          jdk-version: 17
+          jdk-version: 21
 
       - name: Instrumentation test
         run: ./gradlew allDevicesCheck
@@ -104,7 +104,7 @@ jobs:
       - name: Setup runner
         uses: ./mobile-android-pipelines/actions/setup-runner
         with:
-          jdk-version: 17
+          jdk-version: 21
 
       # Sonar seems to need pure Kotlin/Java modules to have their .jar files pre-built before
       # running the sonar task.
