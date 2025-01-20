@@ -24,7 +24,7 @@ dependencies {
 
     listOf(
         project(":modules:sdk:shared-api"),
-        project(":modules:features:start-idcheck-card:public-api"),
+        project(":modules:features:resume:public-api"),
     ).forEach {
         api(it)
     }
