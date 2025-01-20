@@ -12,8 +12,8 @@ import uk.gov.onelogin.criorchestrator.sdk.R
 
 @Composable
 fun IDCheckCard(
-    component: CriOrchestrator,
-    modifier: Modifier = Modifier,
+    @Suppress("UnusedParameter") component: CriOrchestrator,
+    @Suppress("UnusedParameter") modifier: Modifier = Modifier,
 ) {
     GdsContentTile(
         parameters = ContentTileParameters(
@@ -23,7 +23,7 @@ fun IDCheckCard(
         ),
     ) {
         // Identity Proofing and Verification (IPV)
-        // TODO: display the ID Check Dialog:
+        // display the ID Check Dialog:
         // DCMAW-10056: Android | Resume IPV | Create 'Start ID Check' modal UI
     }
 }
