@@ -5,8 +5,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(21)
-    targetCompatibility = JavaVersion.toVersion(21)
+    sourceCompatibility = JavaVersion.toVersion(17)
+    targetCompatibility = JavaVersion.toVersion(17)
 }
 
 dependencies {
