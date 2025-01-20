@@ -1,21 +1,21 @@
-package uk.gov.onelogin.criorchestrator.features.startidcheck.internal
+package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.squareup.anvil.annotations.ContributesBinding
-import uk.gov.onelogin.criorchestrator.features.startidcheck.internalapi.StartIdCheckEntryPoints
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.ProveIdentityEntryPoints
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Inject
 
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
-class StartIdCheckEntryPointsImpl @Inject constructor() : StartIdCheckEntryPoints {
+class ProveIdentityEntryPointsImpl @Inject constructor() : ProveIdentityEntryPoints {
     @Composable
-    override fun StartIdCheckCard(
+    override fun ProveIdentityCard(
         modifier: Modifier,
     ) {
-        StartIdCheckUiCard(
+        ProveIdentityUiCard(
             modifier = Modifier,
         )
     }

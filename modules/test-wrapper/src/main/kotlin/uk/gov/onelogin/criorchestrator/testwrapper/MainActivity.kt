@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
-import uk.gov.onelogin.criorchestrator.features.startidcheck.publicapi.StartIdCheckCard
+import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveIdentityCard
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
                 ),
             )
             GdsTheme {
-                StartIdCheckCard(
+                ProveIdentityCard(
                     component = criOrchestratorComponent,
                     modifier = Modifier,
                 )

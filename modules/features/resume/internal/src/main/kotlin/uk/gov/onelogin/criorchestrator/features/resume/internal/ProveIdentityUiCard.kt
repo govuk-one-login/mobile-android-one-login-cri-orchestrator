@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.startidcheck.internal
+package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -7,7 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import uk.gov.android.ui.theme.GdsTheme
 
 @Composable
-fun StartIdCheckUiCard(
+fun ProveIdentityUiCard(
     modifier: Modifier = Modifier,
 ) {
     Text(
@@ -20,8 +20,8 @@ const val CRI_ORCHESTRATOR = "CRI_ORCHESTRATOR"
 
 @Preview
 @Composable
-fun StartIdCheckUiCardPreview() {
+fun ProveIdentityUiCardPreview() {
     GdsTheme {
-        StartIdCheckUiCard()
+        ProveIdentityUiCard()
     }
 }
