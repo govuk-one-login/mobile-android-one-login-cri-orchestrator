@@ -14,6 +14,11 @@ plugins {
 }
 
 buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
     // Github packages publishing configuration
     val githubRepositoryName: String by rootProject.extra("mobile-android-cri-orchestrator")
     val mavenGroupId: String by rootProject.extra("uk.gov.onelogin.criorchestrator")
@@ -29,6 +34,8 @@ buildscript {
         listOf(
             // https://issuetracker.google.com/issues/380600747
             libs.org.bouncycastle.bcutil.jdk18on,
+            libs.firebase.android,
+            libs.google.services,
         ).forEach {
             classpath(it)
         }
