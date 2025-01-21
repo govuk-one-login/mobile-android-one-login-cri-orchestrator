@@ -40,14 +40,18 @@ internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) {
     ksp(libs.dagger.compiler)
 }
 
+internal fun DependencyHandlerScope.baseComposeDependencies(libs: LibrariesForLibs) = listOf(
+    platform(libs.androidx.compose.bom),
+    libs.androidx.ui,
+).forEach {
+    implementation(it)
+}
+
 internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = listOf(
-    libs.androidx.core.ktx,
     libs.androidx.appcompat,
     libs.material,
     libs.androidx.lifecycle.runtime.ktx,
     libs.androidx.activity.compose,
-    platform(libs.androidx.compose.bom),
-    libs.androidx.ui,
     libs.androidx.ui.graphics,
     libs.androidx.ui.tooling.preview,
     libs.androidx.material3,
@@ -68,7 +72,7 @@ internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) {
     testRuntimeOnly(libs.org.junit.platform.launcher)
 }
 
-internal fun DependencyHandlerScope.uiTestDependencies(libs: LibrariesForLibs) {
+internal fun DependencyHandlerScope.composeTestDependencies(libs: LibrariesForLibs) {
     listOf(
         libs.app.cash.molecule.runtime,
         libs.app.cash.turbine,
