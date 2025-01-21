@@ -21,7 +21,7 @@ class ProveYourIdentityCardTest {
 
     @Test
     fun `it returns a value`() = runTest {
-        moleculeFlow(RecompositionMode.ContextClock) {
+        moleculeFlow(RecompositionMode.Immediate) {
             ProveYourIdentityCard(
                 component = component,
                 modifier = Modifier,
