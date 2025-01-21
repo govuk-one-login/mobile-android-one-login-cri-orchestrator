@@ -11,11 +11,31 @@ configure<ApplicationExtension> {
     configureEnvironmentFlavors()
 }
 
+private val stagingImplementation by project.configurations
+
 dependencies {
     listOf(
+        libs.gov.logging.testdouble,
+    ).forEach {
+        androidTestImplementation(it)
+    }
+
+    listOf(
+        libs.firebase.analytics,
+        libs.firebase.crashlytics,
+        libs.google.services,
+        libs.gov.logging.api,
         libs.uk.gov.networking,
         project(":sdk:public-api"),
+        project(":sdk:shared-api"),
+        platform(libs.firebase.bom),
     ).forEach {
         implementation(it)
     }
+
+    listOf(
+        libs.gov.logging.testdouble,
+        platform(libs.org.junit.bom),
+    ).forEach(::testImplementation)
 }
+

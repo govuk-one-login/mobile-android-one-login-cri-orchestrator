@@ -21,6 +21,9 @@ gradle-app.setting
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
 # Intellij
 .idea/
 
