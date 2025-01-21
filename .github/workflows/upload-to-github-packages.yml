@@ -25,6 +25,8 @@ jobs:
 
       - name: Setup GitHub Runner workflow
         uses: ./mobile-android-pipelines/actions/setup-runner
+        with:
+          jdk-version: 21
 
       - name: Publish package
         uses: ./mobile-android-pipelines/actions/maven-publish
