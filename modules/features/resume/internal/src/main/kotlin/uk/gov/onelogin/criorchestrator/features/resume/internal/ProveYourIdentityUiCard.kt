@@ -9,7 +9,7 @@ import uk.gov.android.ui.componentsv2.GdsCard
 import uk.gov.android.ui.theme.m3.GdsTheme
 
 @Composable
-fun ProveYourIdentityUiCard(
+internal fun ProveYourIdentityUiCard(
     modifier: Modifier = Modifier,
 ) {
     GdsCard(
