@@ -23,8 +23,11 @@ dependencies {
     listOf(
         libs.firebase.analytics,
         libs.firebase.crashlytics,
+        libs.dagger.hilt.gradle,
         libs.google.services,
         libs.gov.logging.api,
+        libs.gov.logging.testdouble,
+        libs.hilt.android,
         libs.uk.gov.networking,
         project(":sdk:public-api"),
         project(":sdk:shared-api"),
@@ -38,4 +41,3 @@ dependencies {
         platform(libs.org.junit.bom),
     ).forEach(::testImplementation)
 }
-
