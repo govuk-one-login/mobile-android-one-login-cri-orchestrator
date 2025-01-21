@@ -19,7 +19,7 @@ dependencies {
         project(":modules:sdk:shared-api"),
         project(":modules:features:resume:internal-api"),
     ).forEach {
-        api(it)
+        implementation(it)
     }
 }
 
