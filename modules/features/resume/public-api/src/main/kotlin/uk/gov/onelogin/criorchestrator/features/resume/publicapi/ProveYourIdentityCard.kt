@@ -2,15 +2,15 @@ package uk.gov.onelogin.criorchestrator.features.resume.publicapi
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import uk.gov.onelogin.criorchestrator.features.resume.internalapi.ProveIdentityEntryPointsComponent
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.ProveYourIdentityEntryPointsComponent
 import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 
 @Composable
-fun ProveIdentityCard(
+fun ProveYourIdentityCard(
     component: CriOrchestratorComponent,
     modifier: Modifier,
 ) {
-    (component as ProveIdentityEntryPointsComponent).proveIdentityEntryPoints().ProveIdentityCard(
+    (component as ProveYourIdentityEntryPointsComponent).proveYourIdentityEntryPoints().ProveYourIdentityCard(
         modifier = modifier,
     )
 }

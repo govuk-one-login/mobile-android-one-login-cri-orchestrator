@@ -11,7 +11,7 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".resume.internal")
+    setNamespace(suffix = ".features.resume.internal")
 }
 
 dependencies {

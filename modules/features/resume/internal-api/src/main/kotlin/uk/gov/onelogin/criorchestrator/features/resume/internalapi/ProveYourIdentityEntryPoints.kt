@@ -6,13 +6,13 @@ import com.squareup.anvil.annotations.ContributesTo
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 
-interface ProveIdentityEntryPoints {
+interface ProveYourIdentityEntryPoints {
     @Composable
-    fun ProveIdentityCard(modifier: Modifier)
+    fun ProveYourIdentityCard(modifier: Modifier)
 }
 
 @ActivityScope
 @ContributesTo(CriOrchestratorScope::class)
-interface ProveIdentityEntryPointsComponent {
-    fun proveIdentityEntryPoints(): ProveIdentityEntryPoints
+interface ProveYourIdentityEntryPointsComponent {
+    fun proveYourIdentityEntryPoints(): ProveYourIdentityEntryPoints
 }

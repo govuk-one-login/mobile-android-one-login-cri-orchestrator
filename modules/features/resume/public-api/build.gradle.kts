@@ -11,7 +11,7 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".resume.publicapi")
+    setNamespace(suffix = ".features.resume.publicapi")
 }
 
 dependencies {

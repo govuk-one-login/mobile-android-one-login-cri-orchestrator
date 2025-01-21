@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.sdk.resume
+package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import android.content.Context
 import androidx.compose.ui.test.SemanticsMatcher
@@ -9,10 +9,8 @@ import androidx.test.core.app.ApplicationProvider
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import uk.gov.onelogin.criorchestrator.sdk.CriOrchestrator
-import uk.gov.onelogin.criorchestrator.sdk.R
 
-class ProveYourIdentityCardTests {
+class ProveYourIdentityCardTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -31,12 +29,17 @@ class ProveYourIdentityCardTests {
     @Test
     fun verifyUI() {
         composeTestRule.setContent {
-            ProveYourIdentityCard(
-                component = CriOrchestrator(),
-            )
+            ProveYourIdentityUiCard()
         }
         composeTestRule.onNode(title).assertIsDisplayed()
         composeTestRule.onNode(body).assertIsDisplayed()
         composeTestRule.onNode(primaryButton).assertIsDisplayed()
+    }
+
+    @Test
+    fun previewTest() {
+        composeTestRule.setContent {
+            ProveYourIdentityUiCardPreview()
+        }
     }
 }

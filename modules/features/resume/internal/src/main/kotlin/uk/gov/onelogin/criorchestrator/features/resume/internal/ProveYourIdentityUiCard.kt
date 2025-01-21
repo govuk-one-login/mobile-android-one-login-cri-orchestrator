@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.sdk.resume
+package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -7,12 +7,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import uk.gov.android.ui.componentsv2.GdsCard
 import uk.gov.android.ui.theme.m3.GdsTheme
-import uk.gov.onelogin.criorchestrator.sdk.CriOrchestrator
-import uk.gov.onelogin.criorchestrator.sdk.R
 
 @Composable
-fun ProveYourIdentityCard(
-    @Suppress("UnusedParameter") component: CriOrchestrator,
+fun ProveYourIdentityUiCard(
     modifier: Modifier = Modifier,
 ) {
     GdsCard(
@@ -30,10 +27,9 @@ fun ProveYourIdentityCard(
 
 @Composable
 @PreviewLightDark
-internal fun ProveYourIdentityCardPreview() {
+internal fun ProveYourIdentityUiCardPreview() {
     GdsTheme {
-        ProveYourIdentityCard(
-            component = CriOrchestrator(),
+        ProveYourIdentityUiCard(
             modifier = Modifier.fillMaxWidth(),
         )
     }
