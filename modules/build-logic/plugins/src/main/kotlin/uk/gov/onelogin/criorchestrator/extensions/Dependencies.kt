@@ -81,6 +81,7 @@ internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLi
     listOf(
         libs.androidx.junit,
         libs.androidx.test.core.ktx,
+        libs.androidx.test.runner,
     ).forEach {
         androidTestImplementation(it)
     }

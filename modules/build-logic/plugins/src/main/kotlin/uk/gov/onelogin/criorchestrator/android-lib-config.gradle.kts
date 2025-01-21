@@ -4,6 +4,7 @@ import com.android.build.api.dsl.LibraryExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import uk.gov.onelogin.criorchestrator.extensions.androidTestDependencies
+import uk.gov.onelogin.criorchestrator.extensions.setInstrumentationTestingConfig
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
 import uk.gov.onelogin.criorchestrator.extensions.testDependencies
 
@@ -20,6 +21,7 @@ listOf(
 
 configure<LibraryExtension> {
     setJavaVersion()
+    setInstrumentationTestingConfig()
 }
 
 configure<KotlinAndroidProjectExtension> {

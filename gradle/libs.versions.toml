@@ -3,6 +3,7 @@ activityCompose = "1.10.0"
 agp = "8.8.0"
 androidXCoreKtx = "1.15.0"
 androidXTest = "1.6.1"
+androidXTestRunner = "1.6.2"
 androidXTestJUnit = "1.2.1"
 androidXTestOrchestrator = "1.5.1"
 anvil = "0.4.1"
@@ -34,6 +35,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidXTest" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidXTestRunner" }
 androidx-test-orchestrator = { group = "androidx.test", name = "orchestrator", version.ref = "androidXTestOrchestrator" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
