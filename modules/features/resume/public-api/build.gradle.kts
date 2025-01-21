@@ -21,6 +21,8 @@ dependencies {
     ).forEach {
         implementation(it)
     }
+
+    testImplementation(project(":modules:features:resume:internal"))
 }
 
 mavenPublishingConfig {
