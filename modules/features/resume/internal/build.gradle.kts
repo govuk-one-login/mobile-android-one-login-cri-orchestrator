@@ -15,6 +15,10 @@ configure<LibraryExtension> {
 }
 
 dependencies {
+    testImplementation(project(":modules:sdk:shared-api"))
+    testImplementation(project(":modules:sdk:internal"))
+    testImplementation(libs.uk.gov.networking)
+
     listOf(
         project(":modules:libraries:di"),
         project(":modules:features:resume:internal-api"),
