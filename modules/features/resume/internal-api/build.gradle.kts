@@ -21,11 +21,11 @@ dependencies {
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
-            "GOV.UK One Login CRI Orchestrator Start ID Check Card Internal API",
+            "GOV.UK One Login CRI Orchestrator Resume ID Check Card Internal API",
         )
         description.set(
             """
-            The Start ID Check Card Internal API module contains the interface used for Start ID
+            The Resume ID Check Card Internal API module contains the interface used for Resume ID
             Check UI component entry points.
             """.trimIndent(),
         )
