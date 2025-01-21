@@ -80,8 +80,6 @@ internal fun DependencyHandlerScope.uiTestDependencies(libs: LibrariesForLibs) {
 internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLibs) {
     listOf(
         libs.androidx.junit,
-        libs.androidx.espresso.core,
-        platform(libs.androidx.compose.bom),
         libs.androidx.test.core.ktx,
     ).forEach {
         androidTestImplementation(it)
@@ -91,7 +89,9 @@ internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLi
 
 internal fun DependencyHandlerScope.androidUiTestDependencies(libs: LibrariesForLibs) {
     listOf(
+        libs.androidx.espresso.core,
         libs.androidx.ui.test.junit4,
+        platform(libs.androidx.compose.bom),
     ).forEach {
         androidTestImplementation(it)
     }

@@ -2,6 +2,7 @@ package uk.gov.onelogin.criorchestrator
 
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.kotlin.dsl.the
+import uk.gov.onelogin.criorchestrator.extensions.JAVA_VERSION
 import kotlin.collections.forEach
 import kotlin.collections.listOf
 
@@ -22,6 +23,6 @@ listOf(
 }
 
 configure<JavaPluginExtension> {
-    sourceCompatibility = JavaVersion.toVersion(21)
-    targetCompatibility = JavaVersion.toVersion(21)
+    sourceCompatibility = JavaVersion.toVersion(JAVA_VERSION)
+    targetCompatibility = JavaVersion.toVersion(JAVA_VERSION)
 }
