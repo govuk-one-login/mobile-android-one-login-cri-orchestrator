@@ -35,6 +35,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidXTest" }
+androidx-test-espresso-accessibility = { module = "androidx.test.espresso:espresso-accessibility", version.ref = "espressoCore" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidXTestRunner" }
 androidx-test-orchestrator = { group = "androidx.test", name = "orchestrator", version.ref = "androidXTestOrchestrator" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
