@@ -67,6 +67,7 @@ gov-logging-api = { group = "uk.gov.logging", name = "logging-api", version.ref 
 gov-logging-impl = { group = "uk.gov.logging", name = "logging-impl", version.ref = "gov-logging" }
 gov-logging-testdouble = { group = "uk.gov.logging", name = "logging-testdouble", version.ref = "gov-logging" }
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 pages = { group = "uk.gov.android", name = "pages", version.ref = "govuk-ui" }
 theme = { group = "uk.gov.android", name = "theme", version.ref = "govuk-ui" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
