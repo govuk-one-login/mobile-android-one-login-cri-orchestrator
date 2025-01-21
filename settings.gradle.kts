@@ -1,5 +1,3 @@
-import org.gradle.api.internal.provider.MissingValueException
-
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -50,6 +48,9 @@ fun fetchGithubCredentials(): Pair<String, String> {
 rootProject.name = "mobile-android-cri-orchestrator"
 
 include(
+    ":modules:libraries:di",
+    ":modules:sdk:internal",
+    ":modules:sdk:public-api",
+    ":modules:sdk:shared-api",
     ":modules:test-wrapper",
-    ":modules:sdk"
 )

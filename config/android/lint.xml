@@ -2,5 +2,7 @@
 <lint>
     <issue id="InvalidPackage">
         <ignore path="**/org.jacoco/org.jacoco.agent/0.8.12/**" />
+        <ignore path="**/io.ktor/ktor-utils-jvm/**" />
+        <ignore path="**/com.google.dagger/dagger-spi/**" />
     </issue>
 </lint>

@@ -12,7 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import uk.gov.android.network.api.ApiResponse
+import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
+import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +24,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             GdsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    @Suppress("UnusedPrivateProperty")
+                    val criOrchestrator = rememberCriOrchestrator(
+                        StubHttpClient(
+                            apiResponse = ApiResponse.Offline,
+                        ),
+                    )
                     HelloWorld(
                         modifier = Modifier.padding(innerPadding),
                     )

@@ -27,6 +27,19 @@ internal fun DependencyHandlerScope.androidTestUtil(
     dependency: Any,
 ) = dependencies.add("androidTestUtil",  dependency)
 
+internal fun DependencyHandlerScope.ksp(
+    dependency: Any,
+) = dependencies.add("ksp", dependency)
+
+internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) {
+    listOf(
+        libs.dagger
+    ).forEach {
+        implementation(it)
+    }
+    ksp(libs.dagger.compiler)
+}
+
 internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = listOf(
     libs.androidx.core.ktx,
     libs.androidx.appcompat,
@@ -38,33 +51,51 @@ internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = lis
     libs.androidx.ui.graphics,
     libs.androidx.ui.tooling.preview,
     libs.androidx.material3,
-    libs.bundles.gov.uk
+    libs.bundles.gov.uk,
 ).forEach {
     implementation(it)
 }
 
 internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) {
     listOf(
-        platform(libs.org.junit.bom),
+        libs.kotlinx.coroutines.test,
         libs.org.junit.jupiter.api,
         libs.org.junit.jupiter.engine,
+        platform(libs.org.junit.bom),
     ).forEach {
         testImplementation(it)
     }
     testRuntimeOnly(libs.org.junit.platform.launcher)
 }
 
+internal fun DependencyHandlerScope.uiTestDependencies(libs: LibrariesForLibs) {
+    listOf(
+        libs.app.cash.molecule.runtime,
+        libs.app.cash.turbine,
+    ).forEach(
+        ::testImplementation
+    )
+}
+
 internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLibs) {
     listOf(
         libs.androidx.junit,
-        libs.androidx.espresso.core,
-        platform(libs.androidx.compose.bom),
         libs.androidx.test.core.ktx,
-        libs.androidx.ui.test.junit4,
+        libs.androidx.test.runner,
     ).forEach {
         androidTestImplementation(it)
     }
     androidTestUtil(libs.androidx.test.orchestrator)
+}
+
+internal fun DependencyHandlerScope.androidUiTestDependencies(libs: LibrariesForLibs) {
+    listOf(
+        libs.androidx.espresso.core,
+        libs.androidx.ui.test.junit4,
+        platform(libs.androidx.compose.bom),
+    ).forEach {
+        androidTestImplementation(it)
+    }
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
