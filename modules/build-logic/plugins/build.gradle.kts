@@ -14,6 +14,7 @@ dependencies {
         libs.anvil.gradle.plugin,
         libs.kotlin.gradle.plugin,
         libs.uk.gov.pipelines.plugins,
+        libs.google.services,
     ).forEach {
         implementation(it)
     }

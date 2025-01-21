@@ -4,14 +4,14 @@ import uk.gov.onelogin.criorchestrator.extensions.setApplicationId
 
 plugins {
     id("uk.gov.onelogin.criorchestrator.android-app-config")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 configure<ApplicationExtension> {
     setApplicationId(suffix = ".testwrapper")
     configureEnvironmentFlavors()
 }
-
-private val stagingImplementation by project.configurations
 
 dependencies {
     listOf(
@@ -24,8 +24,8 @@ dependencies {
         libs.firebase.analytics,
         libs.firebase.crashlytics,
         libs.dagger.hilt.gradle,
-        libs.google.services,
         libs.gov.logging.api,
+        libs.gov.logging.impl,
         libs.gov.logging.testdouble,
         libs.hilt.android,
         libs.uk.gov.networking,
