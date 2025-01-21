@@ -25,7 +25,7 @@ class ProveYourIdentityEntryPointsImplTest {
         moleculeFlow(RecompositionMode.Immediate) {
             ProveYourIdentityCard(
                 component = component,
-                modifier = Modifier
+                modifier = Modifier,
             )
         }.test {
             assertInstanceOf<ProveYourIdentityEntryPointsComponent>(awaitItem())

@@ -24,7 +24,7 @@ class ProveYourIdentityCardTest {
         moleculeFlow(RecompositionMode.ContextClock) {
             ProveYourIdentityCard(
                 component = component,
-                modifier = Modifier
+                modifier = Modifier,
             )
         }.test {
             assertInstanceOf<ProveYourIdentityEntryPointsComponent>(awaitItem())
