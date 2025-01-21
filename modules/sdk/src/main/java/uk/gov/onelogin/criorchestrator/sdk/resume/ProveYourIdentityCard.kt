@@ -24,7 +24,7 @@ fun ProveYourIdentityCard(
             // Identity Proofing and Verification (IPV)
             // display the ID Check Dialog:
             // DCMAW-10056: Android | Resume IPV | Create 'Start ID Check' modal UI
-        }
+        },
     )
 }
 
