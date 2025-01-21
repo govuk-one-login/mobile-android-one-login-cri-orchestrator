@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertInstanceOf
 import uk.gov.onelogin.criorchestrator.features.resume.internal.ProveYourIdentityEntryPointsImpl
 import uk.gov.onelogin.criorchestrator.features.resume.internalapi.ProveYourIdentityEntryPoints
-import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.ProveYourIdentityEntryPointsComponent
 import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 
 @Module
@@ -22,7 +22,7 @@ abstract class TestModule {
     @Binds
     abstract fun bindCriOrchestratorComponent(
         mockComponent: MockCriOrchestratorComponent
-    ): CriOrchestratorComponent
+    ): TestCriOrchestratorComponent
 }
 
 @Component(modules = [TestModule::class])
@@ -30,10 +30,9 @@ interface TestCriOrchestratorComponent: CriOrchestratorComponent
 
 
 class MockCriOrchestratorComponent:
-    CriOrchestratorComponent,
-    ProveYourIdentityEntryPoints {
-    @Composable
-    override fun ProveYourIdentityCard(modifier: Modifier) {
+    TestCriOrchestratorComponent,
+    ProveYourIdentityEntryPointsComponent {
+    override fun proveYourIdentityEntryPoints(): ProveYourIdentityEntryPoints {
         TODO("Not yet implemented")
     }
 }
