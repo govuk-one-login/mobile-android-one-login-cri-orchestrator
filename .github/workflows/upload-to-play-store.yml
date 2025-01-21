@@ -11,7 +11,7 @@ jobs:
   upload-to-play-store:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
-      JDK_VERSION: 17
+      JDK_VERSION: 21
     runs-on: ubuntu-latest
     permissions:
       # Set permissions for ${{ secrets.GITHUB_TOKEN }}
