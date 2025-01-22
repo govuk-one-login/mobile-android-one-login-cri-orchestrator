@@ -11,34 +11,27 @@ plugins {
 }
 
 configure<LibraryExtension> {
-    setNamespace(suffix = ".sdk.publicapi")
+    setNamespace(suffix = ".features.resume.publicapi")
 }
 
 dependencies {
     listOf(
-        libs.uk.gov.networking,
-        project(":modules:sdk:internal"),
+        project(":modules:sdk:shared-api"),
+        project(":modules:features:resume:internal-api"),
     ).forEach {
         implementation(it)
-    }
-
-    listOf(
-        project(":modules:sdk:shared-api"),
-        project(":modules:features:resume:public-api"),
-    ).forEach {
-        api(it)
     }
 }
 
 mavenPublishingConfig {
     mavenConfigBlock {
         name.set(
-            "GOV.UK One Login CRI Orchestrator SDK Public API",
+            "GOV.UK One Login CRI Orchestrator Resume ID Check Card Public API",
         )
         description.set(
             """
-            The Credential Issuer (CRI) Orchestrator coordinates identity proofing capability.
-            This module contains the public API used to interface with the CRI Orchestrator
+            The Resume ID Check Card Public API module contains the Compose composable that functions
+            as the single touchpoint between the consuming app and the Resume ID Check Card feature.
             """.trimIndent(),
         )
     }

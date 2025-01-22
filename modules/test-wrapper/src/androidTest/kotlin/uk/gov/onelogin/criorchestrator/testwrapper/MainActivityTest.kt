@@ -23,11 +23,4 @@ class MainActivityTest {
                 .check(matches(isDisplayed()))
         }
     }
-
-    @Test
-    fun previewTest() {
-        composeTestRule.setContent {
-            HelloWorldPreview()
-        }
-    }
 }

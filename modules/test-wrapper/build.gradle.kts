@@ -17,7 +17,6 @@ dependencies {
     listOf(
         libs.uk.gov.networking,
         project(":modules:sdk:public-api"),
-        project(":modules:sdk:shared-api"),
     ).forEach {
         implementation(it)
     }
