@@ -1,6 +1,3 @@
-import com.android.build.api.dsl.LibraryExtension
-import uk.gov.onelogin.criorchestrator.extensions.setNamespace
-
 plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
@@ -8,10 +5,6 @@ plugins {
     ).forEach {
         id(it)
     }
-}
-
-configure<LibraryExtension> {
-    setNamespace(suffix = ".features.resume.internal")
 }
 
 dependencies {

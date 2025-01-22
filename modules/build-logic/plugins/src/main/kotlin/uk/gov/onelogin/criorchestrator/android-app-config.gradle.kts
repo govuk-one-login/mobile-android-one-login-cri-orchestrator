@@ -7,6 +7,7 @@ import uk.gov.onelogin.criorchestrator.extensions.setUiConfig
 import uk.gov.onelogin.criorchestrator.extensions.ideSupportDependencies
 import uk.gov.onelogin.criorchestrator.extensions.setBuildTypes
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
+import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 import uk.gov.onelogin.criorchestrator.extensions.setPackagingConfig
 
 //https://github.com/gradle/gradle/issues/15383
@@ -34,6 +35,7 @@ listOf(
 configure<ApplicationExtension> {
     setUiConfig()
     setJavaVersion()
+    setNamespace(project = project)
     setBuildTypes()
     setPackagingConfig()
 }

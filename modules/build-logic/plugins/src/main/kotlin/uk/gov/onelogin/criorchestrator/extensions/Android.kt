@@ -3,6 +3,7 @@ package uk.gov.onelogin.criorchestrator.extensions
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
+import org.gradle.api.Project
 
 private const val BASE_APPLICATION_ID = "uk.gov.onelogin.criorchestrator"
 private const val BASE_NAMESPACE = "uk.gov.onelogin.criorchestrator"
@@ -25,9 +26,10 @@ fun ApplicationExtension.setApplicationId(suffix: String) {
 /**
  * Set a namespace that starts with [BASE_NAMESPACE].
  */
-fun AndroidExtension.setNamespace(suffix: String) {
-    assert(suffix.isEmpty() || suffix.startsWith("."))
-    namespace = "$BASE_NAMESPACE$suffix"
+internal fun AndroidExtension.setNamespace(project: Project) {
+    val suffix = project.modulePathAsPackage()
+    val namespace = "$BASE_NAMESPACE.$suffix"
+    this.namespace = namespace
 }
 
 internal fun AndroidExtension.setJavaVersion() =

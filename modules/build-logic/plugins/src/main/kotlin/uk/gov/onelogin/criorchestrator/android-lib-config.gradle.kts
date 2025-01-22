@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import uk.gov.onelogin.criorchestrator.extensions.androidTestDependencies
 import uk.gov.onelogin.criorchestrator.extensions.setInstrumentationTestingConfig
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
+import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 import uk.gov.onelogin.criorchestrator.extensions.testDependencies
 
 //https://github.com/gradle/gradle/issues/15383
@@ -22,6 +23,7 @@ listOf(
 configure<LibraryExtension> {
     setJavaVersion()
     setInstrumentationTestingConfig()
+    setNamespace(project = project)
 }
 
 configure<KotlinAndroidProjectExtension> {

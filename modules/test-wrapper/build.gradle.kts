@@ -1,7 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import uk.gov.onelogin.criorchestrator.extensions.configureEnvironmentFlavors
 import uk.gov.onelogin.criorchestrator.extensions.setApplicationId
-import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 
 plugins {
     id("uk.gov.onelogin.criorchestrator.android-app-config")
@@ -9,7 +8,6 @@ plugins {
 
 configure<ApplicationExtension> {
     setApplicationId(suffix = ".testwrapper")
-    setNamespace(suffix = ".testwrapper")
     configureEnvironmentFlavors()
 }
 
