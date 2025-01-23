@@ -9,9 +9,9 @@ plugins {
 
 dependencies {
     listOf(
-        project(":modules:libraries:di"),
-        project(":modules:features:resume:internal-api"),
-        project(":modules:features:resume:public-api"),
+        project(":libraries:di"),
+        project(":features:resume:internal-api"),
+        project(":features:resume:public-api"),
     ).forEach {
         implementation(it)
     }

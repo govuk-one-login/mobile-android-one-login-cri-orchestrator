@@ -14,7 +14,7 @@ configure<ApplicationExtension> {
 dependencies {
     listOf(
         libs.uk.gov.networking,
-        project(":modules:sdk:public-api"),
+        project(":sdk:public-api"),
     ).forEach {
         implementation(it)
     }

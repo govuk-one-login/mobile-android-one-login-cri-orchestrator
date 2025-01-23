@@ -8,7 +8,7 @@ plugins {
 
 dependencies {
     listOf(
-        project(":modules:libraries:di"),
+        project(":libraries:di"),
     ).forEach {
         api(it)
     }

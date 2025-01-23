@@ -9,10 +9,10 @@ plugins {
 dependencies {
     listOf(
         libs.uk.gov.networking,
-        project(":modules:sdk:shared-api"),
-        project(":modules:features:resume:internal"),
-        project(":modules:features:resume:internal-api"),
-        project(":modules:features:resume:public-api"),
+        project(":sdk:shared-api"),
+        project(":features:resume:internal"),
+        project(":features:resume:internal-api"),
+        project(":features:resume:public-api"),
     ).forEach {
         implementation(it)
     }

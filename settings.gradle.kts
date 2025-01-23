@@ -2,7 +2,7 @@ enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
-    includeBuild("${rootProject.projectDir}/modules/build-logic")
+    includeBuild("${rootProject.projectDir}/build-logic")
     repositories {
         google()
         gradlePluginPortal()
@@ -48,12 +48,12 @@ fun fetchGithubCredentials(): Pair<String, String> {
 rootProject.name = "mobile-android-cri-orchestrator"
 
 include(
-    ":modules:features:resume:internal",
-    ":modules:features:resume:internal-api",
-    ":modules:features:resume:public-api",
-    ":modules:libraries:di",
-    ":modules:sdk:internal",
-    ":modules:sdk:public-api",
-    ":modules:sdk:shared-api",
-    ":modules:test-wrapper",
+    ":features:resume:internal",
+    ":features:resume:internal-api",
+    ":features:resume:public-api",
+    ":libraries:di",
+    ":sdk:internal",
+    ":sdk:public-api",
+    ":sdk:shared-api",
+    ":test-wrapper",
 )
