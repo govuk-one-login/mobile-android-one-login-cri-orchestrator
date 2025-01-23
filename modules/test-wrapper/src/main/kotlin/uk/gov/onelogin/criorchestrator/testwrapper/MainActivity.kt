@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
+import dagger.hilt.android.AndroidEntryPoint
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
@@ -14,9 +15,11 @@ import uk.gov.logging.api.analytics.parameters.ScreenViewParameters
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     @Inject
-    var analyticsLogger: AnalyticsLogger? = null
+    lateinit var analyticsLogger: AnalyticsLogger
 
     private val screenViewEvent =
         ScreenViewParameters(
@@ -42,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
-        analyticsLogger?.logEvent(
+        analyticsLogger.logEvent(
             true,
             screenViewEvent
         )

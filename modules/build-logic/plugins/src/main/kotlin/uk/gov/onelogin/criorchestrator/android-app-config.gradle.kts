@@ -16,6 +16,7 @@ val libs = the<LibrariesForLibs>()
 listOf(
     libs.plugins.android.application,
     libs.plugins.kotlin.android,
+    libs.plugins.ksp
 ).forEach {
     project.plugins.apply(it.get().pluginId)
 }

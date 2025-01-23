@@ -6,6 +6,8 @@ plugins {
     id("uk.gov.onelogin.criorchestrator.android-app-config")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+
+    alias(libs.plugins.hilt.gradle)
 }
 
 configure<ApplicationExtension> {
@@ -35,6 +37,8 @@ dependencies {
     ).forEach {
         implementation(it)
     }
+
+    ksp(libs.hilt.compiler)
 
     listOf(
         libs.gov.logging.testdouble,
