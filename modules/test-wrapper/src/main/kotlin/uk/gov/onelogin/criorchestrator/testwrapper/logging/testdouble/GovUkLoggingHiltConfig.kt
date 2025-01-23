@@ -5,8 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
-import uk.gov.logging.api.analytics.logging.MemorisedAnalyticsLogger
-import uk.gov.logging.testdouble.analytics.ToastingAnalyticsLogger
+import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger
 import javax.inject.Singleton
 
 class GovUkLoggingHiltConfig {
@@ -15,7 +14,7 @@ class GovUkLoggingHiltConfig {
     object AnalyticsSingletonModule {
         @Provides
         @Singleton
-        fun providesAnalyticsLogger(analyticsLogger: ToastingAnalyticsLogger): AnalyticsLogger =
-            MemorisedAnalyticsLogger(analyticsLogger)
+        fun providesAnalyticsLogger(analyticsLogger: FirebaseAnalyticsLogger): AnalyticsLogger =
+            analyticsLogger
     }
 }

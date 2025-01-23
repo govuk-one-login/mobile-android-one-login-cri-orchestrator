@@ -8,9 +8,25 @@ import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
 import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveYourIdentityCard
+import uk.gov.logging.api.analytics.AnalyticsEvent
+import uk.gov.logging.api.analytics.logging.AnalyticsLogger
+import uk.gov.logging.api.analytics.parameters.ScreenViewParameters
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+    @Inject
+    var analyticsLogger: AnalyticsLogger? = null
+
+    private val screenViewEvent =
+        ScreenViewParameters(
+            clazz = this::class.java.simpleName,
+            name = "TestWrapper",
+            title = R.string.hello_world_message.toString(),
+        ).let {
+            AnalyticsEvent.screenView(it)
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,5 +43,9 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
+        analyticsLogger?.logEvent(
+            true,
+            screenViewEvent
+        )
     }
 }
