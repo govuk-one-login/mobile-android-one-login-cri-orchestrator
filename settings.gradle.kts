@@ -52,6 +52,7 @@ include(
     ":features:resume:internal-api",
     ":features:resume:public-api",
     ":libraries:di",
+    ":libraries:screenshot-testing",
     ":sdk:internal",
     ":sdk:public-api",
     ":sdk:shared-api",

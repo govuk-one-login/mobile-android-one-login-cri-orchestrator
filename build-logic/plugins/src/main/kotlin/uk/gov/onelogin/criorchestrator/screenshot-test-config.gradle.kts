@@ -19,7 +19,4 @@ dependencies {
     testRuntimeOnly(libs.org.junit.vintage)
     // Allows Paparazzi tests to run
     testImplementation(libs.org.junit.junit4)
-    // Auto-generate screenshot tests from composable previews
-    testImplementation(libs.composable.preview.scanner)
-    testImplementation(libs.google.testparameterinjector)
 }
