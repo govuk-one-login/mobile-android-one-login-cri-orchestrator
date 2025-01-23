@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         ScreenViewParameters(
             clazz = this::class.java.simpleName,
             name = "TestWrapper",
-            title = R.string.hello_world_message.toString(),
+            title = "Test Wrapper app",
         ).let {
             AnalyticsEvent.screenView(it)
         }
