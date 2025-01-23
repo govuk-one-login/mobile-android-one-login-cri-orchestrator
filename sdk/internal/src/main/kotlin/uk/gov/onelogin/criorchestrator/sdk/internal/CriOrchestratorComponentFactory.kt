@@ -9,10 +9,7 @@ import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
  * @param authenticatedHttpClient The HTTP client to make all network calls.
  * @return An instance of [CriOrchestratorComponent]
  */
-fun createCriOrchestratorComponent(
-    authenticatedHttpClient: GenericHttpClient,
-): CriOrchestratorComponent {
-    return DaggerMergedBaseCriOrchestratorComponent.factory().create(
+fun createCriOrchestratorComponent(authenticatedHttpClient: GenericHttpClient): CriOrchestratorComponent =
+    DaggerMergedBaseCriOrchestratorComponent.factory().create(
         authenticatedHttpClient = authenticatedHttpClient,
     )
-}

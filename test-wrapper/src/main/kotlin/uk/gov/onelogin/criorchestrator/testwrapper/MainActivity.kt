@@ -14,11 +14,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val criOrchestratorComponent = rememberCriOrchestrator(
-                StubHttpClient(
-                    apiResponse = ApiResponse.Offline,
-                ),
-            )
+            val criOrchestratorComponent =
+                rememberCriOrchestrator(
+                    StubHttpClient(
+                        apiResponse = ApiResponse.Offline,
+                    ),
+                )
             GdsTheme {
                 ProveYourIdentityCard(
                     component = criOrchestratorComponent,

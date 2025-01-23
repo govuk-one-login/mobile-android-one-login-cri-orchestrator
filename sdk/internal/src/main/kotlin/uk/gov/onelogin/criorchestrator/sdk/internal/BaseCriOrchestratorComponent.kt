@@ -12,7 +12,6 @@ import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 @ActivityScope
 @MergeComponent(CriOrchestratorScope::class)
 interface BaseCriOrchestratorComponent {
-
     @MergeComponent.Factory
     interface Factory {
         fun create(

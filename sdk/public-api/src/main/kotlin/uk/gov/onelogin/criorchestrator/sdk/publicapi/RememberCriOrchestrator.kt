@@ -13,12 +13,9 @@ import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
  * @return An instance of [CriOrchestratorComponent]
  */
 @Composable
-fun rememberCriOrchestrator(
-    authenticatedHttpClient: GenericHttpClient,
-): CriOrchestratorComponent {
-    return remember {
+fun rememberCriOrchestrator(authenticatedHttpClient: GenericHttpClient): CriOrchestratorComponent =
+    remember {
         createCriOrchestratorComponent(
             authenticatedHttpClient = authenticatedHttpClient,
         )
     }
-}
