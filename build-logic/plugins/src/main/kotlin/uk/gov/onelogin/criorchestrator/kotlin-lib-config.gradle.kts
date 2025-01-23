@@ -11,7 +11,9 @@ val libs = the<LibrariesForLibs>()
 
 listOf(
     "java-library",
+    "uk.gov.publishing.config",
     "uk.gov.onelogin.criorchestrator.code-quality-config",
+    "uk.gov.onelogin.criorchestrator.publishing-id-config",
 ).forEach {
     project.plugins.apply(it)
 }
