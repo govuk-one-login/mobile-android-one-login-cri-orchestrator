@@ -1,3 +1,5 @@
+import uk.gov.onelogin.criorchestrator.extensions.setPublishingArtifactId
+
 plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
@@ -5,6 +7,11 @@ plugins {
     ).forEach {
         id(it)
     }
+}
+
+// Overwrites artifact ID parameter
+configure<PublishingExtension> {
+    setPublishingArtifactId("sdk")
 }
 
 dependencies {
