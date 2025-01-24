@@ -1,4 +1,4 @@
-import uk.gov.onelogin.criorchestrator.extensions.setPublishingArtifactId
+import uk.gov.onelogin.criorchestrator.extensions.customisePublications
 
 plugins {
     listOf(
@@ -9,9 +9,8 @@ plugins {
     }
 }
 
-// Overwrites artifact ID parameter
 configure<PublishingExtension> {
-    setPublishingArtifactId("sdk")
+    customisePublications(artifactId = "sdk")
 }
 
 dependencies {

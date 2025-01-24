@@ -9,7 +9,7 @@ import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.kotlin.dsl.withType
 
 private const val BASE_APPLICATION_ID = "uk.gov.onelogin.criorchestrator"
-const val BASE_NAMESPACE = "uk.gov.onelogin.criorchestrator"
+internal const val BASE_NAMESPACE = "uk.gov.onelogin.criorchestrator"
 
 /**
  * Type alias for configuring both Android application and Android library modules.
@@ -76,10 +76,15 @@ internal fun AndroidExtension.setInstrumentationTestingConfig() {
     }
 }
 
-fun PublishingExtension.setPublishingArtifactId(artifactId: String) {
+fun PublishingExtension.customisePublications(groupId: String? = null, artifactId: String? = null) {
     publications {
-        this.withType<MavenPublication>().forEach {
-            it.artifactId = artifactId
+        this.withType<MavenPublication>().forEach { publication ->
+            groupId?.let {
+                publication.groupId = it
+            }
+            artifactId?.let {
+                publication.artifactId = it
+            }
         }
     }
 }
