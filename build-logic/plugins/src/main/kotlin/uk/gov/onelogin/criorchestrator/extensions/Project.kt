@@ -14,7 +14,6 @@ internal fun Project.modulePathAsPackage(): String =
     project.path
         .lowercase()
         .removePrefix(":")
-        .removePrefix("modules:")
         .replace("-", "")
         .replace(":", ".")
 
