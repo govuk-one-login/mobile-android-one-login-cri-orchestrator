@@ -10,13 +10,11 @@ import javax.inject.Inject
 
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
-class ProveYourIdentityEntryPointsImpl
-    @Inject
-    constructor() : ProveYourIdentityEntryPoints {
-        @Composable
-        override fun ProveYourIdentityCard(modifier: Modifier) {
-            ProveYourIdentityUiCard(
-                modifier = Modifier,
-            )
-        }
+class ProveYourIdentityEntryPointsImpl @Inject constructor() : ProveYourIdentityEntryPoints {
+    @Composable
+    override fun ProveYourIdentityCard(modifier: Modifier) {
+        ProveYourIdentityUiCard(
+            modifier = Modifier,
+        )
     }
+}
