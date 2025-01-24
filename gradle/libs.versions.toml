@@ -57,12 +57,8 @@ dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
 firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
-firebase-android = { group = 'com.google.firebase', name = 'firebase-crashlytics-gradle', version.ref = "firebase-crashlytics-gradle" }
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
-gov-logging-api = { group = "uk.gov.logging", name = "logging-api", version.ref = "gov-logging" }
-gov-logging-impl = { group = "uk.gov.logging", name = "logging-impl", version.ref = "gov-logging" }
-gov-logging-testdouble = { group = "uk.gov.logging", name = "logging-testdouble", version.ref = "gov-logging" }
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
 pages = { group = "uk.gov.android", name = "pages", version.ref = "govuk-ui" }
 theme = { group = "uk.gov.android", name = "theme", version.ref = "govuk-ui" }
@@ -74,6 +70,8 @@ org-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit"
 org-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api" }
 org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine" }
 org-junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+uk-gov-logging-api = { group = "uk.gov.logging", name = "logging-api", version.ref = "gov-logging" }
+uk-gov-logging-impl = { group = "uk.gov.logging", name = "logging-impl", version.ref = "gov-logging" }
 uk-gov-pipelines-plugins = { module = "uk.gov.pipelines:plugins" }
 uk-gov-networking = { group = "uk.gov.android", name = "network", version.ref = "uk-gov-networking" }
 
@@ -86,6 +84,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle" }
 
 [bundles]
 gov-uk = ["components", "components-v2", "pages", "theme"]

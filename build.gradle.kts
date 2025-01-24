@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.anvil) apply false
     alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.google.services) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.jvm) apply false
@@ -30,8 +31,6 @@ buildscript {
         listOf(
             // https://issuetracker.google.com/issues/380600747
             libs.org.bouncycastle.bcutil.jdk18on,
-            libs.firebase.android,
-            libs.google.services,
         ).forEach {
             classpath(it)
         }

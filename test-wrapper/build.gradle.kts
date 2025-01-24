@@ -4,8 +4,8 @@ import uk.gov.onelogin.criorchestrator.extensions.setApplicationId
 
 plugins {
     id("uk.gov.onelogin.criorchestrator.android-app-config")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.google.services)
 }
 
 configure<ApplicationExtension> {
@@ -15,17 +15,10 @@ configure<ApplicationExtension> {
 
 dependencies {
     listOf(
-        libs.gov.logging.testdouble,
-    ).forEach {
-        androidTestImplementation(it)
-    }
-
-    listOf(
         libs.firebase.analytics,
         libs.firebase.crashlytics,
-        libs.gov.logging.api,
-        libs.gov.logging.impl,
-        libs.gov.logging.testdouble,
+        libs.uk.gov.logging.api,
+        libs.uk.gov.logging.impl,
         libs.uk.gov.networking,
         project(":sdk:public-api"),
         project(":sdk:shared-api"),
@@ -35,7 +28,6 @@ dependencies {
     }
 
     listOf(
-        libs.gov.logging.testdouble,
         platform(libs.org.junit.bom),
     ).forEach(::testImplementation)
 }
