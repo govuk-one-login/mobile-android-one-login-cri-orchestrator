@@ -1,11 +1,11 @@
-import uk.gov.onelogin.criorchestrator.extensions.setPublishingArtifactId
+import uk.gov.onelogin.criorchestrator.extensions.customisePublications
 
 plugins {
     id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
 }
 
 configure<PublishingExtension> {
-    setPublishingArtifactId("di")
+    customisePublications(artifactId = "di")
 }
 
 dependencies {
