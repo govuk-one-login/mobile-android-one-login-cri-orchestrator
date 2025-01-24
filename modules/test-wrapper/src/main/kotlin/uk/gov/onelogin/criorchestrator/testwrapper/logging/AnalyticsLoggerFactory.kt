@@ -11,6 +11,6 @@ import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger
 object AnalyticsLoggerFactory {
     fun createAnalyticsLogger(context: Context): AnalyticsLogger = FirebaseAnalyticsLogger(
         analytics = FirebaseAnalytics.getInstance(context),
-        logger = AndroidLogger(CrashlyticsLogger(FirebaseCrashlytics.getInstance()))
+        logger = AndroidLogger(CrashlyticsLogger(FirebaseCrashlytics.getInstance())),
     )
 }

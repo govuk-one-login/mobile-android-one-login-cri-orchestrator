@@ -4,37 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
 import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveYourIdentityCard
-import uk.gov.logging.api.analytics.AnalyticsEvent
-import uk.gov.logging.api.analytics.logging.AnalyticsLogger
-import uk.gov.logging.api.analytics.parameters.ScreenViewParameters
-import uk.gov.logging.impl.AndroidLogger
-import uk.gov.logging.impl.CrashlyticsLogger
-import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger
-import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger_Factory
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactory
-import javax.inject.Inject
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.homeScreenViewEvent
 
 class MainActivity : ComponentActivity() {
 
     private val analyticsLogger by lazy {
         AnalyticsLoggerFactory.createAnalyticsLogger(this)
     }
-
-    private val screenViewEvent =
-        ScreenViewParameters(
-            clazz = this::class.java.simpleName,
-            name = "TestWrapper",
-            title = "Test Wrapper app",
-        ).let {
-            AnalyticsEvent.screenView(it)
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +34,6 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
-        analyticsLogger?.logEvent(
-            true,
-            screenViewEvent
-        )
+        analyticsLogger.logEvent(true, homeScreenViewEvent(this))
     }
 }
