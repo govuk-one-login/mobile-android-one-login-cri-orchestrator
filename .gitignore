@@ -1,5 +1,5 @@
 .gradle
-**/build/*
+**/build/
 !src/**/build/
 local.properties
 
@@ -20,10 +20,6 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-
-# Google Services (e.g. APIs or Firebase)
-#google-services.json
-!google-services.json
 
 # Intellij
 .idea/
