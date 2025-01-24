@@ -4,6 +4,9 @@ import com.android.build.api.dsl.LibraryExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import uk.gov.onelogin.criorchestrator.extensions.androidTestDependencies
+import uk.gov.onelogin.criorchestrator.extensions.customisePublications
+import uk.gov.onelogin.criorchestrator.extensions.modulePathAsArtifactId
+import uk.gov.onelogin.criorchestrator.extensions.modulePathAsGroupId
 import uk.gov.onelogin.criorchestrator.extensions.setInstrumentationTestingConfig
 import uk.gov.onelogin.criorchestrator.extensions.setJavaVersion
 import uk.gov.onelogin.criorchestrator.extensions.setNamespace
@@ -18,6 +21,13 @@ listOf(
     "uk.gov.onelogin.criorchestrator.unit-test-config",
 ).forEach {
     project.plugins.apply(it)
+}
+
+configure<PublishingExtension> {
+    customisePublications(
+        groupId = project.modulePathAsGroupId(),
+        artifactId = project.modulePathAsArtifactId(),
+    )
 }
 
 configure<LibraryExtension> {
