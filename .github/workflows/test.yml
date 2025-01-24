@@ -109,7 +109,7 @@ jobs:
       # Sonar seems to need pure Kotlin/Java modules to have their .jar files pre-built before
       # running the sonar task.
       - name: Assemble pure Kotlin/Java modules
-        run: ./gradlew :modules:libraries:di:assemble
+        run: ./gradlew :libraries:di:assemble
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
