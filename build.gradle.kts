@@ -15,11 +15,6 @@ plugins {
 }
 
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
     // Github packages publishing configuration
     val githubRepositoryName: String by rootProject.extra("mobile-android-cri-orchestrator")
     val mavenGroupId: String by rootProject.extra("uk.gov.onelogin.criorchestrator")
