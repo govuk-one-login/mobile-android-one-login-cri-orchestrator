@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
@@ -11,12 +13,19 @@ import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveYourIdenti
 import uk.gov.logging.api.analytics.AnalyticsEvent
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
 import uk.gov.logging.api.analytics.parameters.ScreenViewParameters
+import uk.gov.logging.impl.AndroidLogger
+import uk.gov.logging.impl.CrashlyticsLogger
+import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger
+import uk.gov.logging.impl.analytics.FirebaseAnalyticsLogger_Factory
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactory
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
-    @Inject
-    var analyticsLogger: AnalyticsLogger? = null
+
+    private val analyticsLogger by lazy {
+        AnalyticsLoggerFactory.createAnalyticsLogger(this)
+    }
 
     private val screenViewEvent =
         ScreenViewParameters(

@@ -23,11 +23,9 @@ dependencies {
     listOf(
         libs.firebase.analytics,
         libs.firebase.crashlytics,
-        libs.dagger.hilt.gradle,
         libs.gov.logging.api,
         libs.gov.logging.impl,
         libs.gov.logging.testdouble,
-        libs.hilt.android,
         libs.uk.gov.networking,
         project(":sdk:public-api"),
         project(":sdk:shared-api"),
