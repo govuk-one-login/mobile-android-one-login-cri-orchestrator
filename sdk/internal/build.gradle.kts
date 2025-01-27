@@ -9,7 +9,9 @@ plugins {
 }
 
 configure<PublishingExtension> {
-    customisePublications(artifactId = "sdk-internal")
+    customisePublications {
+        artifactId = "sdk-internal"
+    }
 }
 
 dependencies {
