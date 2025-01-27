@@ -17,6 +17,7 @@ google-services = "4.4.2" # https://developers.google.com/android/guides/release
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 gov-logging = "0.5.0" # https://github.com/orgs/govuk-one-login/packages?repo_name=mobile-android-logging
 espressoCore = "3.6.1"
+androidx-fragment = "1.8.5" # https://developer.android.com/jetpack/androidx/releases/fragment
 govuk-ui = "7.0.0"
 junit = "5.11.4"
 junitVersion = "4.13.2"
@@ -24,10 +25,12 @@ kotlin = "2.1.0"
 kotlinx-coroutines = "1.10.1"
 ksp = "2.1.0-1.0.29"
 lifecycleRuntimeKtx = "2.8.7"
+lifecycle_version = "2.8.7"
 material = "1.12.0"
 molecule = "2.0.0"
 turbine = "1.2.0"
 uk-gov-networking = "0.3.4"
+gov-uk-onelogin-sdk = "0.6.60" # https://github.com/govuk-one-login/mobile-id-check-android-sdk/releases
 
 [libraries]
 android-build-tool = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -36,8 +39,10 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidXCoreKtx" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidXTestJUnit" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose",  version.ref = "lifecycle_version" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidXTest" }
 androidx-test-espresso-accessibility = { module = "androidx.test.espresso:espresso-accessibility", version.ref = "espressoCore" }
@@ -79,6 +84,7 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 org-junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
 uk-gov-pipelines-plugins = { module = "uk.gov.pipelines:plugins" }
 uk-gov-networking = { group = "uk.gov.android", name = "network", version.ref = "uk-gov-networking" }
+uk-gov-onelogin-idcheck-features-api = { group = "uk.gov.onelogin.idcheck", name = "features-api", version.ref = "gov-uk-onelogin-sdk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -21,6 +21,7 @@ dependencies {
     }
 
     listOf(
+        libs.androidx.fragment.ktx,
         libs.firebase.analytics,
         libs.firebase.crashlytics,
         libs.dagger.hilt.gradle,
@@ -29,6 +30,8 @@ dependencies {
         libs.gov.logging.testdouble,
         libs.hilt.android,
         libs.uk.gov.networking,
+        libs.uk.gov.onelogin.idcheck.features.api,
+        libs.androidx.lifecycle.viewmodel.compose,
         project(":modules:sdk:public-api"),
         project(":modules:sdk:shared-api"),
         platform(libs.firebase.bom),
