@@ -24,13 +24,6 @@ listOf(
     project.plugins.apply(it)
 }
 
-configure<PublishingExtension> {
-    customisePublications {
-        groupId = project.modulePathAsGroupId()
-        artifactId = project.modulePathAsArtifactId()
-    }
-}
-
 configure<LibraryExtension> {
     setJavaVersion()
     setInstrumentationTestingConfig()

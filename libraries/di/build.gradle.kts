@@ -5,7 +5,9 @@ plugins {
 }
 
 configure<PublishingExtension> {
-    customisePublications(artifactId = "di")
+    customisePublications {
+        artifactId = "di"
+    }
 }
 
 dependencies {
