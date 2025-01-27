@@ -13,7 +13,6 @@ import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactor
 import uk.gov.onelogin.criorchestrator.testwrapper.logging.homeScreenViewEvent
 
 class MainActivity : ComponentActivity() {
-
     private val analyticsLogger by lazy {
         AnalyticsLoggerFactory.createAnalyticsLogger(this)
     }
