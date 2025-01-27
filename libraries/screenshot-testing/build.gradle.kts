@@ -11,7 +11,8 @@ dependencies {
     api(platform(libs.org.junit.bom))
     api(libs.org.junit.junit4)
 
-    implementation(libs.app.cash.paparazzi)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.runtime)
+
+    compileOnly(libs.app.cash.paparazzi)
 }
