@@ -1,21 +1,24 @@
 {
   "project_info": {
-    "project_number": "1099188154796",
-    "project_id": "one-login-build",
-    "storage_bucket": "one-login-build.firebasestorage.app"
+    "project_number": "231299341389",
+    "project_id": "mobile-one-login-build",
+    "storage_bucket": "mobile-one-login-build.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1099188154796:android:01a036e73d54593ec7ca09",
+        "mobilesdk_app_id": "1:231299341389:android:3b67d30b22e624aa6dd004",
         "android_client_info": {
-          "package_name": "uk.gov.onelogin.build"
+          "package_name": "uk.gov.idcheck.build"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBEu5JTZegSsLY4hHrsaAGNKOOQr-NTPIA"
+          "current_key": "AIzaSyD3JoVy3uBcjEYxSteHF-Lby_psiS2W2Iw"
+        },
+        {
+          "current_key": "AIzaSyB9MO61PLMn3RakATMMoaML-pfm6bjFCGw"
         }
       ],
       "services": {
@@ -26,7 +29,29 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1099188154796:android:3a7fd405fb67249ac7ca09",
+        "mobilesdk_app_id": "1:231299341389:android:a5f87226d613ac496dd004",
+        "android_client_info": {
+          "package_name": "uk.gov.onelogin.build"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3JoVy3uBcjEYxSteHF-Lby_psiS2W2Iw"
+        },
+        {
+          "current_key": "AIzaSyB9MO61PLMn3RakATMMoaML-pfm6bjFCGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231299341389:android:8dc3977892eee5ab6dd004",
         "android_client_info": {
           "package_name": "uk.gov.onelogin.criorchestrator.testwrapper.build"
         }
@@ -34,7 +59,32 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBEu5JTZegSsLY4hHrsaAGNKOOQr-NTPIA"
+          "current_key": "AIzaSyD3JoVy3uBcjEYxSteHF-Lby_psiS2W2Iw"
+        },
+        {
+          "current_key": "AIzaSyB9MO61PLMn3RakATMMoaML-pfm6bjFCGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231299341389:android:d01fe65f94ce42736dd004",
+        "android_client_info": {
+          "package_name": "uk.gov.wallet.build"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3JoVy3uBcjEYxSteHF-Lby_psiS2W2Iw"
+        },
+        {
+          "current_key": "AIzaSyB9MO61PLMn3RakATMMoaML-pfm6bjFCGw"
         }
       ],
       "services": {
