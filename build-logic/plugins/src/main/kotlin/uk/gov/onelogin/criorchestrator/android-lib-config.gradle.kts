@@ -24,10 +24,10 @@ listOf(
 }
 
 configure<PublishingExtension> {
-    customisePublications(
-        groupId = project.modulePathAsGroupId(),
-        artifactId = project.modulePathAsArtifactId(),
-    )
+    customisePublications {
+        groupId = project.modulePathAsGroupId()
+        artifactId = project.modulePathAsArtifactId()
+    }
 }
 
 configure<LibraryExtension> {
