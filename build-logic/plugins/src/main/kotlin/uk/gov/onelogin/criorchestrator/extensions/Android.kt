@@ -75,9 +75,3 @@ internal fun AndroidExtension.setInstrumentationTestingConfig() {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
-
-fun PublishingExtension.customisePublications(action: MavenPublication.() -> Unit) {
-    publications {
-        this.withType<MavenPublication>().forEach(action)
-    }
-}
