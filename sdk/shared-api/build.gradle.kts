@@ -9,7 +9,9 @@ plugins {
 }
 
 configure<PublishingExtension> {
-    customisePublications(artifactId = "sdk-shared-api")
+    customisePublications {
+        artifactId = "sdk-shared-api"
+    }
 }
 
 dependencies {

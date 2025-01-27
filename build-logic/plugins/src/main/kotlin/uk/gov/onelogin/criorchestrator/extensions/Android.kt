@@ -76,15 +76,8 @@ internal fun AndroidExtension.setInstrumentationTestingConfig() {
     }
 }
 
-fun PublishingExtension.customisePublications(groupId: String? = null, artifactId: String? = null) {
+fun PublishingExtension.customisePublications(action: MavenPublication.() -> Unit) {
     publications {
-        this.withType<MavenPublication>().forEach { publication ->
-            groupId?.let {
-                publication.groupId = it
-            }
-            artifactId?.let {
-                publication.artifactId = it
-            }
-        }
+        this.withType<MavenPublication>().forEach(action)
     }
 }
