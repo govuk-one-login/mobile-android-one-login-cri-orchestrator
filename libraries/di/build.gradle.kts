@@ -1,5 +1,3 @@
-import uk.gov.onelogin.criorchestrator.extensions.customisePublications
-
 plugins {
     id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
 }
