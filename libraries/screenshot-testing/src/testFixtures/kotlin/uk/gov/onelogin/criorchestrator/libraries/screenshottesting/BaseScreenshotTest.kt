@@ -32,7 +32,6 @@ import sergio.sastre.composable.preview.scanner.core.preview.ComposablePreview
 abstract class BaseScreenshotTest(
     val preview: ComposablePreview<AndroidPreviewInfo>,
 ) {
-
     @get:Rule
     val paparazzi: Paparazzi = createPaparazziRule(preview)
 
@@ -44,18 +43,17 @@ abstract class BaseScreenshotTest(
         }
     }
 
-    private fun createPaparazziRule(
-        preview: ComposablePreview<AndroidPreviewInfo>,
-    ): Paparazzi {
+    private fun createPaparazziRule(preview: ComposablePreview<AndroidPreviewInfo>): Paparazzi {
         val nightMode =
             when (preview.previewInfo.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES) {
                 true -> NightMode.NIGHT
                 false -> NightMode.NOTNIGHT
             }
         return Paparazzi(
-            deviceConfig = DeviceConfig(
-                nightMode = nightMode,
-            ),
+            deviceConfig =
+                DeviceConfig(
+                    nightMode = nightMode,
+                ),
         )
     }
 
