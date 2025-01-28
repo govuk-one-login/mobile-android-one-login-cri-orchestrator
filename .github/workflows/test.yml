@@ -7,8 +7,6 @@ on:
       - reopened
       - synchronize
   push:
-    branches:
-      - main
   merge_group:
   workflow_dispatch:
 
@@ -40,7 +38,7 @@ jobs:
           jdk-version: 21
 
       - name: Assemble
-        run: ./gradlew assemble assembleUnitTest
+        run: ./gradlew assembleDebugUnitTest
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
