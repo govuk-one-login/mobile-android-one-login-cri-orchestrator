@@ -55,6 +55,7 @@ internal fun DependencyHandlerScope.uiDependencies(libs: LibrariesForLibs) = lis
     libs.androidx.appcompat,
     libs.material,
     libs.androidx.lifecycle.runtime.ktx,
+    libs.androidx.lifecycle.viewmodel.compose,
     libs.androidx.ui.graphics,
     libs.androidx.ui.tooling.preview,
     libs.androidx.material3,
