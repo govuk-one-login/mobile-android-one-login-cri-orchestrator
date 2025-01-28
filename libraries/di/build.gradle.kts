@@ -4,12 +4,6 @@ plugins {
     id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
 }
 
-configure<PublishingExtension> {
-    customisePublications {
-        artifactId = "di"
-    }
-}
-
 dependencies {
     implementation(libs.dagger)
 }

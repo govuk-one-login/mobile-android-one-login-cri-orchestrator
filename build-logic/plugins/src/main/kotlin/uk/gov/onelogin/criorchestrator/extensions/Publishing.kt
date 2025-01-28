@@ -9,10 +9,10 @@ import uk.gov.publishing.MavenPublishingConfigPlugin
  * Customise all Maven publications that have already been registered using
  * [MavenPublishingConfigPlugin].
  *
- * @param configuration The configuration applied to each Maven publication found.
+ * @param[config] Configuration applied to each Maven publication found.
  */
-fun PublishingExtension.customisePublications(configuration: MavenPublication.() -> Unit) {
+fun PublishingExtension.customisePublications(config: MavenPublication.() -> Unit) {
     publications {
-        this.withType<MavenPublication>().forEach(configuration)
+        this.withType<MavenPublication>().forEach(config)
     }
 }
