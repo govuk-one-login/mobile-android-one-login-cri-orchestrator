@@ -15,7 +15,7 @@ listOf(
 }
 
 dependencies {
-    testImplementation(project(":libraries:screenshot-testing"))
+    testImplementation(testFixtures(project(":libraries:screenshot-testing")))
     // Allows JUnit4 tests to run
     testRuntimeOnly(libs.org.junit.vintage)
     // Allows Paparazzi tests to run

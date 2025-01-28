@@ -5,14 +5,14 @@ plugins {
 
 dependencies {
     // Enable screenshot tests to be generated from composable previews
-    api(libs.composable.preview.scanner)
-    api(libs.google.testparameterinjector)
+    testFixturesApi(libs.composable.preview.scanner)
+    testFixturesApi(libs.google.testparameterinjector)
     // Paparazzi tests only support Junit 4
-    api(platform(libs.org.junit.bom))
-    api(libs.org.junit.junit4)
+    testFixturesApi(platform(libs.org.junit.bom))
+    testFixturesApi(libs.org.junit.junit4)
 
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.runtime)
+    testFixturesImplementation(platform(libs.androidx.compose.bom))
+    testFixturesImplementation(libs.androidx.compose.runtime)
 
-    compileOnly(libs.app.cash.paparazzi)
+    testFixturesCompileOnly(libs.app.cash.paparazzi)
 }
