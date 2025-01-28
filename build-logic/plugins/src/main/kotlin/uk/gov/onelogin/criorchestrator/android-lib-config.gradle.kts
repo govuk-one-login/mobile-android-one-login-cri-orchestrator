@@ -15,6 +15,7 @@ val libs = the<LibrariesForLibs>()
 listOf(
     "uk.gov.pipelines.android-lib-config",
     "uk.gov.onelogin.criorchestrator.di-config",
+    "uk.gov.onelogin.criorchestrator.publishing-id-config",
     "uk.gov.onelogin.criorchestrator.unit-test-config",
 ).forEach {
     project.plugins.apply(it)

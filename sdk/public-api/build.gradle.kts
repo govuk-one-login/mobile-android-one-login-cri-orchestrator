@@ -1,9 +1,17 @@
+import uk.gov.onelogin.criorchestrator.extensions.customisePublications
+
 plugins {
     listOf(
         "uk.gov.onelogin.criorchestrator.android-lib-config",
         "uk.gov.onelogin.criorchestrator.base-compose-config",
     ).forEach {
         id(it)
+    }
+}
+
+configure<PublishingExtension> {
+    customisePublications {
+        artifactId = "sdk"
     }
 }
 

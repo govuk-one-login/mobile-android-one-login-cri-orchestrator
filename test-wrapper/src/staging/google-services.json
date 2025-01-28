@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "792769336852",
+    "project_id": "mobile-one-login-staging",
+    "storage_bucket": "mobile-one-login-staging.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792769336852:android:ac9f0389655dfbc790b901",
+        "android_client_info": {
+          "package_name": "uk.gov.idcheck.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRRotddK7FNGDcJODcbdZOUyd_Fuek0e4"
+        },
+        {
+          "current_key": "AIzaSyCKg2_B7zjWYT9nh2C-_s85WppEUjFIkG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792769336852:android:621a5c44f0584a2a90b901",
+        "android_client_info": {
+          "package_name": "uk.gov.onelogin.criorchestrator.testwrapper.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRRotddK7FNGDcJODcbdZOUyd_Fuek0e4"
+        },
+        {
+          "current_key": "AIzaSyCKg2_B7zjWYT9nh2C-_s85WppEUjFIkG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792769336852:android:54c620eb8a00975590b901",
+        "android_client_info": {
+          "package_name": "uk.gov.onelogin.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRRotddK7FNGDcJODcbdZOUyd_Fuek0e4"
+        },
+        {
+          "current_key": "AIzaSyCKg2_B7zjWYT9nh2C-_s85WppEUjFIkG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792769336852:android:3fba6026d6a9bf3690b901",
+        "android_client_info": {
+          "package_name": "uk.gov.wallet.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRRotddK7FNGDcJODcbdZOUyd_Fuek0e4"
+        },
+        {
+          "current_key": "AIzaSyCKg2_B7zjWYT9nh2C-_s85WppEUjFIkG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,8 +9,14 @@ import uk.gov.android.network.client.StubHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
 import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveYourIdentityCard
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactory
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.homeScreenViewEvent
 
 class MainActivity : ComponentActivity() {
+    private val analyticsLogger by lazy {
+        AnalyticsLoggerFactory.createAnalyticsLogger(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,5 +33,6 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
+        analyticsLogger.logEvent(true, homeScreenViewEvent(this))
     }
 }

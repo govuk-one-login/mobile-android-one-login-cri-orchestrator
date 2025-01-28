@@ -17,3 +17,12 @@ internal fun Project.modulePathAsPackage(): String =
         .replace("-", "")
         .replace(":", ".")
 
+fun Project.modulePathAsGroupId(): String {
+    val projectPath = project.projectDir.relativeTo(project.rootDir).toString().split("/")
+    return "$BASE_NAMESPACE.${projectPath[0]}"
+}
+
+fun Project.modulePathAsArtifactId(): String {
+    val projectPath = project.projectDir.relativeTo(project.rootDir).toString().split("/")
+    return projectPath.drop(1).joinToString("-")
+}
