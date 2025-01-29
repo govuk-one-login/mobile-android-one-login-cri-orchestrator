@@ -44,6 +44,11 @@ configure<KotlinAndroidProjectExtension> {
     setJavaVersion()
 }
 
+configure<JacocoPluginExtension> {
+    // https://github.com/jacoco/jacoco/pull/1616#issuecomment-2147304326
+    this.toolVersion = libs.versions.jacoco.tool.get()
+}
+
 dependencies {
     ideSupportDependencies(libs)
 }

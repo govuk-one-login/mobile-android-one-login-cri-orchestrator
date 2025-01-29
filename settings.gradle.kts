@@ -19,6 +19,7 @@ dependencyResolutionManagement {
             "https://maven.pkg.github.com/govuk-one-login/mobile-android-ui",
             setupGithubCredentials()
         )
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
