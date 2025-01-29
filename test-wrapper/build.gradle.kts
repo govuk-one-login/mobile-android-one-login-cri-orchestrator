@@ -11,6 +11,11 @@ plugins {
 configure<ApplicationExtension> {
     setApplicationId(suffix = ".testwrapper")
     configureEnvironmentFlavors()
+    testFixtures {
+        // Disable test fixtures in this app module while they aren't needed
+        // https://issuetracker.google.com/issues/368175116
+        enable = false
+    }
 }
 
 dependencies {

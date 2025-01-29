@@ -7,6 +7,7 @@ import uk.gov.onelogin.criorchestrator.extensions.uiDependencies
 
 listOf(
     "uk.gov.onelogin.criorchestrator.base-compose-config",
+    "uk.gov.onelogin.criorchestrator.screenshot-test-config"
 ).forEach {
     project.plugins.apply(it)
 }
