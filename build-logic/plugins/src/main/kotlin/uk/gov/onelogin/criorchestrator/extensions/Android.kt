@@ -29,7 +29,7 @@ fun ApplicationExtension.setApplicationId(suffix: String) {
 /**
  * Set a namespace that starts with [BASE_NAMESPACE].
  */
-internal fun AndroidExtension.setNamespace(project: Project) {
+fun AndroidExtension.setNamespace(project: Project) {
     val suffix = project.modulePathAsPackage()
     val namespace = "$BASE_NAMESPACE.$suffix"
     this.namespace = namespace

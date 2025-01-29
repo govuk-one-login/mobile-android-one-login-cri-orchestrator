@@ -18,6 +18,7 @@ firebase-crashlytics-gradle = "3.0.2" # https://firebase.google.com/support/rele
 google-services = "4.4.2" # https://developers.google.com/android/guides/releases
 junit = "5.11.4"
 junit4 = "4.13.2"
+konsist = "0.17.2"
 kotlin = "2.1.10"
 kotlinx-coroutines = "1.10.1"
 ksp = "2.1.0-1.0.29"
@@ -56,6 +57,7 @@ anvil-gradle-plugin = { module = "dev.zacsweers.anvil:gradle-plugin", version.re
 app-cash-molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 app-cash-turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 app-cash-paparazzi = { module = "app.cash.paparazzi:paparazzi", version.ref = "paparazzi" }
+com-lemonappdev-konsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 composable-preview-scanner = { module = "io.github.sergio-sastre.ComposablePreviewScanner:android", version.ref = "composable-preview-scanner" }
