@@ -38,10 +38,8 @@ jobs:
           jdk-version: 21
 
       - name: Unit test
-        run: |
-          ./gradlew testDebugUnitTest \
-          # Exclude Konsist unit tests which are actually lint checks
-          -x konsist-test:testDebugUnitTest
+        # Exclude Konsist unit tests which are actually lint checks
+        run: ./gradlew testDebugUnitTest -x konsist-test:testDebugUnitTest
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
