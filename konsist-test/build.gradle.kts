@@ -4,8 +4,8 @@ import uk.gov.onelogin.criorchestrator.extensions.setNamespace
 import uk.gov.pipelines.extensions.BaseExtensions.baseAndroidConfig
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     id("uk.gov.pipelines.jvm-toolchains")
     id("uk.gov.onelogin.criorchestrator.unit-test-config")
     id("uk.gov.onelogin.criorchestrator.code-quality-config")
