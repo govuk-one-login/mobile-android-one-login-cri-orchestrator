@@ -53,6 +53,7 @@ include(
     ":features:resume:public-api",
     ":libraries:di",
     ":libraries:screenshot-testing",
+    ":konsist-test",
     ":sdk:internal",
     ":sdk:public-api",
     ":sdk:shared-api",

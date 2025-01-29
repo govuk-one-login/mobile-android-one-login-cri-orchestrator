@@ -41,7 +41,9 @@ jobs:
           jdk-version: 21
 
       - name: Unit test
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew testDebugUnitTest \
+          # Exclude Konsist unit tests which are actually lint checks
+          -x konsist-test:testDebugUnitTest
 
       - name: Verify screenshots
         run: ./gradlew verifyPaparazziDebug
