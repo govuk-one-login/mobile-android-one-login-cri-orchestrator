@@ -24,6 +24,9 @@ jobs:
       # Set permissions for ${{ secrets.GITHUB_TOKEN }}
       # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
       packages: read
+    env:
+      GITHUB_ACTOR: ${{ github.actor }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Run checkout github action
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -43,9 +46,9 @@ jobs:
         run: |
           ./gradlew assembleDebugUnitTest
           ./gradlew testDebugUnitTest -x konsist-test:testDebugUnitTest
-        env:
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify screenshots
+        run: ./gradlew verifyPaparazziDebug
 
       # Sonar analyzers must have access to the bytecode to perform an accurate analysis.
       # https://community.sonarsource.com/t/sonarscanner-for-gradle-you-can-now-decide-when-to-compile/102069
