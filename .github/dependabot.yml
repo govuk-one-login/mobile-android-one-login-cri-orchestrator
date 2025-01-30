@@ -27,6 +27,10 @@ updates:
     commit-message:
       prefix: "build"
     groups:
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+          - "com.google.devtools.ksp"
       gradle:
         update-types:
           - "minor"
