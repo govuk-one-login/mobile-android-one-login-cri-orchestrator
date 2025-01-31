@@ -108,6 +108,10 @@ jobs:
         with:
           check: false
 
+      - name: Add avdmanager to path
+        run: echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
+        shell: bash
+
       - name: Instrumentation test
         run: ./gradlew allDevicesCheck
         env:
