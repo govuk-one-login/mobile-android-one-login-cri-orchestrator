@@ -113,7 +113,9 @@ jobs:
         shell: bash
 
       - name: Instrumentation test
-        run: ./gradlew allDevicesCheck
+        run: |
+          ./gradlew allDevicesCheck \
+            -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
