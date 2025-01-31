@@ -5,6 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import uk.gov.android.network.client.GenericHttpClient
 import uk.gov.android.ui.theme.m3.GdsTheme
+import uk.gov.logging.api.analytics.logging.AnalyticsLogger
+import uk.gov.logging.testdouble.analytics.FakeAnalyticsLogger
 import uk.gov.onelogin.criorchestrator.features.resume.publicapi.ProveYourIdentityCard
 import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 import uk.gov.onelogin.criorchestrator.testwrapper.network.createHttpClient
@@ -12,11 +14,13 @@ import uk.gov.onelogin.criorchestrator.testwrapper.network.createHttpClient
 @Composable
 fun MainContent(
     httpClient: GenericHttpClient,
+    analyticsLogger: AnalyticsLogger,
     modifier: Modifier = Modifier,
 ) {
     val criOrchestratorComponent =
         rememberCriOrchestrator(
             authenticatedHttpClient = httpClient,
+            analyticsLogger = analyticsLogger,
         )
     ProveYourIdentityCard(
         component = criOrchestratorComponent,
@@ -30,5 +34,7 @@ internal fun MainContentPreview() =
     GdsTheme {
         MainContent(
             httpClient = createHttpClient(),
+            analyticsLogger = FakeAnalyticsLogger(),
+            modifier = Modifier,
         )
     }
