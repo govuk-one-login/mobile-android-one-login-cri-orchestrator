@@ -44,6 +44,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@94baf225fe0a508e581a564467443d0e2379123b # v4.3.0
 
+      - name: Install cocogitto
+        uses: cocogitto/cocogitto-action@v3
+        with:
+          check: false
+
       - name: Unit test
         # Exclude Konsist unit tests which are actually lint checks
         # Build all unit tests so that jars are available for Sonar
