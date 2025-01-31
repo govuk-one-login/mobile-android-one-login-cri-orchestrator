@@ -147,9 +147,7 @@ jobs:
         if: runner.os == 'Linux'
 
       - name: Instrumentation test
-        run: |
-          ./gradlew allDevicesCheck \
-            -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+        run: ./gradlew allDevicesCheck
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
