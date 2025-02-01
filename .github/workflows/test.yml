@@ -122,8 +122,7 @@ jobs:
       - name: Instrumentation test
         run: |
           ./gradlew \
-            allDevicesBuildDebugAndroidTest \
-            allDevicesDebugAndroidTest
+            :test-wrapper:allDevicesBuildDebugAndroidTest
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
