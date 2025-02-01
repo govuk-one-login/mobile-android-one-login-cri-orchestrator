@@ -1,6 +1,7 @@
 package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.Assert.fail
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -8,5 +9,7 @@ import org.junit.runner.RunWith
 class EmptyInstrumentationTest {
     @Test
     fun emptyTest() {
+        // TODO: Fail if environment is CI
+        fail()
     }
 }
