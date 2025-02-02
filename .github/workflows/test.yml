@@ -90,6 +90,19 @@ jobs:
         with:
           jdk-version: 21
 
+      # TODO: Create an action in mobile-android-pipelines ?
+      - name: Get submodule commit hash
+        run: echo "PIPELINES_COMMIT=$(git rev-parse HEAD:mobile-android-pipelines)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Cache mobile-android-pipelines build
+        uses: actions/cache@v4
+        with:
+          key: mobile-android-pipelines-build-${{ env.PIPELINES_COMMIT }}
+          path: |
+            mobile-android-pipelines/buildLogic/**/build/**/*
+            mobile-android-pipelines/buildLogic/.gradle/**/*
+
       - name: Instrumentation test
         run: ./gradlew allDevicesCheck
         env:
