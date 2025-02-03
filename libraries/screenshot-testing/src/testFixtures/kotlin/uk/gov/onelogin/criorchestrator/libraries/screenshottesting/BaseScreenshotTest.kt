@@ -1,10 +1,6 @@
 package uk.gov.onelogin.criorchestrator.libraries.screenshottesting
 
 import android.content.res.Configuration
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.android.resources.NightMode
@@ -45,7 +41,7 @@ abstract class BaseScreenshotTest(
     fun screenshot() {
         val name = preview.screenshotId()
         paparazzi.snapshot(name = name) {
-            WithFakeViewModelStoreOwner {
+            ProvidesContentWithFakeViewModelStoreOwner {
                 preview()
             }
         }
