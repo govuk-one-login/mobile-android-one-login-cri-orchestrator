@@ -14,21 +14,21 @@ class ProveYourIdentityRootTest {
 
     val fakeResourceProvider by lazy {
         AndroidResourceProvider(
-            ApplicationProvider.getApplicationContext()
+            ApplicationProvider.getApplicationContext(),
         )
     }
 
-
-    private val fakeViewModel = ProveYourIdentityViewModel(
-        analyticsLogger = FakeAnalyticsLogger(),
-        resourceProvider = fakeResourceProvider
-    )
+    private val fakeViewModel =
+        ProveYourIdentityViewModel(
+            analyticsLogger = FakeAnalyticsLogger(),
+            resourceProvider = fakeResourceProvider,
+        )
 
     @Test
     fun displaysIntendedUiElement() {
         composeTestRule.setContent {
             ProveYourIdentityRoot(
-                fakeViewModel
+                fakeViewModel,
             )
         }
         composeTestRule.waitForIdle()
