@@ -18,6 +18,8 @@ dependencies {
 
     api(libs.uk.gov.logging.api)
     api(libs.androidx.lifecycle.viewmodel.compose)
+
+    androidTestImplementation(libs.uk.gov.logging.testdouble)
 }
 
 mavenPublishingConfig {
