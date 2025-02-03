@@ -23,7 +23,7 @@ fun MainContent(httpClient: GenericHttpClient) {
 
 @Composable
 @PreviewLightDark
-fun MainContentPreview() =
+internal fun MainContentPreview() =
     GdsTheme {
         MainContent(
             httpClient = createHttpClient(),
