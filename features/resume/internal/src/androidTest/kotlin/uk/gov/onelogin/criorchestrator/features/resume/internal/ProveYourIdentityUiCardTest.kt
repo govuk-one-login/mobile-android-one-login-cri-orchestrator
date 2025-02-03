@@ -2,7 +2,6 @@ package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import android.content.Context
 import androidx.compose.ui.test.SemanticsMatcher
-import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.performClick
