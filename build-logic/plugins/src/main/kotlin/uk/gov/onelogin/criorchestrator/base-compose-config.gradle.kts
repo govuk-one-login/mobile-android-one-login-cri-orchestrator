@@ -7,6 +7,7 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.the
 import uk.gov.onelogin.criorchestrator.extensions.baseComposeDependencies
 import uk.gov.onelogin.criorchestrator.extensions.composeTestDependencies
+import uk.gov.onelogin.criorchestrator.extensions.lintChecks
 import kotlin.collections.forEach
 import kotlin.collections.listOf
 
@@ -29,4 +30,5 @@ configure<BaseExtension> {
 dependencies {
     baseComposeDependencies(libs)
     composeTestDependencies(libs)
+    lintChecks(libs.com.slack.lint.compose)
 }
