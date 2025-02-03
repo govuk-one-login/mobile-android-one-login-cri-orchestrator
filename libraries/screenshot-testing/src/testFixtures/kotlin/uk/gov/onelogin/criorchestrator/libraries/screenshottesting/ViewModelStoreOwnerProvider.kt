@@ -7,14 +7,13 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 
 @Composable
-internal fun ProvidesContentWithFakeViewModelStoreOwner(
-    content: @Composable () -> Unit
-) {
+internal fun ProvidesContentWithFakeViewModelStoreOwner(content: @Composable () -> Unit) {
     CompositionLocalProvider(LocalViewModelStoreOwner provides fakeViewModelStoreOwner) {
         content()
     }
 }
 
-private val fakeViewModelStoreOwner = object : ViewModelStoreOwner {
-    override val viewModelStore: ViewModelStore = ViewModelStore()
-}
+private val fakeViewModelStoreOwner =
+    object : ViewModelStoreOwner {
+        override val viewModelStore: ViewModelStore = ViewModelStore()
+    }

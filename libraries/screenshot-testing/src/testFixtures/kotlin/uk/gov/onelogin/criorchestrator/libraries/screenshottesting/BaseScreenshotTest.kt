@@ -46,6 +46,7 @@ abstract class BaseScreenshotTest(
             }
         }
     }
+
     private fun createPaparazziRule(preview: ComposablePreview<AndroidPreviewInfo>): Paparazzi {
         val nightMode =
             when (preview.previewInfo.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES) {
