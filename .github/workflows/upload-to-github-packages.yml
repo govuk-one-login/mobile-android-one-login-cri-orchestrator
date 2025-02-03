@@ -28,6 +28,9 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
       - name: Publish package
         uses: ./mobile-android-pipelines/actions/maven-publish
         with:

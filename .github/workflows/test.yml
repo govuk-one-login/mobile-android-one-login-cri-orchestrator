@@ -40,6 +40,9 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
       - name: Unit test
         # Exclude Konsist unit tests which are actually lint checks
         # Build all unit tests so that jars are available for Sonar
@@ -90,6 +93,9 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
       - name: Instrumentation test
         run: ./gradlew allDevicesCheck
         env:
@@ -123,6 +129,9 @@ jobs:
         uses: ./mobile-android-pipelines/actions/setup-runner
         with:
           jdk-version: 21
+
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
 
       - name: Download jars
         uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #v4.1.8

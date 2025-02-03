@@ -30,6 +30,9 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
       - name: Retrieve GitHub secrets
         id: retrieve-secrets
         uses: ./mobile-android-pipelines/actions/retrieve-secrets
