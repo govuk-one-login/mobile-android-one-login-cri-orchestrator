@@ -30,6 +30,9 @@ jobs:
         with:
           jdk-version: 21
 
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
       - name: Lint
         uses: govuk-one-login/mobile-android-pipelines/actions/lint@be6882791c9d7f538c9d32d9db281dd5299da653
         env:
