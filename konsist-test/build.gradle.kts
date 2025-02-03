@@ -25,6 +25,5 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    testImplementation(libs.androidx.appcompat)
     testFixturesApi(libs.com.lemonappdev.konsist)
 }
