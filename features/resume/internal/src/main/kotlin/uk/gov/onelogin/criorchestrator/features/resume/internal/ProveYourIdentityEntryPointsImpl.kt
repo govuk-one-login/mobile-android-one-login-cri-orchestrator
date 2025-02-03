@@ -16,7 +16,7 @@ class ProveYourIdentityEntryPointsImpl
         @Composable
         override fun ProveYourIdentityCard(modifier: Modifier) {
             ProveYourIdentityUiCard(
-                modifier = Modifier,
+                modifier = modifier,
             )
         }
     }

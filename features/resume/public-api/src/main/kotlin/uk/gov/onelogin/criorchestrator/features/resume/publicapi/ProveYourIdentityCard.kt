@@ -8,7 +8,7 @@ import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
 @Composable
 fun ProveYourIdentityCard(
     component: CriOrchestratorComponent,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     (component as ProveYourIdentityEntryPointsComponent).proveYourIdentityEntryPoints().ProveYourIdentityCard(
         modifier = modifier,

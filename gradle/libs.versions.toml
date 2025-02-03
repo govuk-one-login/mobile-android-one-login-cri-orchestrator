@@ -11,6 +11,7 @@ appcompat = "1.7.0"
 bouncycastle-jdk18on = "1.80"
 composeBom = "2025.01.01"
 composable-preview-scanner = "0.5.0"
+compose-lint-checks = "1.4.2"
 dagger = "2.55"
 espressoCore = "3.6.1"
 firebase-bom = "33.8.0" # https://firebase.google.com/support/release-notes/android
@@ -58,6 +59,7 @@ app-cash-molecule-runtime = { module = "app.cash.molecule:molecule-runtime", ver
 app-cash-turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 app-cash-paparazzi = { module = "app.cash.paparazzi:paparazzi", version.ref = "paparazzi" }
 com-lemonappdev-konsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
+com-slack-lint-compose = { module = "com.slack.lint.compose:compose-lint-checks", version.ref = "compose-lint-checks" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 composable-preview-scanner = { module = "io.github.sergio-sastre.ComposablePreviewScanner:android", version.ref = "composable-preview-scanner" }

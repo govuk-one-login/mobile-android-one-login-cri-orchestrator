@@ -31,6 +31,10 @@ internal fun DependencyHandlerScope.ksp(
     dependency: Any,
 ) = dependencies.add("ksp", dependency)
 
+internal fun DependencyHandlerScope.lintChecks(
+    dependency: Any
+) = dependencies.add("lintChecks", dependency)
+
 internal fun DependencyHandlerScope.diDependencies(libs: LibrariesForLibs) {
     listOf(
         libs.dagger

@@ -10,14 +10,17 @@ import uk.gov.onelogin.criorchestrator.sdk.publicapi.rememberCriOrchestrator
 import uk.gov.onelogin.criorchestrator.testwrapper.network.createHttpClient
 
 @Composable
-fun MainContent(httpClient: GenericHttpClient) {
+fun MainContent(
+    httpClient: GenericHttpClient,
+    modifier: Modifier = Modifier,
+) {
     val criOrchestratorComponent =
         rememberCriOrchestrator(
             authenticatedHttpClient = httpClient,
         )
     ProveYourIdentityCard(
         component = criOrchestratorComponent,
-        modifier = Modifier,
+        modifier = modifier,
     )
 }
 
