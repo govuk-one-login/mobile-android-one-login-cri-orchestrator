@@ -35,10 +35,8 @@ jobs:
           submodules: 'true'
           fetch-depth: 0
 
-      - name: Set up git runner
-        uses: ./mobile-android-pipelines/actions/setup-runner
-        with:
-          jdk-version: 21
+      - name: Set up GitHub runner
+        uses: ./actions/setup-runner
 
       - name: Cache mobile-android-pipelines build
         uses: ./actions/cache-pipelines-build
@@ -88,10 +86,8 @@ jobs:
           submodules: 'true'
           fetch-depth: 0
 
-      - name: Set up git runner
-        uses: ./mobile-android-pipelines/actions/setup-runner
-        with:
-          jdk-version: 21
+      - name: Set up GitHub runner
+        uses: ./actions/setup-runner
 
       - name: Cache mobile-android-pipelines build
         uses: ./actions/cache-pipelines-build
@@ -126,10 +122,8 @@ jobs:
           submodules: 'true'
           fetch-depth: 0
 
-      - name: Setup runner
-        uses: ./mobile-android-pipelines/actions/setup-runner
-        with:
-          jdk-version: 21
+      - name: Set up GitHub runner
+        uses: ./actions/setup-runner
 
       - name: Cache mobile-android-pipelines build
         uses: ./actions/cache-pipelines-build
