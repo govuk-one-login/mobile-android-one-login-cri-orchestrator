@@ -97,7 +97,9 @@ jobs:
         uses: ./actions/cache-pipelines-build
 
       - name: Instrumentation test
-        run: ./gradlew :test-wrapper:allDevicesBuildDebugAndroidTest
+        # There are currently no device tests in the project.
+        # Keep this step so that it is simple to add device tests when needed.
+        run: ./gradlew assembleAndroidTest
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
