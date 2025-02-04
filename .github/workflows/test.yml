@@ -97,7 +97,7 @@ jobs:
         uses: ./actions/cache-pipelines-build
 
       - name: Instrumentation test
-        run: ./gradlew allDevicesCheck
+        run: ./gradlew :test-wrapper:allDevicesBuildDebugAndroidTest
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
