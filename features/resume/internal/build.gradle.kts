@@ -10,7 +10,6 @@ plugins {
 dependencies {
     listOf(
         libs.uk.gov.logging.testdouble,
-        project(":libraries:android-utils"),
         project(":libraries:di"),
         project(":features:resume:internal-api"),
         project(":features:resume:public-api"),
@@ -19,10 +18,13 @@ dependencies {
         implementation(it)
     }
 
-    api(libs.uk.gov.logging.api)
-    api(libs.androidx.lifecycle.viewmodel.compose)
-
-    androidTestImplementation(libs.uk.gov.logging.testdouble)
+    listOf(
+        libs.androidx.lifecycle.viewmodel.compose,
+        libs.uk.gov.logging.api,
+        project(":libraries:android-utils"),
+    ).forEach {
+        api(it)
+    }
 }
 
 mavenPublishingConfig {
