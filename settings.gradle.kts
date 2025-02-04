@@ -51,6 +51,7 @@ include(
     ":features:resume:internal",
     ":features:resume:internal-api",
     ":features:resume:public-api",
+    ":libraries:android-utils",
     ":libraries:di",
     ":libraries:screenshot-testing",
     ":konsist-test",
