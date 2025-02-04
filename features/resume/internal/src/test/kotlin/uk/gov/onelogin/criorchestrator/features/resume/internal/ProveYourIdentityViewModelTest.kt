@@ -23,7 +23,7 @@ class ProveYourIdentityViewModelTest {
     }
 
     @Test
-    fun sendsAnalytics() {
+    fun `when start button is clicked, it sends analytics`() {
         viewModel.start()
 
         val expectedEvent: AnalyticsEvent =
