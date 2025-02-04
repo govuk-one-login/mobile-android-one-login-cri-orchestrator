@@ -68,6 +68,7 @@ internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) {
         libs.kotlinx.coroutines.test,
         libs.org.junit.jupiter.api,
         libs.org.junit.jupiter.engine,
+        libs.org.mockito.kotlin,
         platform(libs.org.junit.bom),
     ).forEach {
         testImplementation(it)
@@ -95,16 +96,13 @@ internal fun DependencyHandlerScope.androidTestDependencies(libs: LibrariesForLi
     androidTestUtil(libs.androidx.test.orchestrator)
 }
 
-internal fun DependencyHandlerScope.androidUiTestDependencies(libs: LibrariesForLibs) {
+internal fun DependencyHandlerScope.uiTestDependencies(libs: LibrariesForLibs) =
     listOf(
+        libs.androidx.test.core.ktx,
         libs.androidx.espresso.core,
         libs.androidx.ui.test.junit4,
         platform(libs.androidx.compose.bom),
-    ).forEach {
-        androidTestImplementation(it)
-    }
-    debugImplementation(libs.androidx.ui.test.manifest)
-}
+    )
 
 internal fun DependencyHandlerScope.ideSupportDependencies(libs: LibrariesForLibs) {
     debugImplementation(libs.androidx.ui.tooling)

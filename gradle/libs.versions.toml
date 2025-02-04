@@ -25,10 +25,12 @@ kotlinx-coroutines = "1.10.1"
 ksp = "2.1.10-1.0.29"
 lifecycleRuntimeKtx = "2.8.7"
 material = "1.12.0"
+mockito = "5.4.0"
 molecule = "2.0.0"
 paparazzi = "1.3.5"
 testparameterinjector = "1.18"
 turbine = "1.2.0"
+robolectric = "4.13"
 uk-gov-logging = "0.5.0" # https://github.com/orgs/govuk-one-login/packages?repo_name=mobile-android-logging
 uk-gov-networking = "0.3.4"
 uk-gov-ui = "7.0.0"
@@ -51,7 +53,6 @@ androidx-test-orchestrator = { group = "androidx.test", name = "orchestrator", v
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 anvil-gradle-plugin = { module = "dev.zacsweers.anvil:gradle-plugin", version.ref = "anvil" }
@@ -78,6 +79,8 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 org-junit-vintage = { group = "org.junit.vintage", name = "junit-vintage-engine" }
 org-junit-junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 org-junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+org-mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito" }
+org-robolectric-robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 uk-gov-logging-api = { group = "uk.gov.logging", name = "logging-api", version.ref = "uk-gov-logging" }
 uk-gov-logging-impl = { group = "uk.gov.logging", name = "logging-impl", version.ref = "uk-gov-logging" }
 uk-gov-pipelines-plugins = { module = "uk.gov.pipelines:plugins" }

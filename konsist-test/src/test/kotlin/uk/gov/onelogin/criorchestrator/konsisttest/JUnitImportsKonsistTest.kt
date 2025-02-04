@@ -8,6 +8,7 @@ import uk.gov.onelogin.criorchestrator.konsisttest.filters.doesNotImportJUnit5
 import uk.gov.onelogin.criorchestrator.konsisttest.filters.withAndroidTestSourceSet
 import uk.gov.onelogin.criorchestrator.konsisttest.filters.withScreenshotTestClass
 import uk.gov.onelogin.criorchestrator.konsisttest.filters.withTestSourceSet
+import uk.gov.onelogin.criorchestrator.konsisttest.filters.withUiTestClass
 import uk.gov.onelogin.criorchestrator.konsisttest.filters.withUnitTestClass
 import uk.gov.onelogin.criorchestrator.konsisttest.scopes.defaultScope
 
@@ -21,6 +22,18 @@ class JUnitImportsKonsistTest {
             .withUnitTestClass()
             .assertTrue {
                 it.doesNotImportJUnit4()
+            }
+    }
+
+    @Test
+    fun `local ui tests do not use JUnit 5`() {
+        Konsist
+            .defaultScope()
+            .files
+            .withTestSourceSet()
+            .withUiTestClass()
+            .assertTrue {
+                it.doesNotImportJUnit5()
             }
     }
 
