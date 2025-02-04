@@ -9,6 +9,7 @@ plugins {
 
 dependencies {
     listOf(
+        project(":libraries:android-utils"),
         project(":libraries:di"),
         project(":features:resume:internal-api"),
         project(":features:resume:public-api"),
@@ -20,6 +21,8 @@ dependencies {
     api(libs.androidx.lifecycle.viewmodel.compose)
 
     androidTestImplementation(libs.uk.gov.logging.testdouble)
+
+    testImplementation(testFixtures(project(":libraries:android-utils")))
 }
 
 mavenPublishingConfig {

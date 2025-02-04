@@ -10,10 +10,7 @@ import uk.gov.logging.api.v3dot1.logger.logEventV3Dot1
 import uk.gov.logging.api.v3dot1.model.AnalyticsEvent
 import uk.gov.logging.api.v3dot1.model.RequiredParameters
 import uk.gov.logging.api.v3dot1.model.TrackEvent
-
-class FakeResourceProvider : ResourceProvider {
-    override fun getEnglishString(resId: Int): String = "dummy string"
-}
+import uk.gov.onelogin.criorchestrator.libraries.androidutils.FakeResourceProvider
 
 class ProveYourIdentityViewModelTest {
     private val analyticsLogger = mock<AnalyticsLogger>()
