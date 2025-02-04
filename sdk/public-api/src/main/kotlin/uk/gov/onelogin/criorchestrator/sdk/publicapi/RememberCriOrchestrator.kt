@@ -12,6 +12,7 @@ import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
  * Creates and remembers the shared state for the Credential Issuer (CRI) Orchestrator SDK.
  *
  * @param authenticatedHttpClient The HTTP client to make all network calls.
+ * @param analyticsLogger The analytics logger that will log and send analytics events to Firebase.
  * @return An instance of [CriOrchestratorComponent]
  */
 @Composable
