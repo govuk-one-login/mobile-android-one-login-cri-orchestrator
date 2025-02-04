@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.testwrapper
+package uk.gov.onelogin.criorchestrator.sdk.sharedapi
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.fail
