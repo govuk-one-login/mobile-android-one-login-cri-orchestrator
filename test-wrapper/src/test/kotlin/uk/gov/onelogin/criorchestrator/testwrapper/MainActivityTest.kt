@@ -7,14 +7,23 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito.mock
+import uk.gov.logging.api.analytics.logging.AnalyticsLogger
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactory
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
     @get:Rule
     val composeTestRule = createComposeRule()
+
+    @Before
+    fun setUp() {
+        AnalyticsLoggerFactory.testLogger = mock<AnalyticsLogger>()
+    }
 
     @Test
     fun itLaunches() {
