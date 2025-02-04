@@ -25,5 +25,6 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    testFixturesApi(libs.com.lemonappdev.konsist)
+    testImplementation(libs.com.lemonappdev.konsist)
+    testFixturesCompileOnly(libs.com.lemonappdev.konsist)
 }
