@@ -1,5 +1,7 @@
 # mobile-android-cri-orchestrator
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mobile-android-cri-orchestrator&metric=coverage)](https://sonarcloud.io/summary/new_code?id=mobile-android-cri-orchestrator)
+
 ## About
 
 The Credential Issuer (CRI) Orchestrator coordinates identity proofing capability for the [GOV.UK One Login app](https://github.com/govuk-one-login/mobile-android-one-login-app).
