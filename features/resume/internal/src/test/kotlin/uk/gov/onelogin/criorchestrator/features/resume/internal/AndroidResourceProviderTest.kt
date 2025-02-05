@@ -10,14 +10,15 @@ import uk.gov.onelogin.criorchestrator.features.resume.internal.test.R as testR
 
 @RunWith(AndroidJUnit4::class)
 class AndroidResourceProviderTest {
-    val context: Context = ApplicationProvider.getApplicationContext()
-    val testAndroidResourceProvider = AndroidResourceProvider(context)
+    private val context: Context = ApplicationProvider.getApplicationContext()
+    private val testAndroidResourceProvider = AndroidResourceProvider(context)
 
     @Test
     fun test() {
-        val expectedString = "test string"
         // Even though it looks like it can't resolve the string, when the test runs it resolves.
         val testString = testAndroidResourceProvider.getEnglishString(testR.string.test_string)
+        val expectedString = "test string"
+
         assertEquals(expectedString, testString)
     }
 }
