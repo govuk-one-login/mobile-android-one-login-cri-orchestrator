@@ -2,6 +2,7 @@ package uk.gov.onelogin.criorchestrator.features.resume.internal
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.squareup.anvil.annotations.ContributesBinding
@@ -23,7 +24,11 @@ class ProveYourIdentityEntryPointsImpl
         override fun ProveYourIdentityCard(modifier: Modifier) {
             ProveYourIdentityRoot(
                 viewModel = viewModel(factory = viewModelProviderFactory),
-                modifier = modifier,
+                modifier = modifier.testTag(TEST_TAG),
             )
+        }
+
+        companion object {
+            internal val TEST_TAG = this.javaClass.simpleName
         }
     }
