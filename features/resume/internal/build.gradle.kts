@@ -9,13 +9,19 @@ plugins {
 
 dependencies {
     listOf(
-        libs.uk.gov.logging.testdouble,
+        project(":libraries:android-utils"),
         project(":libraries:di"),
         project(":features:resume:internal-api"),
         project(":features:resume:public-api"),
-        testFixtures(project(":libraries:android-utils")),
     ).forEach {
         implementation(it)
+    }
+
+    listOf(
+        libs.uk.gov.logging.testdouble,
+        testFixtures(project(":libraries:android-utils")),
+    ).forEach {
+        debugImplementation(it)
     }
 
     listOf(

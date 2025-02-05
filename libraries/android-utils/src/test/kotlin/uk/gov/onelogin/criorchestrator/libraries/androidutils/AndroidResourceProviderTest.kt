@@ -1,20 +1,19 @@
-package uk.gov.onelogin.criorchestrator.features.resume.internal
+package uk.gov.onelogin.criorchestrator.libraries.androidutils
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
-import org.junit.Test
 import org.junit.runner.RunWith
-import uk.gov.onelogin.criorchestrator.features.resume.internal.test.R as testR
+import uk.gov.onelogin.criorchestrator.libraries.androidutils.test.R as testR
 
 @RunWith(AndroidJUnit4::class)
 class AndroidResourceProviderTest {
     private val context: Context = ApplicationProvider.getApplicationContext()
     private val testAndroidResourceProvider = AndroidResourceProvider(context)
 
-    @Test
-    fun test() {
+    @org.junit.Test
+    fun `resource provider provides desired string`() {
         // Even though it looks like it can't resolve the string, when the test runs it resolves.
         val testString = testAndroidResourceProvider.getEnglishString(testR.string.test_string)
         val expectedString = "test string"

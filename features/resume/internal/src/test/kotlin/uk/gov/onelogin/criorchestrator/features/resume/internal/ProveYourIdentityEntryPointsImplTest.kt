@@ -32,13 +32,13 @@ class ProveYourIdentityEntryPointsImplTest {
             }
         }
 
-    val sut = ProveYourIdentityEntryPointsImpl(fakeViewModelProviderFactory)
+    val entryPoints = ProveYourIdentityEntryPointsImpl(fakeViewModelProviderFactory)
 
     @Test
     fun `ProveYourIdentityUiCard implementation displayed`() {
         composeTestRule.setContent {
             GdsTheme {
-                sut.ProveYourIdentityCard(
+                entryPoints.ProveYourIdentityCard(
                     modifier = Modifier,
                 )
             }

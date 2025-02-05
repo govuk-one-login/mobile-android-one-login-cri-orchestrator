@@ -69,7 +69,6 @@ internal fun DependencyHandlerScope.testDependencies(libs: LibrariesForLibs) {
         libs.kotlinx.coroutines.test,
         libs.org.junit.jupiter.api,
         libs.org.junit.jupiter.engine,
-        libs.uk.gov.logging.testdouble,
         libs.org.mockito.kotlin,
         platform(libs.org.junit.bom),
     ).forEach {

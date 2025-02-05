@@ -26,7 +26,7 @@ class ProveYourIdentityUiCardTest {
     }
 
     @Test
-    fun onClick() {
+    fun `when start button is clicked, it calls onStartClick`() {
         var didClick = false
 
         composeTestRule.setContent {

@@ -9,7 +9,8 @@ import uk.gov.onelogin.criorchestrator.sdk.sharedapi.CriOrchestratorComponent
  * Creates instance of [BaseCriOrchestratorComponent].
  *
  * @param authenticatedHttpClient The HTTP client to make all network calls.
- * todo: update to add extra parameter
+ * @param analyticsLogger The analytics logger that will receive events from the SDK.
+ * @param context Application context
  * @return An instance of [CriOrchestratorComponent]
  */
 fun createCriOrchestratorComponent(

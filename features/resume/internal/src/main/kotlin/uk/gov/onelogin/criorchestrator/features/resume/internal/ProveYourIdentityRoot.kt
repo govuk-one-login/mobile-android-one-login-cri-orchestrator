@@ -6,6 +6,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import uk.gov.android.ui.theme.m3.GdsTheme
 import uk.gov.logging.testdouble.analytics.FakeAnalyticsLogger
+import uk.gov.onelogin.criorchestrator.libraries.androidutils.AndroidResourceProvider
 
 @Composable
 internal fun ProveYourIdentityRoot(
