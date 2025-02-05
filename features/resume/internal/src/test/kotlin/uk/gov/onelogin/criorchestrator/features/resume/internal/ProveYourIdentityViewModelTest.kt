@@ -32,7 +32,7 @@ class ProveYourIdentityViewModelTest {
                 params =
                     RequiredParameters(
                         taxonomyLevel2 = TaxonomyLevel2.DOCUMENT_CHECKING_APP,
-                        taxonomyLevel3 = TaxonomyLevel3.PASSPORT_CRI,
+                        taxonomyLevel3 = TaxonomyLevel3.RESUME,
                     ),
             )
         verify(analyticsLogger).logEventV3Dot1(expectedEvent)
