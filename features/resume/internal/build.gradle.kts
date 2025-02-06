@@ -9,11 +9,26 @@ plugins {
 
 dependencies {
     listOf(
+        project(":libraries:android-utils"),
         project(":libraries:di"),
         project(":features:resume:internal-api"),
         project(":features:resume:public-api"),
     ).forEach {
         implementation(it)
+    }
+
+    listOf(
+        libs.uk.gov.logging.testdouble,
+        testFixtures(project(":libraries:android-utils")),
+    ).forEach {
+        debugImplementation(it)
+    }
+
+    listOf(
+        libs.androidx.lifecycle.viewmodel.compose,
+        libs.uk.gov.logging.api,
+    ).forEach {
+        api(it)
     }
 }
 

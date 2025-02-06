@@ -41,7 +41,9 @@ abstract class BaseScreenshotTest(
     fun screenshot() {
         val name = preview.screenshotId()
         paparazzi.snapshot(name = name) {
-            preview()
+            ProvidesContentWithFakeViewModelStoreOwner {
+                preview()
+            }
         }
     }
 

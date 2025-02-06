@@ -13,6 +13,7 @@ dependencies {
 
     testFixturesImplementation(platform(libs.androidx.compose.bom))
     testFixturesImplementation(libs.androidx.compose.runtime)
+    testFixturesImplementation(libs.androidx.lifecycle.viewmodel.compose)
 
     testFixturesCompileOnly(libs.app.cash.paparazzi)
 }
