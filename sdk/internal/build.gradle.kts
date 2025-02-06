@@ -22,6 +22,7 @@ dependencies {
         project(":features:resume:internal"),
         project(":features:resume:internal-api"),
         project(":features:resume:public-api"),
+        project(":libraries:android-utils"),
     ).forEach {
         implementation(it)
     }

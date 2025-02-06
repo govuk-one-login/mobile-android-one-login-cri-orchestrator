@@ -27,7 +27,6 @@ dependencies {
     listOf(
         libs.androidx.lifecycle.viewmodel.compose,
         libs.uk.gov.logging.api,
-        project(":libraries:android-utils"),
     ).forEach {
         api(it)
     }
