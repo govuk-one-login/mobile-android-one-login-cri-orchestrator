@@ -9,11 +9,11 @@ A Key Design Decision (KDD) is a design choice that's architecturally significan
 
 We can store KDDs within the `/docs` folder of this repository. These log the local architectural choices we've made, why we've made them, and the consequences.
 
-This doesn't duplicate [govuk-one-login/architecture] or [Technical Design Forum], which have a different intended audience and permissions model.
+This doesn't duplicate [govuk-one-login/architecture] or [Technical Design Forum] (TDF), which have a different intended audience and permissions model.
 
 Strategic decisions, with cross programme consequence, continue to live in [govuk-one-login/architecture] where architecture leads review them.
 
-Decisions with cross-pod impact continue to evolve through [Technical Design Forum] (TDF) where Mobile Pod leads review them.
+Decisions with cross-pod impact continue to evolve through [Technical Design Forum] where Mobile Pod leads review them.
 
 Tactical decisions within the team, describing how we structure this project, live in this repository. The team reviews and updates them.
 
