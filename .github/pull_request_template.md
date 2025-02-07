@@ -16,18 +16,5 @@
 
 ## Checklist
 
-### Before publishing a pull request
-
-- [ ] Ran the app locally ensuring it builds.
-- [ ] Tests pass locally.
-- [ ] Created a `draft` pull request if it's not ready for review.
-
-### Before the CODEOWNERS review the pull request
-
-- [ ] Complete any relevant acceptance criteria
-- [ ] Self-review code.
-- [ ] Successfully run changes on a testing device.
-- [ ] Complete automated Testing:
-    * [ ] Unit Tests.
-    * [ ] Integration Tests.
-    * [ ] Instrumentation / Emulator Tests.
+- [ ] Self-review code
+- [ ] Complete automated testing
