@@ -16,5 +16,6 @@
 
 ## Checklist
 
+- [ ] Check against acceptance criteria
+- [ ] Add automated tests
 - [ ] Self-review code
-- [ ] Complete automated testing
