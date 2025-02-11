@@ -5,6 +5,11 @@ on:
     workflows: [Bump version]
     branches: [main]
     types: [completed]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
   workflow_dispatch:
 
 jobs:
@@ -12,6 +17,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       JDK_VERSION: 21
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_ACTOR: ${{ github.actor }}
     permissions:
       packages: write
     runs-on: ubuntu-latest
@@ -31,11 +38,24 @@ jobs:
       - name: Cache mobile-android-pipelines build
         uses: ./actions/cache-pipelines-build
 
-      - name: Publish package
+      - name: Publish to Github Packages
+        if: ${{ github.event_name != 'pull_request' }}
         uses: ./mobile-android-pipelines/actions/maven-publish
+
+      - name: Test publishing to Maven local
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: ./mobile-android-pipelines/actions/maven-publish-local
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.actor }}
+          expected-packages: '
+            uk.gov.onelogin.criorchestrator.features:resume-internal,
+            uk.gov.onelogin.criorchestrator.features:resume-internal-api,
+            uk.gov.onelogin.criorchestrator.features:resume-public-api,
+            uk.gov.onelogin.criorchestrator.libraries:android-utils,
+            uk.gov.onelogin.criorchestrator.libraries:di,
+            uk.gov.onelogin.criorchestrator.libraries:screenshot-testing,
+            uk.gov.onelogin.criorchestrator.sdk:sdk,
+            uk.gov.onelogin.criorchestrator.sdk:sdk-internal,
+            uk.gov.onelogin.criorchestrator.sdk:sdk-shared-api'
 
       - name: Clean workspace
         uses: ./mobile-android-pipelines/actions/clean-workspace
