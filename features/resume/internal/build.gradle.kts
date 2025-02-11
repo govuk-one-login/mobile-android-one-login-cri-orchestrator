@@ -12,6 +12,7 @@ dependencies {
     api(libs.uk.gov.logging.api)
 
     debugImplementation(libs.uk.gov.logging.testdouble)
+    releaseCompileOnly(libs.uk.gov.logging.testdouble)
     debugImplementation(testFixtures(project(":libraries:android-utils")))
 
     implementation(project(":features:resume:internal-api"))
