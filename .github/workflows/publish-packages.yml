@@ -15,7 +15,6 @@ on:
 jobs:
   publish-packages:
     name: ${{ github.event_name == 'pull_request' && 'Test publishing packages' || 'Publish packages' }}
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       JDK_VERSION: 21
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
