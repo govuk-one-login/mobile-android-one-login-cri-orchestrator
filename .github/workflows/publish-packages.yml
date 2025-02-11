@@ -1,0 +1,61 @@
+name: Publish packages
+
+on:
+  workflow_run:
+    workflows: [Bump version]
+    branches: [main]
+    types: [completed]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+jobs:
+  publish-packages:
+    name: ${{ github.event_name == 'pull_request' && 'Test publishing packages' || 'Publish packages' }}
+    env:
+      JDK_VERSION: 21
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_ACTOR: ${{ github.actor }}
+    permissions:
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkout github action
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          lfs: 'true'
+          submodules: 'true'
+          fetch-depth: 0
+
+      - name: Setup GitHub Runner workflow
+        uses: ./mobile-android-pipelines/actions/setup-runner
+        with:
+          jdk-version: 21
+
+      - name: Cache mobile-android-pipelines build
+        uses: ./actions/cache-pipelines-build
+
+      - name: Publish to Github Packages
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: ./mobile-android-pipelines/actions/maven-publish
+
+      - name: Test publishing to Maven local
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: ./mobile-android-pipelines/actions/maven-publish-local
+        with:
+          expected-packages: '
+            uk.gov.onelogin.criorchestrator.features:resume-internal,
+            uk.gov.onelogin.criorchestrator.features:resume-internal-api,
+            uk.gov.onelogin.criorchestrator.features:resume-public-api,
+            uk.gov.onelogin.criorchestrator.libraries:android-utils,
+            uk.gov.onelogin.criorchestrator.libraries:di,
+            uk.gov.onelogin.criorchestrator.libraries:screenshot-testing,
+            uk.gov.onelogin.criorchestrator.sdk:sdk,
+            uk.gov.onelogin.criorchestrator.sdk:sdk-internal,
+            uk.gov.onelogin.criorchestrator.sdk:sdk-shared-api'
+
+      - name: Clean workspace
+        uses: ./mobile-android-pipelines/actions/clean-workspace
