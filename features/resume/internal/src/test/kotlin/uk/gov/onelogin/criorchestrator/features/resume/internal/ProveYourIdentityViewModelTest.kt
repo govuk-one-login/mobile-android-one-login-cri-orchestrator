@@ -1,5 +1,8 @@
 package uk.gov.onelogin.criorchestrator.features.resume.internal
 
+import app.cash.turbine.test
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
@@ -21,6 +24,21 @@ class ProveYourIdentityViewModelTest {
             resourceProvider = FakeResourceProvider(),
         )
     }
+
+    private companion object {
+        val INITIAL_STATE =
+            ProveYourIdentityRootUiState(
+                shouldDisplay = true,
+            )
+    }
+
+    @Test
+    fun `initial state`() =
+        runTest {
+            viewModel.state.test {
+                assertEquals(INITIAL_STATE, awaitItem())
+            }
+        }
 
     @Test
     fun `when start button is clicked, it sends analytics`() {
