@@ -30,9 +30,15 @@ fun <T : KoClassAndObjectProvider> List<T>.withScreenshotTestClass() =
         }
     }
 
-fun <T : KoImportProvider> List<T>.withMoleculePaparazziCompatTests() = filter { it.hasMoleculePaparazziCompatRuleImport() }
+fun <T : KoImportProvider> List<T>.withMoleculePaparazziCompatTests() =
+    filter {
+        it.hasMoleculePaparazziCompatRuleImport()
+    }
 
-fun <T : KoImportProvider> List<T>.withoutMoleculePaparazziCompatTests() = filter { !it.hasMoleculePaparazziCompatRuleImport() }
+fun <T : KoImportProvider> List<T>.withoutMoleculePaparazziCompatTests() =
+    filter {
+        !it.hasMoleculePaparazziCompatRuleImport()
+    }
 
 fun KoImportProvider.hasMoleculePaparazziCompatRuleImport() =
     hasImport { import ->
