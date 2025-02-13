@@ -9,8 +9,11 @@ import org.junit.rules.TestRule
  *
  * Use this test rule in tests using Molecule that live alongside Paparazzi screenshot tests.
  *
- * At the point at that this rule can be removed or Paparazzi supports JUnit 5, Molecule tests
- * can be converted back to JUnit 5.
+ * This is implemented as a JUnit 4 rule because it relies on Paparazzi which only supports
+ * JUnit 4. The consequence is that Molecule tests needing to apply the rule also need to use
+ * JUnit 4.
+ *
+ * When this rule is no longer needed, upgrade Molecule tests to JUnit 5.
  *
  * ## Related issues
  *
