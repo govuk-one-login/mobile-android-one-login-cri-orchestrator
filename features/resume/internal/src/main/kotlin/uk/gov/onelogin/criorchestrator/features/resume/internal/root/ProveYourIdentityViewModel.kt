@@ -56,7 +56,6 @@ internal class ProveYourIdentityViewModel(
             var hasActiveSession = getActiveSessionUseCase.execute()
             logger.debug(tag, "Has active session: $hasActiveSession")
             _state.value = _state.value.copy(shouldDisplay = hasActiveSession)
-
         }
     }
 }
