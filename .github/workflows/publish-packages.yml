@@ -38,6 +38,7 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
         with:
           name: bump-version-outputs
+          path: ${{ env.WORKFLOW_OUT_DIR }}
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
