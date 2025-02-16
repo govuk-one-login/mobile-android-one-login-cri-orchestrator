@@ -2,14 +2,9 @@ package uk.gov.onelogin.criorchestrator.features.session.internal
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import uk.gov.logging.testdouble.SystemLogger
 
 class InMemorySessionStoreTest {
-    private val fakeSystemLogger = SystemLogger()
-    private val fakeSessionStore =
-        InMemorySessionStore(
-            fakeSystemLogger,
-        )
+    private val fakeSessionStore = fakeSessionStore()
 
     @Test
     fun `session store reads default value of false`() {

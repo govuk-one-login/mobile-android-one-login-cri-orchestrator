@@ -23,6 +23,9 @@ dependencies {
 
     testImplementation(libs.uk.gov.logging.testdouble)
     testImplementation(testFixtures(project(":libraries:android-utils")))
+    testFixturesImplementation(libs.uk.gov.logging.testdouble)
+    testFixturesImplementation(libs.uk.gov.networking)
+    testFixturesImplementation(project(":features:session:internal-api"))
 }
 
 mavenPublishingConfig {
