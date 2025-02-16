@@ -21,6 +21,8 @@ dependencies {
     debugImplementation(libs.uk.gov.logging.testdouble)
     releaseCompileOnly(libs.uk.gov.logging.testdouble)
     debugImplementation(testFixtures(project(":libraries:android-utils")))
+
+    testImplementation(testFixtures(project(":features:session:internal")))
 }
 
 mavenPublishingConfig {

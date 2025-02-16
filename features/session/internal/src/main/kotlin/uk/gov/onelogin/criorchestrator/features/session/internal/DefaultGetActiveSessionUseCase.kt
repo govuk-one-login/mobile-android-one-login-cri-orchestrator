@@ -10,22 +10,22 @@ import javax.inject.Inject
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
 class DefaultGetActiveSessionUseCase
-@Inject
-constructor(
-    private val sessionApi: SessionApi,
-    private val sessionStore: SessionStore,
-) : GetActiveSessionUseCase {
-    override suspend fun execute(): Boolean {
-        val isActiveSession: Boolean =
-            when (sessionApi.getActiveSession()) {
-                is ApiResponse.Success<*> -> true
+    @Inject
+    constructor(
+        private val sessionApi: SessionApi,
+        private val sessionStore: SessionStore,
+    ) : GetActiveSessionUseCase {
+        override suspend fun execute(): Boolean {
+            val isActiveSession: Boolean =
+                when (sessionApi.getActiveSession()) {
+                    is ApiResponse.Success<*> -> true
 
-                is ApiResponse.Failure -> false
-                ApiResponse.Loading -> false
-                ApiResponse.Offline -> false
-                else -> false
-            }
-        sessionStore.write(isActiveSession)
-        return sessionStore.read().value
+                    is ApiResponse.Failure -> false
+                    ApiResponse.Loading -> false
+                    ApiResponse.Offline -> false
+                    else -> false
+                }
+            sessionStore.write(isActiveSession)
+            return sessionStore.read().value
+        }
     }
-}

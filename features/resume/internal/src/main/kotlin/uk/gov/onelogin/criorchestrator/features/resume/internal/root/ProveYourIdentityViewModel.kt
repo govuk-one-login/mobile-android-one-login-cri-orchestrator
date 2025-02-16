@@ -17,7 +17,6 @@ import uk.gov.logging.api.v3dot1.model.TrackEvent
 import uk.gov.onelogin.criorchestrator.features.resume.internal.R
 import uk.gov.onelogin.criorchestrator.features.session.internalapi.GetActiveSessionUseCase
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.ResourceProvider
-import javax.inject.Inject
 
 internal class ProveYourIdentityViewModel(
     private val getActiveSessionUseCase: GetActiveSessionUseCase,
