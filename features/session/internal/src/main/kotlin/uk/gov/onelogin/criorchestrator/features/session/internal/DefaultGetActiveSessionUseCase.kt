@@ -3,8 +3,8 @@ package uk.gov.onelogin.criorchestrator.features.session.internal
 import com.squareup.anvil.annotations.ContributesBinding
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.onelogin.criorchestrator.features.session.internalapi.GetActiveSessionUseCase
-import uk.gov.onelogin.criorchestrator.libraries.di.scopes.ActivityScope
-import uk.gov.onelogin.criorchestrator.libraries.di.scopes.CriOrchestratorScope
+import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
+import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Inject
 
 @ActivityScope
