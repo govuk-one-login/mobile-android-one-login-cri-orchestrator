@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class InMemorySessionStoreTest {
-    private val fakeSessionStore = fakeSessionStore()
+    private val fakeSessionStore = dummySessionStore()
 
     @Test
     fun `session store reads default value of false`() {
