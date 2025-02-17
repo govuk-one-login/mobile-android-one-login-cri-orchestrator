@@ -1,10 +1,10 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal
 
+import android.util.Log
 import com.squareup.anvil.annotations.ContributesBinding
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import uk.gov.logging.api.Logger
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Inject
@@ -13,17 +13,15 @@ import javax.inject.Inject
 @ContributesBinding(CriOrchestratorScope::class)
 class InMemorySessionStore
     @Inject
-    constructor(
-        private val logger: Logger,
-    ) : SessionStore {
+    constructor() : SessionStore {
         private var isActiveSession: MutableStateFlow<Boolean> = MutableStateFlow(false)
 
         override fun read(): StateFlow<Boolean> = isActiveSession.asStateFlow()
 
         override fun write(value: Boolean) {
-            logger.debug(
-                tag = tag,
-                msg = "Writing $value to active session store",
+            Log.d(
+                tag,
+                "Writing $value to active session store",
             )
             isActiveSession.value = value
         }
