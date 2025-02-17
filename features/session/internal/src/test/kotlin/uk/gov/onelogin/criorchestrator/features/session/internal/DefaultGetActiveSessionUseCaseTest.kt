@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
 
 class DefaultGetActiveSessionUseCaseTest {
-    private val fakeSessionStore = fakeSessionStore()
-    val fakeSessionApiImpl = FakeSessionApiImpl()
+    private val fakeSessionStore = dummySessionStore()
+    val fakeSessionApiImpl = StubSessionApiImpl()
 
     @Test
     fun `DefaultGetActiveSessionUseCase returns false when active session API returns Failure`() {
