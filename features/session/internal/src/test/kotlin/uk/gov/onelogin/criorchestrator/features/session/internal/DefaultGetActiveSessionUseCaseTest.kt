@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
 
 class DefaultGetActiveSessionUseCaseTest {
-    private val fakeSessionStore = dummySessionStore()
+    private val sessionStore = InMemorySessionStore()
     val fakeSessionApiImpl = StubSessionApiImpl()
 
     @Test
@@ -22,7 +22,7 @@ class DefaultGetActiveSessionUseCaseTest {
         val fakeDefaultGetActiveSessionUseCase =
             DefaultGetActiveSessionUseCase(
                 sessionApi = fakeSessionApiImpl,
-                sessionStore = fakeSessionStore,
+                sessionStore = sessionStore,
             )
 
         val result =
@@ -42,7 +42,7 @@ class DefaultGetActiveSessionUseCaseTest {
         val fakeDefaultGetActiveSessionUseCase =
             DefaultGetActiveSessionUseCase(
                 sessionApi = fakeSessionApiImpl,
-                sessionStore = fakeSessionStore,
+                sessionStore = sessionStore,
             )
 
         val result =
@@ -62,7 +62,7 @@ class DefaultGetActiveSessionUseCaseTest {
         val fakeDefaultGetActiveSessionUseCase =
             DefaultGetActiveSessionUseCase(
                 sessionApi = fakeSessionApiImpl,
-                sessionStore = fakeSessionStore,
+                sessionStore = sessionStore,
             )
 
         val result =
@@ -82,7 +82,7 @@ class DefaultGetActiveSessionUseCaseTest {
         val fakeDefaultGetActiveSessionUseCase =
             DefaultGetActiveSessionUseCase(
                 sessionApi = fakeSessionApiImpl,
-                sessionStore = fakeSessionStore,
+                sessionStore = sessionStore,
             )
 
         val result =

@@ -1,14 +1,9 @@
 plugins {
-    id("uk.gov.onelogin.criorchestrator.android-lib-config")
+    id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
 }
 
 dependencies {
-
-    implementation(libs.anvil.gradle.plugin)
     implementation(libs.dagger)
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.uk.gov.logging.api)
-    implementation(libs.uk.gov.logging.impl)
 }
 
 mavenPublishingConfig {
