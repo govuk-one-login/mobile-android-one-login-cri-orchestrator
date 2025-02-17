@@ -4,6 +4,6 @@ import uk.gov.onelogin.criorchestrator.features.session.internalapi.GetActiveSes
 
 class FakeGetActiveSessionUseCase(
     private val sessionActiveStatus: Boolean = true,
-): GetActiveSessionUseCase {
+) : GetActiveSessionUseCase {
     override suspend fun execute(): Boolean = sessionActiveStatus
 }

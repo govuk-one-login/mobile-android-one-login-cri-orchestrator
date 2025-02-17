@@ -24,6 +24,7 @@ class ProveYourIdentityViewModelTest {
         ProveYourIdentityViewModel(
             analyticsLogger = analyticsLogger,
             resourceProvider = FakeResourceProvider(),
+            getActiveSessionUseCase = FakeGetActiveSessionUseCase(),
             getActiveSessionUseCase = FakeGetActiveSessionUseCase()
             logger = SystemLogger(),
         )

@@ -22,6 +22,7 @@ dependencies {
     releaseCompileOnly(libs.uk.gov.logging.testdouble)
     debugImplementation(testFixtures(project(":libraries:android-utils")))
 
+    testImplementation(project(":features:session:internal"))
     testImplementation(testFixtures(project(":features:session:internal")))
 }
 
