@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-<!--    DCMAW-10105: strings to be handled by a string resource configuration provider.
-        This configuration will then be the backing for the developer settings, and the config
-        will hold a map of keys and values (including feature flags) and then our developer
-        settings can display it all, and some/all values can be updated through the UI too -->
-    <string name="backendApiUrl" translatable="false" />
-</resources>

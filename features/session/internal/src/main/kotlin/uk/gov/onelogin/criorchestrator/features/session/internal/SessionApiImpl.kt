@@ -4,7 +4,6 @@ import com.squareup.anvil.annotations.ContributesBinding
 import uk.gov.android.network.api.ApiRequest
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.GenericHttpClient
-import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.ResourceProvider
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Inject
@@ -14,16 +13,18 @@ import javax.inject.Inject
 class SessionApiImpl
     @Inject
     constructor(
-        private val resourceProvider: ResourceProvider,
         private val httpClient: GenericHttpClient,
     ) : SessionApi {
         override suspend fun getActiveSession(): ApiResponse {
+            //  DCMAW-10105: strings to be handled by a string resource configuration provider.
+            //  This configuration will then be the backing for the developer settings, and
+            //  the config will hold a map of keys and values (including feature flags) and then our
+            //  developer settings can display it all, and some/all values can be updated via UI too
+            val backendUrl = ""
             val endPoint = SessionApi.Endpoints.ActiveSession.endpoint
             val request =
                 ApiRequest.Get(
-                    url =
-                        resourceProvider.getEnglishString(R.string.backendApiUrl) +
-                            endPoint,
+                    url = backendUrl + endPoint,
                 )
             val result =
                 httpClient.makeAuthorisedRequest(
