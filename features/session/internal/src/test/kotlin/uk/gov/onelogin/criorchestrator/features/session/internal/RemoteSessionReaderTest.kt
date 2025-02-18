@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
-import uk.gov.onelogin.criorchestrator.features.session.internal.network.SessionReaderImpl
+import uk.gov.onelogin.criorchestrator.features.session.internal.network.RemoteSessionReader
 
-class SessionReaderImplTest {
+class RemoteSessionReaderTest {
     val sessionApi = StubSessionApiImpl()
 
     @Test
@@ -19,14 +19,14 @@ class SessionReaderImplTest {
             ),
         )
 
-        val fakeSessionReaderImpl =
-            SessionReaderImpl(
+        val remoteSessionReader =
+            RemoteSessionReader(
                 sessionApi = sessionApi,
             )
 
         val result =
             runBlocking {
-                return@runBlocking fakeSessionReaderImpl.isActiveSession()
+                return@runBlocking remoteSessionReader.isActiveSession()
             }
 
         assertFalse(result)
@@ -38,14 +38,14 @@ class SessionReaderImplTest {
             ApiResponse.Loading,
         )
 
-        val fakeSessionReaderImpl =
-            SessionReaderImpl(
+        val remoteSessionReader =
+            RemoteSessionReader(
                 sessionApi = sessionApi,
             )
 
         val result =
             runBlocking {
-                return@runBlocking fakeSessionReaderImpl.isActiveSession()
+                return@runBlocking remoteSessionReader.isActiveSession()
             }
 
         assertFalse(result)
@@ -57,14 +57,14 @@ class SessionReaderImplTest {
             ApiResponse.Offline,
         )
 
-        val fakeSessionReaderImpl =
-            SessionReaderImpl(
+        val remoteSessionReader =
+            RemoteSessionReader(
                 sessionApi = sessionApi,
             )
 
         val result =
             runBlocking {
-                return@runBlocking fakeSessionReaderImpl.isActiveSession()
+                return@runBlocking remoteSessionReader.isActiveSession()
             }
 
         assertFalse(result)
@@ -77,7 +77,7 @@ class SessionReaderImplTest {
         )
 
         val sessionReader =
-            SessionReaderImpl(
+            RemoteSessionReader(
                 sessionApi = sessionApi,
             )
 

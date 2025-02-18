@@ -14,12 +14,12 @@ class SessionApiImplTest {
             StubHttpClient(
                 ApiResponse.Success<String>(
                     """
-                        {
-                            "sessionId": "37aae92b-a51e-4f68-b571-8e455fb0ec34",
-                            "redirectUri": "https://example/redirect",
-                            "state": "11112222333344445555666677778888"
-                        }
-                """.trimIndent()
+                    {
+                        "sessionId": "37aae92b-a51e-4f68-b571-8e455fb0ec34",
+                        "redirectUri": "https://example/redirect",
+                        "state": "11112222333344445555666677778888"
+                    }
+                    """.trimIndent(),
                 ),
             ),
         )
