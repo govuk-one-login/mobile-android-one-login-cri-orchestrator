@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.session.internal.response
+package uk.gov.onelogin.criorchestrator.features.session.internal.network.response
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable

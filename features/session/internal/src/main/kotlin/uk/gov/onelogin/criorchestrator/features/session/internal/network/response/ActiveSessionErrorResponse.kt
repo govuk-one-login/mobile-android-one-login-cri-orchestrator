@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.session.internal.response
+package uk.gov.onelogin.criorchestrator.features.session.internal.network.response
 
 enum class ActiveSessionErrorResponse {
     SERVER_ERROR,

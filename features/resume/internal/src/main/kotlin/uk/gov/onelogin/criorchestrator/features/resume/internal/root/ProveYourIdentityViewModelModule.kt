@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 import uk.gov.logging.api.Logger
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
-import uk.gov.onelogin.criorchestrator.features.session.internalapi.GetActiveSessionUseCase
+import uk.gov.onelogin.criorchestrator.features.session.internalapi.domain.SessionReader
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.ResourceProvider
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Named
@@ -23,7 +23,7 @@ object ProveYourIdentityViewModelModule {
     fun provideFactory(
         analyticsLogger: AnalyticsLogger,
         resourceProvider: ResourceProvider,
-        getActiveSessionUseCase: GetActiveSessionUseCase,
+        sessionReader: SessionReader,
         logger: Logger,
     ): ViewModelProvider.Factory =
         viewModelFactory {
@@ -31,7 +31,7 @@ object ProveYourIdentityViewModelModule {
                 ProveYourIdentityViewModel(
                     analyticsLogger = analyticsLogger,
                     resourceProvider = resourceProvider,
-                    getActiveSessionUseCase = getActiveSessionUseCase,
+                    sessionReader = sessionReader,
                     logger = logger,
                 )
             }
