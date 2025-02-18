@@ -7,13 +7,16 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.google.firebase.FirebaseApp
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
+import uk.gov.logging.api.Logger
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
 import uk.gov.onelogin.criorchestrator.testwrapper.logging.AnalyticsLoggerFactory
+import uk.gov.onelogin.criorchestrator.testwrapper.logging.LoggerFactory
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
@@ -22,7 +25,9 @@ class MainActivityTest {
 
     @Before
     fun setUp() {
-        AnalyticsLoggerFactory.testLogger = mock<AnalyticsLogger>()
+        FirebaseApp.clearInstancesForTest()
+        LoggerFactory.testLogger = mock<Logger>()
+        AnalyticsLoggerFactory.testAnalyticsLogger = mock<AnalyticsLogger>()
     }
 
     @Test

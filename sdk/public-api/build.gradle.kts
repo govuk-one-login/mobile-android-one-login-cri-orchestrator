@@ -30,6 +30,8 @@ dependencies {
     ).forEach {
         api(it)
     }
+
+    testImplementation(libs.uk.gov.logging.testdouble)
 }
 
 mavenPublishingConfig {

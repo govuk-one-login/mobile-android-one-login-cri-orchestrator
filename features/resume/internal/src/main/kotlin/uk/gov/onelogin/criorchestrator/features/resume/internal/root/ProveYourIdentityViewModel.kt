@@ -3,6 +3,8 @@ package uk.gov.onelogin.criorchestrator.features.resume.internal.root
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import uk.gov.logging.api.LogTagProvider
+import uk.gov.logging.api.Logger
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
 import uk.gov.logging.api.analytics.parameters.data.TaxonomyLevel2
 import uk.gov.logging.api.analytics.parameters.data.TaxonomyLevel3
@@ -15,7 +17,9 @@ import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.Resource
 internal class ProveYourIdentityViewModel(
     private val analyticsLogger: AnalyticsLogger,
     private val resourceProvider: ResourceProvider,
-) : ViewModel() {
+    private val logger: Logger,
+) : ViewModel(),
+    LogTagProvider {
     private val _state =
         MutableStateFlow<ProveYourIdentityRootUiState>(
             ProveYourIdentityRootUiState(
@@ -44,6 +48,7 @@ internal class ProveYourIdentityViewModel(
     private fun checkActiveSession() {
         // TODO DCMAW-10105
         val hasActiveSession = true
+        logger.debug(tag, "Has active session: $hasActiveSession")
         _state.value = _state.value.copy(shouldDisplay = hasActiveSession)
     }
 }
