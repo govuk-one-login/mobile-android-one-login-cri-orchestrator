@@ -15,17 +15,14 @@ configure<PublishingExtension> {
 }
 
 dependencies {
-    listOf(
-        libs.uk.gov.networking,
-        libs.uk.gov.logging.api,
-        project(":sdk:shared-api"),
-        project(":features:resume:internal"),
-        project(":features:resume:internal-api"),
-        project(":features:resume:public-api"),
-        project(":libraries:android-utils"),
-    ).forEach {
-        implementation(it)
-    }
+    implementation(libs.uk.gov.networking)
+    implementation(libs.uk.gov.logging.api)
+    implementation(project(":sdk:shared-api"))
+    implementation(project(":features:resume:internal"))
+    implementation(project(":features:resume:internal-api"))
+    implementation(project(":features:resume:public-api"))
+    implementation(project(":libraries:android-utils"))
+    implementation(project(":libraries:navigation"))
 }
 
 mavenPublishingConfig {
