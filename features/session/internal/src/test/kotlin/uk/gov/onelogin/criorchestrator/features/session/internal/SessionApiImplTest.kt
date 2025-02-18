@@ -17,6 +17,8 @@ class SessionApiImplTest {
             ),
         )
 
+    // DCMAW-10105: stubbed responses in tests should reflect what we expect the API to return so
+    // that we can test how the SessionApiImpl handles and maps different types of responses
     @Test
     fun `session API implementation returns stubbed API response`() {
         val expected = ApiResponse.Success("Test")
