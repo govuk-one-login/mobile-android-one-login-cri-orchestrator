@@ -1,6 +1,8 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal
 
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
@@ -12,7 +14,13 @@ class SessionApiImplTest {
     private val sessionApiImpl =
         SessionApiImpl(
             StubHttpClient(
-                ApiResponse.Success<String>("Test"),
+                ApiResponse.Success<String>("""
+                        {
+                            "sessionId": "37aae92b-a51e-4f68-b571-8e455fb0ec34",
+                            "redirectUri": "https://example/redirect",
+                            "state": "11112222333344445555666677778888"
+                        }
+                """.trimIndent()),
             ),
         )
 

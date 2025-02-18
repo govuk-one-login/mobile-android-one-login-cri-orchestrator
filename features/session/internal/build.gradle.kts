@@ -15,6 +15,7 @@ android {
 
 dependencies {
     implementation(libs.kotlinx.coroutines)
+    implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.uk.gov.logging.api)
     implementation(libs.uk.gov.networking)
     implementation(project(":features:session:internal-api"))
