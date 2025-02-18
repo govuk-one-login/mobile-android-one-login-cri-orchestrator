@@ -56,6 +56,7 @@ include(
     ":konsist-test",
     ":libraries:android-utils",
     ":libraries:di",
+    ":libraries:navigation",
     ":libraries:screenshot-testing",
     ":sdk:internal",
     ":sdk:public-api",

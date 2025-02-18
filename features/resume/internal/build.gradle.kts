@@ -17,12 +17,11 @@ dependencies {
     implementation(project(":features:session:internal-api"))
     implementation(project(":libraries:android-utils"))
     implementation(project(":libraries:di"))
+    implementation(project(":libraries:navigation"))
 
-    debugImplementation(libs.uk.gov.logging.testdouble)
-    releaseCompileOnly(libs.uk.gov.logging.testdouble)
     debugImplementation(testFixtures(project(":libraries:android-utils")))
 
-    testImplementation(project(":features:session:internal"))
+    testImplementation(libs.uk.gov.logging.testdouble)
     testImplementation(testFixtures(project(":features:session:internal")))
 }
 
