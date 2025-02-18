@@ -5,13 +5,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import kotlinx.collections.immutable.ImmutableSet
 import uk.gov.onelogin.criorchestrator.features.resume.internal.card.ProveYourIdentityUiCard
 import uk.gov.onelogin.criorchestrator.features.resume.internal.modal.ProveYourIdentityModal
 import uk.gov.onelogin.criorchestrator.features.resume.internal.modal.rememberProveYourIdentityModalState
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.nav.ProveYourIdentityNavGraphProvider
 
 @Composable
 internal fun ProveYourIdentityRoot(
     viewModel: ProveYourIdentityViewModel,
+    navGraphProviders: ImmutableSet<ProveYourIdentityNavGraphProvider>,
     modifier: Modifier = Modifier,
 ) {
     val state by viewModel.state.collectAsState()
@@ -35,6 +38,7 @@ internal fun ProveYourIdentityRoot(
 
     ProveYourIdentityModal(
         state = modalState,
+        navGraphProviders = navGraphProviders,
         modifier =
             Modifier
                 .testTag(ProveYourIdentityRootTestTags.MODAL),
