@@ -9,7 +9,8 @@ import javax.inject.Inject
 
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
-class DefaultGetActiveSessionUseCase
+// Rename interface to session repository
+class SessionRepositoryImpl
     @Inject
     constructor(
         private val sessionApi: SessionApi,
@@ -21,8 +22,6 @@ class DefaultGetActiveSessionUseCase
                     is ApiResponse.Success<*> -> true
 
                     is ApiResponse.Failure -> false
-                    ApiResponse.Loading -> false
-                    ApiResponse.Offline -> false
                     else -> false
                 }
             sessionStore.write(isActiveSession)

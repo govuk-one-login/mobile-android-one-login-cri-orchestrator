@@ -1,16 +1,28 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.response
 
-import java.util.UUID
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonNames
 
 sealed class ActiveSessionApiResponse {
-    data class ActiveSessionSuccess(
-        val sessionId: UUID,
-        val redirectUri: String,
-        val state: String,
-    )
 
+    @Serializable
+    @OptIn(ExperimentalSerializationApi::class)
+    data class ActiveSessionSuccess(
+        @JsonNames("sessionId")
+        val sessionId: String,
+        @JsonNames("redirectUri")
+        val redirectUri: String,
+        @JsonNames("state")
+        val state: String,
+    ) : ActiveSessionApiResponse()
+
+    @Serializable
+    @OptIn(ExperimentalSerializationApi::class)
     data class ActiveSessionError(
+        @JsonNames("error")
         val error: ActiveSessionErrorResponse,
+        @JsonNames("error_description")
         val errorDescription: String,
-    )
+    ) : ActiveSessionApiResponse()
 }
