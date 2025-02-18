@@ -14,12 +14,12 @@ import uk.gov.logging.api.analytics.parameters.data.TaxonomyLevel3
 import uk.gov.logging.api.v3dot1.logger.logEventV3Dot1
 import uk.gov.logging.api.v3dot1.model.RequiredParameters
 import uk.gov.logging.api.v3dot1.model.TrackEvent
+import uk.gov.onelogin.criorchestrator.features.session.internalapi.domain.SessionReader
 import uk.gov.onelogin.criorchestrator.features.resume.internal.R
-import uk.gov.onelogin.criorchestrator.features.session.internalapi.GetActiveSessionUseCase
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.ResourceProvider
 
 internal class ProveYourIdentityViewModel(
-    private val getActiveSessionUseCase: GetActiveSessionUseCase,
+    private val sessionReader: SessionReader,
     private val analyticsLogger: AnalyticsLogger,
     private val resourceProvider: ResourceProvider,
     private val logger: Logger,
@@ -52,7 +52,7 @@ internal class ProveYourIdentityViewModel(
 
     private fun checkActiveSession() {
         CoroutineScope(Dispatchers.Default).launch {
-            var hasActiveSession = getActiveSessionUseCase.execute()
+            var hasActiveSession = sessionReader.isActiveSession()
             logger.debug(tag, "Has active session: $hasActiveSession")
             _state.value = _state.value.copy(shouldDisplay = hasActiveSession)
         }

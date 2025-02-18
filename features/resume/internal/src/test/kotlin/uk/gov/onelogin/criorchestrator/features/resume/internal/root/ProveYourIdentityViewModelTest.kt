@@ -13,7 +13,7 @@ import uk.gov.logging.api.v3dot1.logger.logEventV3Dot1
 import uk.gov.logging.api.v3dot1.model.AnalyticsEvent
 import uk.gov.logging.api.v3dot1.model.RequiredParameters
 import uk.gov.logging.api.v3dot1.model.TrackEvent
-import uk.gov.onelogin.criorchestrator.features.session.internal.StubGetActiveSessionUseCase
+import uk.gov.onelogin.criorchestrator.features.session.internal.StubSessionReader
 import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.FakeResourceProvider
 
@@ -24,7 +24,7 @@ class ProveYourIdentityViewModelTest {
         ProveYourIdentityViewModel(
             analyticsLogger = analyticsLogger,
             resourceProvider = FakeResourceProvider(),
-            getActiveSessionUseCase = StubGetActiveSessionUseCase(),
+            sessionReader = StubSessionReader(),
             logger = SystemLogger(),
         )
     }

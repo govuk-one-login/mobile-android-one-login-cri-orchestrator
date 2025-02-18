@@ -13,8 +13,8 @@ import org.junit.runner.RunWith
 import uk.gov.android.ui.theme.m3.GdsTheme
 import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.logging.testdouble.analytics.FakeAnalyticsLogger
-import uk.gov.onelogin.criorchestrator.features.session.internal.StubGetActiveSessionUseCase
 import uk.gov.onelogin.criorchestrator.features.resume.internal.root.ProveYourIdentityViewModel
+import uk.gov.onelogin.criorchestrator.features.session.internal.StubSessionReader
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.FakeResourceProvider
 
 @RunWith(AndroidJUnit4::class)
@@ -26,7 +26,7 @@ class ProveYourIdentityEntryPointsImplTest {
         ProveYourIdentityViewModel(
             analyticsLogger = FakeAnalyticsLogger(),
             resourceProvider = FakeResourceProvider(),
-            getActiveSessionUseCase = StubGetActiveSessionUseCase(),
+            sessionReader = StubSessionReader(),
             logger = SystemLogger(),
         )
 
