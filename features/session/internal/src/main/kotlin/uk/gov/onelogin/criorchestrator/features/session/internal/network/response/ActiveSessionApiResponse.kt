@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames
 
 sealed class ActiveSessionApiResponse {
-
     @Serializable
     @OptIn(ExperimentalSerializationApi::class)
     data class ActiveSessionSuccess(

@@ -13,27 +13,27 @@ private const val GET_ACTIVE_SESSION_ENDPOINT = "async/activeSession"
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
 class SessionApiImpl
-@Inject
-constructor(
-    private val httpClient: GenericHttpClient,
-) : SessionApi {
-    override suspend fun getActiveSession(): ApiResponse {
-        //  DCMAW-10105: strings to be handled by a string resource configuration provider.
-        //  This configuration will then be the backing for the developer settings, and
-        //  the config will hold a map of keys and values (including feature flags) and then our
-        //  developer settings can display it all, and some/all values can be updated via UI too
-        val backendUrl = ""
-        val request =
-            ApiRequest.Get(
-                url = backendUrl + GET_ACTIVE_SESSION_ENDPOINT,
+    @Inject
+    constructor(
+        private val httpClient: GenericHttpClient,
+    ) : SessionApi {
+        override suspend fun getActiveSession(): ApiResponse {
+            //  DCMAW-10105: strings to be handled by a string resource configuration provider.
+            //  This configuration will then be the backing for the developer settings, and
+            //  the config will hold a map of keys and values (including feature flags) and then our
+            //  developer settings can display it all, and some/all values can be updated via UI too
+            val backendUrl = ""
+            val request =
+                ApiRequest.Get(
+                    url = backendUrl + GET_ACTIVE_SESSION_ENDPOINT,
+                )
+            return httpClient.makeAuthorisedRequest(
+                apiRequest = request,
+                scope = SCOPE,
             )
-        return httpClient.makeAuthorisedRequest(
-            apiRequest = request,
-            scope = SCOPE,
-        )
-    }
+        }
 
-    companion object {
-        const val SCOPE = "IDCheckBackend"
+        companion object {
+            const val SCOPE = "IDCheckBackend"
+        }
     }
-}
