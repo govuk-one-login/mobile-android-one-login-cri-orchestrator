@@ -6,10 +6,11 @@ enum class ActiveSessionErrorResponse {
     SESSION_NOT_FOUND,
     INVALID_REQUEST,
     UNAUTHORIZED,
-    UNKNOWN;
+    UNKNOWN,
+    ;
 
     fun mapResponseToError(response: String) {
-        when(response) {
+        when (response) {
             "server_error" -> SERVER_ERROR
             "invalid_session" -> INVALID_SESSION
             "session_not_found" -> SESSION_NOT_FOUND
