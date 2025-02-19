@@ -34,12 +34,9 @@ constructor(
         try {
             val parsedResponse: ActiveSessionApiResponse.ActiveSessionSuccess =
                 Json.decodeFromString(response.response.toString())
-            // TODO: Replace with Logger
-            // TODO: Is the session ID private or can it be logged?
             logger.debug(tag, "Got active session: id=${parsedResponse.sessionId}")
             true
         } catch (e: IllegalArgumentException) {
-            // TODO: Replace with Logger
             logger.error(tag, "Failed to parse active session response", e)
             false
         }
