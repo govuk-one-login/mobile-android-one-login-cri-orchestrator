@@ -1,12 +1,13 @@
-# Storing local Architectural Design Records (ADRs)
-
 <!-- vale Google.We = NO -->
+<!-- vale Vale.Spelling["KDDs", "KDD"] = NO -->
+
+# Storing Key Design Decisions (KDDs)
 
 ## Summary
 
-An Architectural Decision Record (ADR) is a record of a design choice that's architecturally significant.
+A Key Design Decision (KDD) is a design choice that's architecturally significant.
 
-We can store local ADRs within the `/docs` folder of this repository. These log the local architectural choices we've made, why we've made them, and the consequences.
+We can store KDDs within the `/docs` folder of this repository. These log the local architectural choices we've made, why we've made them, and the consequences.
 
 This doesn't duplicate [govuk-one-login/architecture] or [Technical Design Forum], which have a different intended audience and permissions model.
 
@@ -35,12 +36,12 @@ We should keep formatting simple:
 - Infer dates and authors from the Git history.
 - Write in markdown.
 - Aim to keep headings consistent with this PR, although they can vary if needed.
-- Once the team has reviewed and merged a local ADR, they have adopted the decision.
-- Deprecate superseded local ADRs by amending them with `Status: superseded.` Contributors must add a link referencing any new local ADR or reason.
+- Once the team has reviewed and merged a KDD, they have adopted the decision.
+- Deprecate superseded local KDDs by amending them with `Status: superseded.` Contributors must add a link referencing any new KDD or reason.
 
 ## Consequences
 
-- We'll store local ADR records relating to [govuk-one-login/mobile-android-cri-orchestrator] in `docs/adr`.
+- We'll store KDDs relating to [govuk-one-login/mobile-android-cri-orchestrator] in `docs/design-decisions`.
 - Where there are cross-pod consequences, we may have a stub here, but it should point to a cross-pod TD in [TDF Items].
 - Where there are cross-programme consequences, we may have a stub here, but it should point to a cross-programme ADR in [govuk-one-login/architecture].
 
