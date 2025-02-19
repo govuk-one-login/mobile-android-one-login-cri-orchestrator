@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
+import uk.gov.logging.api.Logger
 import uk.gov.logging.api.analytics.logging.AnalyticsLogger
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.ResourceProvider
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
@@ -21,12 +22,14 @@ object ProveYourIdentityViewModelModule {
     fun provideFactory(
         analyticsLogger: AnalyticsLogger,
         resourceProvider: ResourceProvider,
+        logger: Logger,
     ): ViewModelProvider.Factory =
         viewModelFactory {
             initializer {
                 ProveYourIdentityViewModel(
                     analyticsLogger = analyticsLogger,
                     resourceProvider = resourceProvider,
+                    logger = logger,
                 )
             }
         }

@@ -18,6 +18,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.spy
 import org.mockito.kotlin.verify
+import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.logging.testdouble.analytics.FakeAnalyticsLogger
 import uk.gov.onelogin.criorchestrator.features.resume.internal.R
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.AndroidResourceProvider
@@ -34,6 +35,7 @@ class ProveYourIdentityRootTest {
             ProveYourIdentityViewModel(
                 analyticsLogger = FakeAnalyticsLogger(),
                 resourceProvider = resourceProvider,
+                logger = SystemLogger(),
             ),
         )
 

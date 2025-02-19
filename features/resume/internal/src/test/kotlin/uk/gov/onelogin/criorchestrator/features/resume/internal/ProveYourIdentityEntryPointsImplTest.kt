@@ -11,6 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import uk.gov.android.ui.theme.m3.GdsTheme
+import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.logging.testdouble.analytics.FakeAnalyticsLogger
 import uk.gov.onelogin.criorchestrator.features.resume.internal.root.ProveYourIdentityViewModel
 import uk.gov.onelogin.criorchestrator.libraries.androidutils.resources.FakeResourceProvider
@@ -24,6 +25,7 @@ class ProveYourIdentityEntryPointsImplTest {
         ProveYourIdentityViewModel(
             analyticsLogger = FakeAnalyticsLogger(),
             resourceProvider = FakeResourceProvider(),
+            logger = SystemLogger(),
         )
 
     val fakeViewModelProviderFactory =
