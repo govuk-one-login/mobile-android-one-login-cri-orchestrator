@@ -1,5 +1,6 @@
 plugins {
     id("uk.gov.onelogin.criorchestrator.android-lib-config")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -15,6 +16,7 @@ android {
 
 dependencies {
     implementation(libs.kotlinx.coroutines)
+    implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.uk.gov.logging.api)
     implementation(libs.uk.gov.networking)
     implementation(project(":features:session:internal-api"))
@@ -23,6 +25,9 @@ dependencies {
 
     testImplementation(libs.uk.gov.logging.testdouble)
     testImplementation(testFixtures(project(":libraries:android-utils")))
+    testFixturesImplementation(libs.uk.gov.logging.testdouble)
+    testFixturesImplementation(libs.uk.gov.networking)
+    testFixturesImplementation(project(":features:session:internal-api"))
 }
 
 mavenPublishingConfig {
