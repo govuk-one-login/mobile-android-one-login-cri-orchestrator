@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
+import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.RemoteSessionReader
 
 class RemoteSessionReaderTest {
@@ -22,6 +23,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
+                logger = SystemLogger(),
             )
 
         val result =
@@ -41,6 +43,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
+                logger = SystemLogger(),
             )
 
         val result =
@@ -60,6 +63,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
+                logger = SystemLogger(),
             )
 
         val result =
@@ -79,6 +83,7 @@ class RemoteSessionReaderTest {
         val sessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
+                logger = SystemLogger(),
             )
 
         val result =
