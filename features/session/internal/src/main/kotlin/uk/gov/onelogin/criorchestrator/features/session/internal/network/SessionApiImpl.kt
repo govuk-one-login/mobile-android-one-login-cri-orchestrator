@@ -34,6 +34,6 @@ class SessionApiImpl
         }
 
         companion object {
-            const val SCOPE = "IDCheckBackend"
+            const val SCOPE = "idCheck.activeSession.read"
         }
     }

@@ -10,12 +10,13 @@ import uk.gov.onelogin.criorchestrator.features.session.internal.network.RemoteS
 
 class RemoteSessionReaderTest {
     val sessionApi = StubSessionApiImpl()
+    val logger = SystemLogger()
 
     @Test
-    fun `SessionReaderImpl returns false when active session API returns Failure`() {
+    fun `Session reader returns false with expected log when active session API returns Failure`() {
         sessionApi.setActiveSession(
             ApiResponse.Failure(
-                status = 0,
+                status = 401,
                 error = Exception("test exception"),
             ),
         )
@@ -23,7 +24,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
-                logger = SystemLogger(),
+                logger = logger,
             )
 
         val result =
@@ -31,11 +32,12 @@ class RemoteSessionReaderTest {
                 return@runBlocking remoteSessionReader.isActiveSession()
             }
 
+        assertTrue(logger.contains("Failed to fetch active session"))
         assertFalse(result)
     }
 
     @Test
-    fun `SessionReaderImpl returns false when active session API returns Loading`() {
+    fun `Session reader returns false with expected log when active session API returns Loading`() {
         sessionApi.setActiveSession(
             ApiResponse.Loading,
         )
@@ -43,7 +45,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
-                logger = SystemLogger(),
+                logger = logger,
             )
 
         val result =
@@ -55,7 +57,7 @@ class RemoteSessionReaderTest {
     }
 
     @Test
-    fun `SessionReaderImpl returns false when active session API returns Offline`() {
+    fun `Session reader returns false with expected log when active session API returns Offline`() {
         sessionApi.setActiveSession(
             ApiResponse.Offline,
         )
@@ -63,7 +65,7 @@ class RemoteSessionReaderTest {
         val remoteSessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
-                logger = SystemLogger(),
+                logger = logger,
             )
 
         val result =
@@ -71,19 +73,29 @@ class RemoteSessionReaderTest {
                 return@runBlocking remoteSessionReader.isActiveSession()
             }
 
+        assertTrue(logger.contains("Failed to fetch active session - device is offline"))
         assertFalse(result)
     }
 
+    // This test will also fail if the serialization plugin isn't applied
     @Test
-    fun `SessionReaderImpl returns true when active session API returns Success`() {
+    fun `Session reader returns true with expected log when active session API returns Success`() {
         sessionApi.setActiveSession(
-            ApiResponse.Success(true),
+            ApiResponse.Success<String>(
+                """
+                {
+                    "sessionId": "test session ID",
+                    "redirectUri": "https://example/redirect",
+                    "state": "11112222333344445555666677778888"
+                }
+                """.trimIndent(),
+            ),
         )
 
         val sessionReader =
             RemoteSessionReader(
                 sessionApi = sessionApi,
-                logger = SystemLogger(),
+                logger = logger,
             )
 
         val result =
@@ -91,6 +103,36 @@ class RemoteSessionReaderTest {
                 return@runBlocking sessionReader.isActiveSession()
             }
 
+        assertTrue(logger.contains("Got active session: id=test session ID"))
         assertTrue(result)
+    }
+
+    @Test
+    fun `Session reader returns false with expected log when Success response parsed incorrectly`() {
+        sessionApi.setActiveSession(
+            ApiResponse.Success<String>(
+                """
+                {
+                    "sessionId_WRONG": "test session ID",
+                    "redirectUri": "https://example/redirect",
+                    "state": "11112222333344445555666677778888"
+                }
+                """.trimIndent(),
+            ),
+        )
+
+        val sessionReader =
+            RemoteSessionReader(
+                sessionApi = sessionApi,
+                logger = logger,
+            )
+
+        val result =
+            runBlocking {
+                return@runBlocking sessionReader.isActiveSession()
+            }
+
+        assertTrue(logger.contains("Failed to parse active session response"))
+        assertFalse(result)
     }
 }
