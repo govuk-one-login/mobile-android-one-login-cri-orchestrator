@@ -25,7 +25,7 @@ class RemoteSessionReader
             return when (activeSessionResponse) {
                 is ApiResponse.Success<*> -> handleSuccessResponse(activeSessionResponse)
                 is ApiResponse.Failure -> handleFailureResponse(activeSessionResponse)
-                ApiResponse.Loading -> handleLoadingResponse()
+                ApiResponse.Loading -> false
                 ApiResponse.Offline -> handleOfflineResponse()
             }
         }
@@ -50,6 +50,4 @@ class RemoteSessionReader
             logger.debug(tag, "Failed to fetch active session - device is offline")
             return false
         }
-
-        private fun handleLoadingResponse(): Boolean = false
     }

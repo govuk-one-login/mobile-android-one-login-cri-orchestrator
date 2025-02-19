@@ -1,5 +1,7 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.network.response
 
+import io.ktor.http.HttpStatusCode
+
 enum class ActiveSessionErrorResponse {
     SERVER_ERROR,
     SESSION_NOT_FOUND,
@@ -10,9 +12,9 @@ enum class ActiveSessionErrorResponse {
 
 fun mapErrorStatusCodeToError(statusCode: Int): ActiveSessionErrorResponse =
     when (statusCode) {
-        400 -> ActiveSessionErrorResponse.INVALID_REQUEST
-        401 -> ActiveSessionErrorResponse.UNAUTHORIZED
-        404 -> ActiveSessionErrorResponse.SESSION_NOT_FOUND
-        500 -> ActiveSessionErrorResponse.SERVER_ERROR
+        HttpStatusCode.BadRequest.value -> ActiveSessionErrorResponse.INVALID_REQUEST
+        HttpStatusCode.Unauthorized.value -> ActiveSessionErrorResponse.UNAUTHORIZED
+        HttpStatusCode.NotFound.value -> ActiveSessionErrorResponse.SESSION_NOT_FOUND
+        HttpStatusCode.InternalServerError.value -> ActiveSessionErrorResponse.SERVER_ERROR
         else -> ActiveSessionErrorResponse.UNKNOWN
     }
