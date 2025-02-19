@@ -4,6 +4,7 @@ import com.android.build.gradle.BaseExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.the
+import uk.gov.onelogin.criorchestrator.extensions.debugImplementation
 import uk.gov.onelogin.criorchestrator.extensions.testImplementation
 import uk.gov.onelogin.criorchestrator.extensions.testRuntimeOnly
 import uk.gov.onelogin.criorchestrator.extensions.uiTestDependencies

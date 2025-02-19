@@ -103,6 +103,7 @@ internal fun DependencyHandlerScope.uiTestDependencies(libs: LibrariesForLibs) =
         libs.androidx.espresso.core,
         libs.androidx.ui.test.junit4,
         platform(libs.androidx.compose.bom),
+        libs.androidx.compose.ui.test.manifest
     )
 
 internal fun DependencyHandlerScope.ideSupportDependencies(libs: LibrariesForLibs) {

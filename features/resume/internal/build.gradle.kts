@@ -11,14 +11,17 @@ dependencies {
     api(libs.androidx.lifecycle.viewmodel.compose)
     api(libs.uk.gov.logging.api)
 
-    debugImplementation(libs.uk.gov.logging.testdouble)
-    releaseCompileOnly(libs.uk.gov.logging.testdouble)
     debugImplementation(testFixtures(project(":libraries:android-utils")))
 
     implementation(project(":features:resume:internal-api"))
     implementation(project(":features:resume:public-api"))
     implementation(project(":libraries:android-utils"))
     implementation(project(":libraries:di"))
+    implementation(project(":libraries:navigation"))
+    implementation(libs.kotlinx.collections.immutable)
+    implementation(libs.androidx.navigation.compose)
+
+    testImplementation(libs.uk.gov.logging.testdouble)
 }
 
 mavenPublishingConfig {
