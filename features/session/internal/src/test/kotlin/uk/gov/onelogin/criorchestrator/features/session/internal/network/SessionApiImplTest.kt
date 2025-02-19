@@ -1,6 +1,6 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.network
 
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
@@ -23,22 +23,20 @@ class SessionApiImplTest {
         )
 
     @Test
-    fun `session API implementation returns stubbed API response`() {
-        val expected =
-            ApiResponse.Success<String>(
-                """
-                {
-                    "sessionId": "test session ID",
-                    "redirectUri": "https://example/redirect",
-                    "state": "11112222333344445555666677778888"
-                }
-                """.trimIndent(),
-            )
+    fun `session API implementation returns stubbed API response`() =
+        runTest {
+            val expected =
+                ApiResponse.Success<String>(
+                    """
+                    {
+                        "sessionId": "test session ID",
+                        "redirectUri": "https://example/redirect",
+                        "state": "11112222333344445555666677778888"
+                    }
+                    """.trimIndent(),
+                )
 
-        val result =
-            runBlocking {
-                return@runBlocking sessionApiImpl.getActiveSession()
-            }
-        assertEquals(result, expected)
-    }
+            val result = sessionApiImpl.getActiveSession()
+            assertEquals(result, expected)
+        }
 }
