@@ -7,7 +7,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.firebase.FirebaseApp
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -25,7 +24,6 @@ class MainActivityTest {
 
     @Before
     fun setUp() {
-        FirebaseApp.clearInstancesForTest()
         LoggerFactory.testLogger = mock<Logger>()
         AnalyticsLoggerFactory.testAnalyticsLogger = mock<AnalyticsLogger>()
     }
