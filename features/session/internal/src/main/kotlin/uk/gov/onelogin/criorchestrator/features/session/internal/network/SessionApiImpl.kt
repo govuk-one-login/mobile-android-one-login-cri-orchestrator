@@ -1,4 +1,4 @@
-package uk.gov.onelogin.criorchestrator.features.session.internal
+package uk.gov.onelogin.criorchestrator.features.session.internal.network
 
 import com.squareup.anvil.annotations.ContributesBinding
 import uk.gov.android.network.api.ApiRequest
@@ -7,6 +7,8 @@ import uk.gov.android.network.client.GenericHttpClient
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
 import javax.inject.Inject
+
+private const val GET_ACTIVE_SESSION_ENDPOINT = "async/activeSession"
 
 @ActivityScope
 @ContributesBinding(CriOrchestratorScope::class)
@@ -21,20 +23,17 @@ class SessionApiImpl
             //  the config will hold a map of keys and values (including feature flags) and then our
             //  developer settings can display it all, and some/all values can be updated via UI too
             val backendUrl = ""
-            val endPoint = SessionApi.Endpoints.ActiveSession.endpoint
             val request =
                 ApiRequest.Get(
-                    url = backendUrl + endPoint,
+                    url = backendUrl + GET_ACTIVE_SESSION_ENDPOINT,
                 )
-            val result =
-                httpClient.makeAuthorisedRequest(
-                    apiRequest = request,
-                    scope = SCOPE,
-                )
-            return result
+            return httpClient.makeAuthorisedRequest(
+                apiRequest = request,
+                scope = SCOPE,
+            )
         }
 
         companion object {
-            const val SCOPE = "IDCheckBackend"
+            const val SCOPE = "idCheck.activeSession.read"
         }
     }
