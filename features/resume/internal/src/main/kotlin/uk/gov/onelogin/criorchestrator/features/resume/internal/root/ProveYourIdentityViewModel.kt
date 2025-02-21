@@ -51,8 +51,8 @@ internal class ProveYourIdentityViewModel(
     }
 
     private fun checkActiveSession() {
-        CoroutineScope(Dispatchers.Default).launch {
-            var hasActiveSession = sessionReader.isActiveSession()
+        CoroutineScope(Dispatchers.IO).launch {
+            val hasActiveSession = sessionReader.isActiveSession()
             logger.debug(tag, "Has active session: $hasActiveSession")
             _state.value = _state.value.copy(shouldDisplay = hasActiveSession)
         }
