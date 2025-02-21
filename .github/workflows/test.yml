@@ -45,8 +45,8 @@ jobs:
         # Exclude Konsist unit tests which are actually lint checks
         # Build all unit tests so that jars are available for Sonar
         run: |
-          ./gradlew :features:resume:internal:testDebugUnitTest --info --rerun-tasks
-          ./gradlew :features:resume:internal:testDebugUnitTest --info --rerun-tasks
+          ./gradlew :features:resume:internal:testDebugUnitTest --rerun-tasks
+          ./gradlew :features:resume:internal:testDebugUnitTest --rerun-tasks
         #          ./gradlew assembleDebugUnitTest
 #          ./gradlew testDebugUnitTest -x konsist-test:testDebugUnitTest
 #          ./gradlew testBuildDebugUnitTest
