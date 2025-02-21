@@ -15,13 +15,4 @@ sealed class ActiveSessionApiResponse {
         @JsonNames("state")
         val state: String,
     ) : ActiveSessionApiResponse()
-
-    @Serializable
-    @OptIn(ExperimentalSerializationApi::class)
-    data class ActiveSessionError(
-        @JsonNames("error")
-        val error: ActiveSessionErrorResponse,
-        @JsonNames("error_description")
-        val errorDescription: String,
-    ) : ActiveSessionApiResponse()
 }

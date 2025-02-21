@@ -7,10 +7,18 @@ import org.junit.jupiter.api.Test
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.RemoteSessionReader
+import uk.gov.onelogin.criorchestrator.features.session.internal.network.session.InMemorySessionStore
 
 class RemoteSessionReaderTest {
-    val sessionApi = StubSessionApiImpl()
-    val logger = SystemLogger()
+    private val sessionApi = StubSessionApiImpl()
+    private val logger = SystemLogger()
+
+    private val remoteSessionReader =
+        RemoteSessionReader(
+            sessionApi = sessionApi,
+            logger = logger,
+            sessionStore = InMemorySessionStore(logger),
+        )
 
     @Test
     fun `Session reader returns false with expected log when active session API returns Failure`() =
@@ -22,16 +30,8 @@ class RemoteSessionReaderTest {
                 ),
             )
 
-            val remoteSessionReader =
-                RemoteSessionReader(
-                    sessionApi = sessionApi,
-                    logger = logger,
-                )
-
-            val result = remoteSessionReader.isActiveSession()
-
+            assertFalse(remoteSessionReader.isActiveSession())
             assertTrue(logger.contains("Failed to fetch active session"))
-            assertFalse(result)
         }
 
     @Test
@@ -41,15 +41,7 @@ class RemoteSessionReaderTest {
                 ApiResponse.Loading,
             )
 
-            val remoteSessionReader =
-                RemoteSessionReader(
-                    sessionApi = sessionApi,
-                    logger = logger,
-                )
-
-            val result = remoteSessionReader.isActiveSession()
-
-            assertFalse(result)
+            assertFalse(remoteSessionReader.isActiveSession())
         }
 
     @Test
@@ -59,16 +51,8 @@ class RemoteSessionReaderTest {
                 ApiResponse.Offline,
             )
 
-            val remoteSessionReader =
-                RemoteSessionReader(
-                    sessionApi = sessionApi,
-                    logger = logger,
-                )
-
-            val result = remoteSessionReader.isActiveSession()
-
+            assertFalse(remoteSessionReader.isActiveSession())
             assertTrue(logger.contains("Failed to fetch active session - device is offline"))
-            assertFalse(result)
         }
 
     // This test will also fail if the serialization plugin isn't applied
@@ -87,16 +71,8 @@ class RemoteSessionReaderTest {
                 ),
             )
 
-            val sessionReader =
-                RemoteSessionReader(
-                    sessionApi = sessionApi,
-                    logger = logger,
-                )
-
-            val result = sessionReader.isActiveSession()
-
-            assertTrue(logger.contains("Got active session: id=test session ID"))
-            assertTrue(result)
+            assertTrue(remoteSessionReader.isActiveSession())
+            assertTrue(logger.contains("Got active session"))
         }
 
     @Test
@@ -114,15 +90,7 @@ class RemoteSessionReaderTest {
                 ),
             )
 
-            val sessionReader =
-                RemoteSessionReader(
-                    sessionApi = sessionApi,
-                    logger = logger,
-                )
-
-            val result = sessionReader.isActiveSession()
-
+            assertFalse(remoteSessionReader.isActiveSession())
             assertTrue(logger.contains("Failed to parse active session response"))
-            assertFalse(result)
         }
 }
