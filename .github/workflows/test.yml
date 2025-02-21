@@ -48,11 +48,17 @@ jobs:
           ./gradlew assembleDebugUnitTest
           ./gradlew testDebugUnitTest -x konsist-test:testDebugUnitTest
           ./gradlew testBuildDebugUnitTest
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify screenshots
         run: |
           ./gradlew verifyPaparazziDebug
           ./gradlew verifyPaparazziBuildDebug
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Sonar analyzers must have access to the bytecode to perform an accurate analysis.
       # https://community.sonarsource.com/t/sonarscanner-for-gradle-you-can-now-decide-when-to-compile/102069
