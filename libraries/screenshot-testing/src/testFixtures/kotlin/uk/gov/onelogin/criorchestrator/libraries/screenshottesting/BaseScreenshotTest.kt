@@ -57,6 +57,7 @@ abstract class BaseScreenshotTest(
             deviceConfig =
                 DeviceConfig(
                     nightMode = nightMode,
+                    locale = preview.previewInfo.locale,
                 ),
         )
     }
