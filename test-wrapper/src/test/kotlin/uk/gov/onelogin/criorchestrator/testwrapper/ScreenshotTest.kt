@@ -10,6 +10,11 @@ import uk.gov.onelogin.criorchestrator.libraries.screenshottesting.PackagePrevie
 
 private object ModulePackagePreviewsProvider : PackagePreviewsProvider()
 
+// There is a known issue with the screenshot tests rendering the `FullScreenDialog` weirdly, making
+// it look thin. For some reason, the way the view model and view model scoped coroutine work, this
+// causes inconsistencies with the aforementioned rendering issue - the first screenshot test always
+// has this rendering issue, and the second screenshot test never has the rendering issue, and so
+// the results remain deterministic.
 @RunWith(TestParameterInjector::class)
 class ScreenshotTest(
     @TestParameter(

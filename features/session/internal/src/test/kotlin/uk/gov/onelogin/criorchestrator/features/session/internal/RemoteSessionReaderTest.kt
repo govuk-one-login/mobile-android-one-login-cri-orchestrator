@@ -31,18 +31,17 @@ class RemoteSessionReaderTest {
         apiResponse: ApiResponse,
         logEntry: String?,
         expectedIsActiveSession: Boolean,
-    ) =
-        runTest {
-            sessionApi.setActiveSession(apiResponse)
-            assertEquals(expectedIsActiveSession, remoteSessionReader.isActiveSession())
-            logEntry?.let {
-                assertTrue(logger.contains(it))
-            }
+    ) = runTest {
+        sessionApi.setActiveSession(apiResponse)
+        assertEquals(expectedIsActiveSession, remoteSessionReader.isActiveSession())
+        logEntry?.let {
+            assertTrue(logger.contains(it))
         }
-
+    }
 
     companion object {
         @JvmStatic
+        @Suppress("LongMethod")
         fun assertCorrectApiResponseHandling(): Stream<Arguments> =
             Stream.of(
                 arguments(
@@ -76,15 +75,15 @@ class RemoteSessionReaderTest {
                 arguments(
                     named(
                         "true with expected log entry when API response is Success with correct" +
-                                "response format",
+                            "response format",
                         ApiResponse.Success<String>(
                             """
-                                {
-                                    "sessionId": "test session ID",
-                                    "redirectUri": "https://example/redirect",
-                                    "state": "11112222333344445555666677778888"
-                                }
-                                """.trimIndent(),
+                            {
+                                "sessionId": "test session ID",
+                                "redirectUri": "https://example/redirect",
+                                "state": "11112222333344445555666677778888"
+                            }
+                            """.trimIndent(),
                         ),
                     ),
                     "Got active session",
@@ -96,12 +95,12 @@ class RemoteSessionReaderTest {
                             "incorrect response format",
                         ApiResponse.Success<String>(
                             """
-                                {
-                                    "sessionId_WRONG": "test session ID",
-                                    "redirectUri": "https://example/redirect",
-                                    "state": "11112222333344445555666677778888"
-                                }
-                                """.trimIndent(),
+                            {
+                                "sessionId_WRONG": "test session ID",
+                                "redirectUri": "https://example/redirect",
+                                "state": "11112222333344445555666677778888"
+                            }
+                            """.trimIndent(),
                         ),
                     ),
                     "Failed to parse active session response",
