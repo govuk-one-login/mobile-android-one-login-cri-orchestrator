@@ -1,6 +1,12 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.network
 
 import com.squareup.anvil.annotations.ContributesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.logging.api.LogTagProvider
@@ -23,17 +29,35 @@ class RemoteSessionReader
         private val logger: Logger,
     ) : SessionReader,
         LogTagProvider {
-        override suspend fun isActiveSession(): Boolean {
-            val activeSessionResponse = sessionApi.getActiveSession()
-            return when (activeSessionResponse) {
-                is ApiResponse.Success<*> -> handleSuccessResponse(activeSessionResponse)
-                is ApiResponse.Failure -> handleFailureResponse(activeSessionResponse)
+        private val _isActiveSessionStateFlow = MutableStateFlow<Boolean>(false)
+
+        override val isActiveSessionStateFlow: StateFlow<Boolean> =
+            _isActiveSessionStateFlow.asStateFlow()
+
+        override suspend fun handleCollectedResponse() {
+            sessionApi.responseStateFlow.collect { response ->
+                logger.debug(
+                    tag,
+                    "Collected response $response"
+                )
+                handleResponse(response)
+            }
+        }
+
+        fun handleResponse(response: ApiResponse) {
+            when (response) {
+                is ApiResponse.Success<*> -> handleSuccessResponse(response)
+                is ApiResponse.Failure -> handleFailureResponse(response)
                 ApiResponse.Loading -> false
                 ApiResponse.Offline -> handleOfflineResponse()
             }
         }
 
-        private fun handleSuccessResponse(response: ApiResponse.Success<*>): Boolean =
+        override suspend fun setupDownstreamCollection() {
+            sessionApi.getActiveSessionFromCollectedConfig()
+        }
+
+        private fun handleSuccessResponse(response: ApiResponse.Success<*>) =
             try {
                 logger.debug(tag, "Got active session")
                 val parsedResponse: ActiveSessionApiResponse.ActiveSessionSuccess =
@@ -45,19 +69,19 @@ class RemoteSessionReader
                         state = parsedResponse.state,
                     ),
                 )
-                true
+                _isActiveSessionStateFlow.value = true
             } catch (e: IllegalArgumentException) {
                 logger.error(tag, "Failed to parse active session response", e)
-                false
+                _isActiveSessionStateFlow.value = false
             }
 
-        private fun handleFailureResponse(response: ApiResponse.Failure): Boolean {
+        private fun handleFailureResponse(response: ApiResponse.Failure) {
             logger.error(tag, "Failed to fetch active session", response.error)
-            return false
+            _isActiveSessionStateFlow.value = false
         }
 
-        private fun handleOfflineResponse(): Boolean {
+        private fun handleOfflineResponse() {
             logger.debug(tag, "Failed to fetch active session - device is offline")
-            return false
+            _isActiveSessionStateFlow.value = false
         }
     }

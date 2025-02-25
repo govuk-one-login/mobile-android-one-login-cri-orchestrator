@@ -53,10 +53,20 @@ internal class ProveYourIdentityViewModel(
     }
 
     private fun checkActiveSession() {
-        viewModelScope.launch(dispatcher) {
-            val hasActiveSession = sessionReader.isActiveSession()
-            logger.debug(tag, "Has active session: $hasActiveSession")
-            _state.value = _state.value.copy(shouldDisplay = hasActiveSession)
+        viewModelScope.launch {
+            sessionReader.isActiveSessionStateFlow.collect { isActiveSession ->
+                logger.debug(
+                    tag,
+                    "Collected isActiveSession $isActiveSession"
+                )
+                _state.value = _state.value.copy(shouldDisplay = isActiveSession)
+            }
+        }
+        viewModelScope.launch {
+            sessionReader.setupDownstreamCollection()
+        }
+        viewModelScope.launch {
+            sessionReader.handleCollectedResponse()
         }
     }
 }

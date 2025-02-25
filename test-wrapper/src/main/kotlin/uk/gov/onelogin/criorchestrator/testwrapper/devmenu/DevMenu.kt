@@ -42,7 +42,7 @@ internal fun DevMenu(
 
     var text by remember {
         mutableStateOf(
-            "${configStore.readValueFromKey("backendAsyncUrl")}",
+            configStore.keyValueMapStateFlow.value["backendAsyncUrl"] as String,
         )
     }
 

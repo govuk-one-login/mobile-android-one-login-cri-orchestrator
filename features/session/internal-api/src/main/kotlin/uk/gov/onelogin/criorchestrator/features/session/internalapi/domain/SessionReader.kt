@@ -1,5 +1,11 @@
 package uk.gov.onelogin.criorchestrator.features.session.internalapi.domain
 
-fun interface SessionReader {
-    suspend fun isActiveSession(): Boolean
+import kotlinx.coroutines.flow.StateFlow
+
+interface SessionReader {
+    val isActiveSessionStateFlow: StateFlow<Boolean>
+
+    suspend fun handleCollectedResponse()
+
+    suspend fun setupDownstreamCollection()
 }

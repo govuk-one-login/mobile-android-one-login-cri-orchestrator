@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import uk.gov.logging.api.LogTagProvider
@@ -14,29 +15,34 @@ class InMemoryConfigStore(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ConfigStore,
     LogTagProvider {
-    private val keyValueMapStateFlow: MutableStateFlow<Map<String, Any>> =
+    private val _keyValueMapStateFlow: MutableStateFlow<Map<String, Any>> =
         MutableStateFlow<Map<String, Any>>(
             mapOf(),
         )
 
-    override fun readValueFromKey(key: String): Any {
-        val result = keyValueMapStateFlow.asStateFlow().value.getValue(key)
-        logger.debug(tag, "Reading value associated with key $key")
-        return result
-    }
+    override val keyValueMapStateFlow: StateFlow<Map<String, Any>>
+        get() = _keyValueMapStateFlow.asStateFlow()
 
     override fun writeProvidedConfig(configProvider: ConfigProvider) {
-        val updatedMap = keyValueMapStateFlow.value.toMutableMap()
+        logger.debug(
+            tag,
+            "Config Store writeProvidedConfig called"
+        )
+        val updatedMap = _keyValueMapStateFlow.value.toMutableMap()
         for ((key, value) in configProvider.configMap) {
             updatedMap[key] = value
         }
         logger.debug(
             tag,
-            "Writing sets of keys ${updatedMap.keys} with sets " +
+            "Config Store Writing sets of keys ${updatedMap.keys} with sets " +
                 "of values ${updatedMap.values}",
         )
         CoroutineScope(dispatcher).launch {
-            keyValueMapStateFlow.emit(updatedMap)
+            _keyValueMapStateFlow.value = updatedMap
+            logger.debug(
+                tag,
+                "Config Store emitted updated map $updatedMap",
+            )
         }
     }
 }
