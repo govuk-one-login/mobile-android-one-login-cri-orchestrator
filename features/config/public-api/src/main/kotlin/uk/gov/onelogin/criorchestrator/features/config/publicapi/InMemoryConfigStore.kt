@@ -26,7 +26,7 @@ class InMemoryConfigStore(
     override fun writeProvidedConfig(configProvider: ConfigProvider) {
         logger.debug(
             tag,
-            "Config Store writeProvidedConfig called"
+            "Config Store writeProvidedConfig called",
         )
         val updatedMap = _keyValueMapStateFlow.value.toMutableMap()
         for ((key, value) in configProvider.configMap) {

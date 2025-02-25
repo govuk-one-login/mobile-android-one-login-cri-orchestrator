@@ -1,12 +1,9 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.network
 
 import com.squareup.anvil.annotations.ContributesBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.logging.api.LogTagProvider
@@ -38,7 +35,7 @@ class RemoteSessionReader
             sessionApi.responseStateFlow.collect { response ->
                 logger.debug(
                     tag,
-                    "Collected response $response"
+                    "Collected response $response",
                 )
                 handleResponse(response)
             }
