@@ -7,7 +7,7 @@ import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.StubHttpClient
 import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.onelogin.criorchestrator.features.config.publicapi.InMemoryConfigStore
-import uk.gov.onelogin.criorchestrator.features.config.publicapi.StubConfigProvider
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.StubConfig
 
 class SessionApiImplTest {
     private val logger = SystemLogger()
@@ -31,7 +31,7 @@ class SessionApiImplTest {
 
     @Test
     fun `session API implementation returns stubbed API response`() {
-        configStore.writeProvidedConfig(StubConfigProvider())
+        configStore.writeProvidedConfig(StubConfig.provideConfig())
         runTest {
             val expected =
                 ApiResponse.Success<String>(

@@ -68,7 +68,7 @@ fun MainContent(
 @PreviewLightDark
 internal fun MainContentPreview() {
     val configStore = InMemoryConfigStore(SystemLogger())
-    configStore.writeProvidedConfig(TestWrapperConfig(LocalContext.current.resources))
+    configStore.writeProvidedConfig(TestWrapperConfig.provideConfig(LocalContext.current.resources))
     GdsTheme {
         MainContent(
             httpClient = createHttpClient(),

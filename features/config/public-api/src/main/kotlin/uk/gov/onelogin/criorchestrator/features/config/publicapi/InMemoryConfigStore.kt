@@ -23,13 +23,19 @@ class InMemoryConfigStore(
     override val keyValueMapStateFlow: StateFlow<Map<String, Any>>
         get() = _keyValueMapStateFlow.asStateFlow()
 
-    override fun writeProvidedConfig(configProvider: ConfigProvider) {
+    // function that creates flow for value associated with given key to only get single value and
+    // only update when that value is updated
+
+    // Be able to write single value
+
+    // simplify naming config read and write
+    override fun writeProvidedConfig(configMap: Map<String, Any>) {
         logger.debug(
             tag,
             "Config Store writeProvidedConfig called",
         )
         val updatedMap = _keyValueMapStateFlow.value.toMutableMap()
-        for ((key, value) in configProvider.configMap) {
+        for ((key, value) in configMap) {
             updatedMap[key] = value
         }
         logger.debug(

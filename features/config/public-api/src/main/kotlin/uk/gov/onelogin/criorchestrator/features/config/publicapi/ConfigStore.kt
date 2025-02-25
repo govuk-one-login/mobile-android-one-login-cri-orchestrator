@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.StateFlow
 interface ConfigStore {
     val keyValueMapStateFlow: StateFlow<Map<String, Any>>
 
-    fun writeProvidedConfig(configProvider: ConfigProvider)
+    fun writeProvidedConfig(config: Map<String, Any>)
 }
