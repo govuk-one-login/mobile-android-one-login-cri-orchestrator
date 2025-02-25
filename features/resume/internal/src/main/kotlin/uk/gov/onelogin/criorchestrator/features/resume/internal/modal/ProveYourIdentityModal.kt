@@ -1,15 +1,18 @@
 package uk.gov.onelogin.criorchestrator.features.resume.internal.modal
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentSetOf
 import uk.gov.android.ui.pages.dialog.FullScreenDialog
 import uk.gov.android.ui.theme.m3.GdsTheme
+import uk.gov.onelogin.criorchestrator.features.resume.internal.screen.ContinueToProveYourIdentityNavGraphProvider
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.nav.ProveYourIdentityDestinations
+import uk.gov.onelogin.criorchestrator.features.resume.internalapi.nav.ProveYourIdentityNavGraphProvider
+import uk.gov.onelogin.criorchestrator.libraries.navigation.CompositeNavHost
 
 /**
  * A modal dialog that allows a user to prove their identity.
@@ -22,6 +25,7 @@ import uk.gov.android.ui.theme.m3.GdsTheme
 @Composable
 internal fun ProveYourIdentityModal(
     state: ProveYourIdentityModalState,
+    navGraphProviders: ImmutableSet<ProveYourIdentityNavGraphProvider>,
     modifier: Modifier = Modifier,
 ) {
     if (!state.allowedToShow) {
@@ -32,9 +36,9 @@ internal fun ProveYourIdentityModal(
         modifier = modifier,
         onDismissRequest = state::onDismissRequest,
     ) {
-        Text(
-            text = "Not yet implemented",
-            modifier = Modifier.padding(16.dp),
+        CompositeNavHost(
+            startDestination = ProveYourIdentityDestinations.ContinueToProveYourIdentity,
+            navGraphProviders = navGraphProviders,
         )
     }
 }
@@ -64,5 +68,9 @@ internal fun ProveYourIdentityModalPreview(
 ) = GdsTheme {
     ProveYourIdentityModal(
         state = parameters.state,
+        navGraphProviders =
+            persistentSetOf(
+                ContinueToProveYourIdentityNavGraphProvider(),
+            ),
     )
 }
