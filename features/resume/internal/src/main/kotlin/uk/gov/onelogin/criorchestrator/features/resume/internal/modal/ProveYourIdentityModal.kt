@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentSetOf
 import uk.gov.android.ui.pages.dialog.FullScreenDialog
@@ -41,23 +40,6 @@ internal fun ProveYourIdentityModal(
             navGraphProviders = navGraphProviders,
         )
     }
-}
-
-internal data class ProveYourIdentityModalPreviewParameters(
-    val state: ProveYourIdentityModalState,
-)
-
-@Suppress("MaxLineLength") // Conflict between Ktlint formatting and Detekt rule
-internal class ProveYourIdentityModalPreviewParameterProvider : PreviewParameterProvider<ProveYourIdentityModalPreviewParameters> {
-    override val values =
-        sequenceOf(
-            ProveYourIdentityModalPreviewParameters(
-                state = ProveYourIdentityModalState(allowedToShow = true),
-            ),
-            ProveYourIdentityModalPreviewParameters(
-                state = ProveYourIdentityModalState(allowedToShow = false),
-            ),
-        )
 }
 
 @PreviewLightDark
