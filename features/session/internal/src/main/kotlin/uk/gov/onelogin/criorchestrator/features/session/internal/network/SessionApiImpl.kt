@@ -6,6 +6,7 @@ import uk.gov.android.network.api.ApiResponse
 import uk.gov.android.network.client.GenericHttpClient
 import uk.gov.logging.api.LogTagProvider
 import uk.gov.logging.api.Logger
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigField
 import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigStore
 import uk.gov.onelogin.criorchestrator.libraries.di.ActivityScope
 import uk.gov.onelogin.criorchestrator.libraries.di.CriOrchestratorScope
@@ -24,7 +25,7 @@ class SessionApiImpl
     ) : SessionApi,
         LogTagProvider {
         override suspend fun getActiveSession(): ApiResponse {
-            val baseUrl = configStore.read("backendAsyncUrl").value as String
+            val baseUrl = configStore.read(ConfigField.BackendAsyncUrl).value as String
             logger.debug(
                 tag,
                 "Session API making call with base URL of $baseUrl",

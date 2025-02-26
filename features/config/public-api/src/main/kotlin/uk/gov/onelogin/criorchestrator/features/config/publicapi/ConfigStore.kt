@@ -3,7 +3,7 @@ package uk.gov.onelogin.criorchestrator.features.config.publicapi
 import kotlinx.coroutines.flow.StateFlow
 
 interface ConfigStore {
-    fun read(key: String): StateFlow<Any>
+    fun read(key: ConfigField): StateFlow<Any>
 
-    fun write(config: Map<String, Any>)
+    fun write(config: ConfigProvider)
 }

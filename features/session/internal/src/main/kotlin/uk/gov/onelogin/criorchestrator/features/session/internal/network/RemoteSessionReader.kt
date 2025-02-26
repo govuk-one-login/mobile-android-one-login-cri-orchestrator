@@ -11,6 +11,7 @@ import kotlinx.serialization.json.Json
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.logging.api.LogTagProvider
 import uk.gov.logging.api.Logger
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigField
 import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigStore
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.response.ActiveSessionApiResponse
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.session.SessionStore
@@ -40,7 +41,7 @@ class RemoteSessionReader
         override fun readSession() {
             // find out if it's OK to collect flow in launched coroutine
             CoroutineScope(Dispatchers.IO).launch {
-                configStore.read("backendAsyncUrl").collect { url ->
+                configStore.read(ConfigField.BackendAsyncUrl).collect { url ->
                     logger.debug(
                         tag,
                         "Collected URL of $url",

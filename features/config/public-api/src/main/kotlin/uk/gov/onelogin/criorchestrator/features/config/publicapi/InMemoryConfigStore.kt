@@ -10,22 +10,37 @@ class InMemoryConfigStore(
     private val logger: Logger,
 ) : ConfigStore,
     LogTagProvider {
-        // Could be mutable state flow on config data class
-        //
-    private val keyValueMap: MutableMap<String, MutableStateFlow<Any>> = mutableMapOf()
+    private val keyValueMap: MutableMap<ConfigField, MutableStateFlow<Any>> = mutableMapOf()
 
-    override fun read(key: String): StateFlow<Any> = keyValueMap.getValue(key).asStateFlow()
-
-    override fun write(configMap: Map<String, Any>) {
-        for ((key, value) in configMap) {
-            keyValueMap.getOrPut(key, { createStateFlow(value) }).value = value
-        }
+    override fun read(key: ConfigField): StateFlow<Any> {
+        val value = keyValueMap.getValue(key).asStateFlow()
         logger.debug(
             tag,
-            "Config Store Written sets of keys ${keyValueMap.keys} with sets " +
-                "of values ${keyValueMap.values}",
+            "Read key ${key::class.simpleName} with value ${value.value}",
         )
+        return value
+    }
+
+    override fun write(configProvider: ConfigProvider) {
+        updateConfigString(configProvider.backendAsyncUrl, ConfigField.BackendAsyncUrl)
     }
 
     fun createStateFlow(value: Any): MutableStateFlow<Any> = MutableStateFlow<Any>(value)
+
+    fun updateConfigString(
+        configProviderString: String,
+        configField: ConfigField,
+    ) {
+        keyValueMap
+            .getOrPut(
+                configField,
+                { createStateFlow(configProviderString) },
+            ).value = configProviderString
+
+        logger.debug(
+            tag,
+            "Config Store written with key ${configField::class.simpleName} and " +
+                "value $configProviderString",
+        )
+    }
 }

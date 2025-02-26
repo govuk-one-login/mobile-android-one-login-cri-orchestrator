@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    implementation(libs.kotlin.reflect)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.uk.gov.logging.api)
     implementation(project(":libraries:di"))

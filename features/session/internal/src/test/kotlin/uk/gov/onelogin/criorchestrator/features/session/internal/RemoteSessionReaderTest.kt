@@ -2,7 +2,6 @@ package uk.gov.onelogin.criorchestrator.features.session.internal
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -103,7 +102,7 @@ class RemoteSessionReaderTest {
                 arguments(
                     named(
                         "true with expected log entry when API response is Success with correct" +
-                                "response format",
+                            "response format",
                         ApiResponse.Success<String>(
                             """
                             {
@@ -120,7 +119,7 @@ class RemoteSessionReaderTest {
                 arguments(
                     named(
                         "false with expected log entry when API response is Success but with " +
-                                "incorrect response format",
+                            "incorrect response format",
                         ApiResponse.Success<String>(
                             """
                             {

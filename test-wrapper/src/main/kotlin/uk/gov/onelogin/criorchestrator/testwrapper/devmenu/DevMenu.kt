@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -18,6 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import uk.gov.android.ui.pages.dialog.FullScreenDialog
 import uk.gov.logging.api.Logger
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigField
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigProvider
 import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigStore
 
 @Composable
@@ -34,12 +35,16 @@ internal fun DevMenu(
 
     var config =
         remember {
-            mutableStateMapOf<String, Any>()
+            mutableStateOf<ConfigProvider>(
+                ConfigProvider(
+                    backendAsyncUrl = configStore.read(ConfigField.BackendAsyncUrl).value as String,
+                ),
+            )
         }
 
     var text by remember {
         mutableStateOf(
-            configStore.read("backendAsyncUrl").value as String,
+            configStore.read(ConfigField.BackendAsyncUrl).value as String,
         )
     }
 
@@ -58,7 +63,10 @@ internal fun DevMenu(
                 value = text,
                 onValueChange = { updatedValue ->
                     text = updatedValue
-                    config["backendAsyncUrl"] = updatedValue
+                    config.value =
+                        ConfigProvider(
+                            backendAsyncUrl = updatedValue,
+                        )
                 },
                 label = { Text("Backend Async URL") },
                 singleLine = true,
@@ -74,7 +82,7 @@ internal fun DevMenu(
                 Button(
                     modifier = Modifier,
                     onClick = {
-                        configStore.write(config)
+                        configStore.write(config.value)
                         logger.debug(
                             "Dev Menu",
                             "New value for Backend Async URL is $text",

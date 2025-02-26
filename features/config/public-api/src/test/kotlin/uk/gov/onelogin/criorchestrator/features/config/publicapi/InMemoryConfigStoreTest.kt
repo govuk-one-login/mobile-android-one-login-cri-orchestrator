@@ -13,7 +13,7 @@ class InMemoryConfigStoreTest {
     @Test
     fun `empty config store throws exception when trying to get value of non-existent key`() {
         assertThrows<NoSuchElementException> {
-            configStore.read("test key without value")
+            configStore.read(ConfigField.BackendAsyncUrl)
         }
     }
 
@@ -22,9 +22,7 @@ class InMemoryConfigStoreTest {
         runTest {
             configStore.write(StubConfig.provideConfig())
             val configStoreReadResult =
-                configStore.read(
-                    StubConfig.BACKEND_ASYNC_URL_TEST_KEY,
-                )
+                configStore.read(ConfigField.BackendAsyncUrl)
             assertEquals(StubConfig.BACKEND_ASYNC_URL_TEST_VALUE, configStoreReadResult.value)
         }
     }
