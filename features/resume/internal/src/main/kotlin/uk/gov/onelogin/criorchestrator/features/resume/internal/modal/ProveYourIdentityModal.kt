@@ -43,18 +43,18 @@ internal fun ProveYourIdentityModal(
     }
 }
 
-internal data class ProveYourIdentityModalPreviewParameters(
+internal data class PreviewParams(
     val state: ProveYourIdentityModalState,
 )
 
 @Suppress("MaxLineLength") // Conflict between Ktlint formatting and Detekt rule
-internal class ProveYourIdentityModalPreviewParameterProvider : PreviewParameterProvider<ProveYourIdentityModalPreviewParameters> {
+internal class ProveYourIdentityModalPreviewParameterProvider : PreviewParameterProvider<PreviewParams> {
     override val values =
         sequenceOf(
-            ProveYourIdentityModalPreviewParameters(
+            PreviewParams(
                 state = ProveYourIdentityModalState(allowedToShow = true),
             ),
-            ProveYourIdentityModalPreviewParameters(
+            PreviewParams(
                 state = ProveYourIdentityModalState(allowedToShow = false),
             ),
         )
@@ -64,7 +64,7 @@ internal class ProveYourIdentityModalPreviewParameterProvider : PreviewParameter
 @Composable
 internal fun ProveYourIdentityModalPreview(
     @PreviewParameter(ProveYourIdentityModalPreviewParameterProvider::class)
-    parameters: ProveYourIdentityModalPreviewParameters,
+    parameters: PreviewParams,
 ) = GdsTheme {
     ProveYourIdentityModal(
         state = parameters.state,
