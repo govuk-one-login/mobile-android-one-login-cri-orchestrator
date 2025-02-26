@@ -21,8 +21,7 @@ class InMemoryConfigStoreTest {
     fun `write map to config store and read successfully from config store`() {
         runTest {
             configStore.write(StubConfig.provideConfig())
-            val configStoreReadResult =
-                configStore.read(ConfigField.BackendAsyncUrl)
+            val configStoreReadResult = configStore.read(ConfigField.BackendAsyncUrl)
             assertEquals(StubConfig.BACKEND_ASYNC_URL_TEST_VALUE, configStoreReadResult.value)
         }
     }
