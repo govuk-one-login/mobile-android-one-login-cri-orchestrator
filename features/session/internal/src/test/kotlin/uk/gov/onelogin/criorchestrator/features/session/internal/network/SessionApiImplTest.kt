@@ -31,7 +31,7 @@ class SessionApiImplTest {
 
     @Test
     fun `session API implementation returns stubbed API response`() {
-        configStore.writeProvidedConfig(StubConfig.provideConfig())
+        configStore.write(StubConfig.provideConfig())
         runTest {
             val expected =
                 ApiResponse.Success<String>(

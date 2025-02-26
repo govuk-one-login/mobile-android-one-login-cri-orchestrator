@@ -1,13 +1,17 @@
 package uk.gov.onelogin.criorchestrator.features.session.internal.network
 
 import com.squareup.anvil.annotations.ContributesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import uk.gov.android.network.api.ApiResponse
 import uk.gov.logging.api.LogTagProvider
 import uk.gov.logging.api.Logger
+import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigStore
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.response.ActiveSessionApiResponse
 import uk.gov.onelogin.criorchestrator.features.session.internal.network.session.SessionStore
 import uk.gov.onelogin.criorchestrator.features.session.internalapi.domain.Session
@@ -21,6 +25,7 @@ import javax.inject.Inject
 class RemoteSessionReader
     @Inject
     constructor(
+        private val configStore: ConfigStore,
         private val sessionStore: SessionStore,
         private val sessionApi: SessionApi,
         private val logger: Logger,
@@ -31,13 +36,18 @@ class RemoteSessionReader
         override val isActiveSessionStateFlow: StateFlow<Boolean> =
             _isActiveSessionStateFlow.asStateFlow()
 
-        override suspend fun handleCollectedResponse() {
-            sessionApi.responseStateFlow.collect { response ->
-                logger.debug(
-                    tag,
-                    "Collected response $response",
-                )
-                handleResponse(response)
+        // rename - make clear it's calling the active session endpoint
+        override fun readSession() {
+            // find out if it's OK to collect flow in launched coroutine
+            CoroutineScope(Dispatchers.IO).launch {
+                configStore.read("backendAsyncUrl").collect { url ->
+                    logger.debug(
+                        tag,
+                        "Collected URL of $url",
+                    )
+                    val response = sessionApi.getActiveSession()
+                    handleResponse(response)
+                }
             }
         }
 
@@ -48,10 +58,6 @@ class RemoteSessionReader
                 ApiResponse.Loading -> false
                 ApiResponse.Offline -> handleOfflineResponse()
             }
-        }
-
-        override suspend fun setupDownstreamCollection() {
-            sessionApi.getActiveSessionFromCollectedConfig()
         }
 
         private fun handleSuccessResponse(response: ApiResponse.Success<*>) =

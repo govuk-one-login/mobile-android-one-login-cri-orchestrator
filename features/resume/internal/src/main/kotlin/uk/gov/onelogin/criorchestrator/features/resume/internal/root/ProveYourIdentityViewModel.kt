@@ -50,6 +50,7 @@ internal class ProveYourIdentityViewModel(
     }
 
     private fun checkActiveSession() {
+        sessionReader.readSession()
         viewModelScope.launch {
             sessionReader.isActiveSessionStateFlow.collect { isActiveSession ->
                 logger.debug(
@@ -58,12 +59,6 @@ internal class ProveYourIdentityViewModel(
                 )
                 _state.value = _state.value.copy(shouldDisplay = isActiveSession)
             }
-        }
-        viewModelScope.launch {
-            sessionReader.setupDownstreamCollection()
-        }
-        viewModelScope.launch {
-            sessionReader.handleCollectedResponse()
         }
     }
 }

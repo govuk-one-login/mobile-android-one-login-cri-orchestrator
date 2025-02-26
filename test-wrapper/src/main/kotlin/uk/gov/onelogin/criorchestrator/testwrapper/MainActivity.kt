@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        configStore.writeProvidedConfig(TestWrapperConfig.provideConfig(resources))
+        configStore.write(TestWrapperConfig.provideConfig(resources))
         setContent {
             GdsTheme {
                 MainContent(

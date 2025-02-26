@@ -13,19 +13,19 @@ class InMemoryConfigStoreTest {
     @Test
     fun `empty config store throws exception when trying to get value of non-existent key`() {
         assertThrows<NoSuchElementException> {
-            configStore.readValueFromKey("test key without value")
+            configStore.read("test key without value")
         }
     }
 
     @Test
     fun `write map to config store and read successfully from config store`() {
         runTest {
-            configStore.writeProvidedConfig(StubConfig.provideConfig())
+            configStore.write(StubConfig.provideConfig())
             val configStoreReadResult =
-                configStore.readValueFromKey(
+                configStore.read(
                     StubConfig.BACKEND_ASYNC_URL_TEST_KEY,
                 )
-            assertEquals(StubConfig.BACKEND_ASYNC_URL_TEST_VALUE, configStoreReadResult)
+            assertEquals(StubConfig.BACKEND_ASYNC_URL_TEST_VALUE, configStoreReadResult.value)
         }
     }
 }

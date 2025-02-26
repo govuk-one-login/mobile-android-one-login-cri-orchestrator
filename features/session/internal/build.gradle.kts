@@ -24,9 +24,12 @@ dependencies {
     implementation(project(":libraries:android-utils"))
     implementation(project(":libraries:di"))
 
+    testFixturesImplementation(libs.kotlinx.coroutines)
     testFixturesImplementation(libs.uk.gov.logging.testdouble)
     testFixturesImplementation(libs.uk.gov.networking)
     testFixturesImplementation(project(":features:session:internal-api"))
+
+    testImplementation(libs.kotlinx.coroutines)
     testImplementation(libs.uk.gov.logging.testdouble)
     testImplementation(project(":features:config:public-api"))
     testImplementation(testFixtures(project(":features:config:public-api")))

@@ -32,13 +32,14 @@ internal fun DevMenu(
         return
     }
 
-    var config = remember {
-        mutableStateMapOf<String, Any>()
-    }
+    var config =
+        remember {
+            mutableStateMapOf<String, Any>()
+        }
 
     var text by remember {
         mutableStateOf(
-            configStore.keyValueMapStateFlow.value["backendAsyncUrl"] as String,
+            configStore.read("backendAsyncUrl").value as String,
         )
     }
 
@@ -73,9 +74,7 @@ internal fun DevMenu(
                 Button(
                     modifier = Modifier,
                     onClick = {
-                        configStore.writeProvidedConfig(
-                            config,
-                        )
+                        configStore.write(config)
                         logger.debug(
                             "Dev Menu",
                             "New value for Backend Async URL is $text",
