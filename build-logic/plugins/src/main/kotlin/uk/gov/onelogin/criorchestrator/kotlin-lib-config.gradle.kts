@@ -5,7 +5,6 @@ import kotlin.collections.listOf
 
 listOf(
     "uk.gov.pipelines.kotlin-lib-config",
-    "uk.gov.pipelines.ktlint-config",
     "uk.gov.onelogin.criorchestrator.code-quality-config",
     "uk.gov.onelogin.criorchestrator.publishing-id-config",
 ).forEach {
