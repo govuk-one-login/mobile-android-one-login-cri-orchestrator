@@ -56,7 +56,7 @@ class RemoteSessionReaderTest {
     @MethodSource("assertCorrectApiResponseHandling")
     fun `session reader returns `(
         apiResponse: ApiResponse,
-        logEntry: String?,
+        logEntry: String,
         expectedIsActiveSession: Boolean,
     ) = runTest {
         sessionApi.setActiveSession(apiResponse)
@@ -86,10 +86,10 @@ class RemoteSessionReaderTest {
                 ),
                 arguments(
                     named(
-                        "false when API response is Loading",
+                        "false with expected log entry when API response is Loading",
                         ApiResponse.Loading,
                     ),
-                    null,
+                    "Loading ... fetching active session ...",
                     false,
                 ),
                 arguments(

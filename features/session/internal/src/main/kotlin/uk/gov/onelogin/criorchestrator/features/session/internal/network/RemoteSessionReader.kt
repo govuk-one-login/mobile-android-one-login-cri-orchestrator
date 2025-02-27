@@ -61,7 +61,7 @@ class RemoteSessionReader
             when (response) {
                 is ApiResponse.Success<*> -> handleSuccessResponse(response)
                 is ApiResponse.Failure -> handleFailureResponse(response)
-                ApiResponse.Loading -> false
+                ApiResponse.Loading -> handleLoadingResponse()
                 ApiResponse.Offline -> handleOfflineResponse()
             }
         }
@@ -86,6 +86,11 @@ class RemoteSessionReader
 
         private fun handleFailureResponse(response: ApiResponse.Failure) {
             logger.error(tag, "Failed to fetch active session", response.error)
+            _isActiveSessionStateFlow.value = false
+        }
+
+        private fun handleLoadingResponse() {
+            logger.debug(tag, "Loading ... fetching active session ...")
             _isActiveSessionStateFlow.value = false
         }
 
