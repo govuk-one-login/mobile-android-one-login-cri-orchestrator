@@ -12,6 +12,7 @@ import javax.inject.Named
 @ContributesTo(CriOrchestratorScope::class)
 object DispatcherModule {
     const val IO_DISPATCHER_NAME = "IoDispatcher"
+
     @Provides
     @Named(IO_DISPATCHER_NAME)
     fun providesDispatcher(): CoroutineDispatcher = Dispatchers.IO

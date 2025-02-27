@@ -1,6 +1,7 @@
 plugins {
     id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
     id("uk.gov.onelogin.criorchestrator.di-config")
+    id("uk.gov.pipelines.ktlint-config")
 }
 
 dependencies {
