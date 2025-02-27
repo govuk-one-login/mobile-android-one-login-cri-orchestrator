@@ -1,9 +1,10 @@
 plugins {
     id("uk.gov.onelogin.criorchestrator.kotlin-lib-config")
+    id("uk.gov.onelogin.criorchestrator.di-config")
 }
 
 dependencies {
-    implementation(libs.dagger)
+    implementation(libs.kotlinx.coroutines)
 }
 
 mavenPublishingConfig {
