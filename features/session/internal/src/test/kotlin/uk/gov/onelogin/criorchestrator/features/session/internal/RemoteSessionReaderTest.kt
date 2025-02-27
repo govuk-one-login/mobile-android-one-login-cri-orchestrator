@@ -2,7 +2,7 @@ package uk.gov.onelogin.criorchestrator.features.session.internal
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -26,6 +26,7 @@ import java.util.stream.Stream
 
 @ExperimentalCoroutinesApi
 class RemoteSessionReaderTest {
+    private val dispatcher = UnconfinedTestDispatcher()
     private val sessionApi = StubSessionApiImpl()
     private val logger = SystemLogger()
 
@@ -33,16 +34,17 @@ class RemoteSessionReaderTest {
 
     @BeforeEach
     fun setUp() {
-        Dispatchers.setMain(StandardTestDispatcher())
         val configStore = InMemoryConfigStore(logger)
         configStore.write(StubConfig.provideConfig())
         remoteSessionReader =
             RemoteSessionReader(
                 configStore = configStore,
+                dispatcher = dispatcher,
                 sessionStore = InMemorySessionStore(logger),
                 sessionApi = sessionApi,
                 logger = logger,
             )
+        Dispatchers.setMain(dispatcher)
     }
 
     @AfterEach
