@@ -13,12 +13,17 @@ class InMemoryConfigStore(
     private val keyValueMap: MutableMap<ConfigField, MutableStateFlow<Any>> = mutableMapOf()
 
     override fun read(key: ConfigField): StateFlow<Any> {
-        val value = try {
-            keyValueMap.getValue(key).asStateFlow()
-        } catch (e: NoSuchElementException) {
-            throw NoSuchElementException("No configuration value provided for " +
-                    "ConfigField ${key::class.simpleName}")
-        }
+        val value =
+            try {
+                keyValueMap.getValue(key).asStateFlow()
+            } catch (e: NoSuchElementException) {
+                logger.error(
+                    tag,
+                    "No configuration value provided for ConfigField ${key::class.simpleName}",
+                    e,
+                )
+                throw e
+            }
         logger.debug(
             tag,
             "Read key ${key::class.simpleName} with value ${value.value}",
@@ -30,9 +35,9 @@ class InMemoryConfigStore(
         updateConfigString(configProvider.backendAsyncUrl, ConfigField.BackendAsyncUrl)
     }
 
-    fun createStateFlow(value: Any): MutableStateFlow<Any> = MutableStateFlow<Any>(value)
+    private fun createStateFlow(value: Any): MutableStateFlow<Any> = MutableStateFlow<Any>(value)
 
-    fun updateConfigString(
+    private fun updateConfigString(
         configProviderString: String,
         configField: ConfigField,
     ) {
