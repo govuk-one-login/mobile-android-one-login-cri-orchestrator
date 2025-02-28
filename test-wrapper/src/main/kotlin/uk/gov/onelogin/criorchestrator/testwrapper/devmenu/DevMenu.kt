@@ -60,9 +60,9 @@ internal fun DevMenu(
     ) {
         Column(
             modifier =
-            Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(),
+                Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             TextField(
@@ -81,8 +81,8 @@ internal fun DevMenu(
 
             Row(
                 modifier =
-                Modifier
-                    .align(Alignment.Start),
+                    Modifier
+                        .align(Alignment.Start),
                 verticalAlignment = Alignment.Bottom,
             ) {
                 Button(
@@ -109,10 +109,11 @@ internal fun DevMenuPreview() {
     val configStore = InMemoryConfigStore(logger)
     configStore.write(
         ConfigProvider(
-            backendAsyncUrl = LocalContext.current.resources.getString(
-                R.string.backendAsyncUrl
-            )
-        )
+            backendAsyncUrl =
+                LocalContext.current.resources.getString(
+                    R.string.backendAsyncUrl,
+                ),
+        ),
     )
     GdsTheme {
         DevMenu(
