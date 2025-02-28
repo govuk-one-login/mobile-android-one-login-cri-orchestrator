@@ -8,6 +8,10 @@ import kotlinx.coroutines.Dispatchers
 import uk.gov.onelogin.criorchestrator.libraries.di.scopes.CriOrchestratorScope
 import javax.inject.Named
 
+/**
+ * Module for injecting dispatchers. This is so that tests can be run with the appropriate test
+ * dispatcher.
+ */
 @Module
 @ContributesTo(CriOrchestratorScope::class)
 object DispatcherModule {
