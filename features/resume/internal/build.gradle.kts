@@ -12,7 +12,6 @@ dependencies {
     api(libs.uk.gov.logging.api)
 
     implementation(libs.uk.gov.networking)
-    implementation(libs.kotlinx.collections.immutable)
     implementation(project(":features:resume:internal-api"))
     implementation(project(":features:resume:public-api"))
     implementation(project(":features:session:internal-api"))

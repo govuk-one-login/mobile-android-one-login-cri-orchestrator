@@ -42,9 +42,7 @@ class RemoteSessionReader
         override val isActiveSessionStateFlow: StateFlow<Boolean> =
             _isActiveSessionStateFlow.asStateFlow()
 
-        // rename - make clear it's calling the active session endpoint
-        override fun readSession() {
-            // find out if it's OK to collect flow in launched coroutine
+        override fun handleUpdatedSessionResponse() {
             CoroutineScope(dispatcher).launch {
                 configStore.read(ConfigField.BackendAsyncUrl).collect { url ->
                     logger.debug(

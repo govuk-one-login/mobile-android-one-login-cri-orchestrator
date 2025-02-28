@@ -60,7 +60,7 @@ class RemoteSessionReaderTest {
         expectedIsActiveSession: Boolean,
     ) = runTest {
         sessionApi.setActiveSession(apiResponse)
-        remoteSessionReader.readSession()
+        remoteSessionReader.handleUpdatedSessionResponse()
         assertEquals(expectedIsActiveSession, remoteSessionReader.isActiveSessionStateFlow.value)
         println(logger)
         logEntry?.let {

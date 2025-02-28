@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.StateFlow
 interface SessionReader {
     val isActiveSessionStateFlow: StateFlow<Boolean>
 
-    fun readSession()
+    fun handleUpdatedSessionResponse()
 }

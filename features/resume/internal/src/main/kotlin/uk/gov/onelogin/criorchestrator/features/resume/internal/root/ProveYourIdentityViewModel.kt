@@ -50,7 +50,7 @@ internal class ProveYourIdentityViewModel(
     }
 
     private fun checkActiveSession() {
-        sessionReader.readSession()
+        sessionReader.handleUpdatedSessionResponse()
         viewModelScope.launch {
             sessionReader.isActiveSessionStateFlow.collect { isActiveSession ->
                 logger.debug(

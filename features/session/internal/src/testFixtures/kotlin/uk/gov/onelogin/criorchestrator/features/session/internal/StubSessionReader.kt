@@ -11,7 +11,7 @@ class StubSessionReader(
     override var isActiveSessionStateFlow: StateFlow<Boolean> =
         MutableStateFlow(sessionActiveStatus).asStateFlow()
 
-    override fun readSession() {
+    override fun handleUpdatedSessionResponse() {
         // Nothing
     }
 }
