@@ -25,7 +25,6 @@ kotlinx-coroutines = "1.10.1"
 kotlinx-collections-immutable = "0.3.8"
 kotlinx-serialization-json = "1.8.0"
 ksp = "2.1.10-1.0.30"
-ktor = "3.1.0"
 lifecycleRuntimeKtx = "2.8.7"
 material = "1.12.0"
 mockito = "5.4.0"
@@ -81,11 +80,9 @@ google-services = { module = "com.google.gms:google-services", version.ref = "go
 google-testparameterinjector = { module = "com.google.testparameterinjector:test-parameter-injector", version.ref = "testparameterinjector" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 org-bouncycastle-bcutil-jdk18on = { group = "org.bouncycastle", name = "bcutil-jdk18on", version.ref = "bouncycastle-jdk18on" }
 org-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
