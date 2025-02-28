@@ -62,10 +62,7 @@ class RemoteSessionReaderTest {
         sessionApi.setActiveSession(apiResponse)
         remoteSessionReader.handleUpdatedSessionResponse()
         assertEquals(expectedIsActiveSession, remoteSessionReader.isActiveSessionStateFlow.value)
-        println(logger)
-        logEntry?.let {
-            assertTrue(logger.contains(it))
-        }
+        assertTrue(logger.contains(logEntry))
     }
 
     companion object {
