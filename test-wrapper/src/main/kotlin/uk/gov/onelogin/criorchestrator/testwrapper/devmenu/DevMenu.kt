@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -19,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import uk.gov.android.ui.pages.dialog.FullScreenDialog
 import uk.gov.android.ui.theme.m3.GdsTheme
+import uk.gov.android.ui.theme.smallPadding
 import uk.gov.logging.api.Logger
 import uk.gov.logging.testdouble.SystemLogger
 import uk.gov.onelogin.criorchestrator.features.config.publicapi.ConfigField
@@ -86,7 +88,8 @@ internal fun DevMenu(
                 verticalAlignment = Alignment.Bottom,
             ) {
                 Button(
-                    modifier = Modifier,
+                    modifier = Modifier
+                        .padding(smallPadding),
                     onClick = {
                         configStore.write(config.value)
                         logger.debug(
