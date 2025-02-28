@@ -88,8 +88,9 @@ internal fun DevMenu(
                 verticalAlignment = Alignment.Bottom,
             ) {
                 Button(
-                    modifier = Modifier
-                        .padding(smallPadding),
+                    modifier =
+                        Modifier
+                            .padding(smallPadding),
                     onClick = {
                         configStore.write(config.value)
                         logger.debug(

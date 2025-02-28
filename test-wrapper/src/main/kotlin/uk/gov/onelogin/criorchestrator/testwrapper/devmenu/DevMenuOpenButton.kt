@@ -14,8 +14,9 @@ internal fun DevMenuOpenButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier
-            .padding(smallPadding),
+        modifier =
+            modifier
+                .padding(smallPadding),
     ) {
         Text("Open Developer Menu")
     }
